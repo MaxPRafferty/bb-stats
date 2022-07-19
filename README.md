@@ -1,3 +1,7 @@
+# S4 - The Super Simple Static Site
+
+Fork, enable docs, update deploy script to new repo name, push. Done.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
