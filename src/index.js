@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import { parse } from "csv-parse";
 
 import al from "./data/al_horford_game_log_10_2_2022.csv";
-import jaylen from "./data/al_horford_game_log_10_2_2022.csv";
-import jayson from "./data/al_horford_game_log_10_2_2022.csv";
-import marcus from "./data/al_horford_game_log_10_2_2022.csv";
+import jaylen from "./data/jaylen_brown_game_log_10_2_2022.csv";
+import jayson from "./data/jayson_tatum_game_log_10_2_2022.csv";
+import marcus from "./data/marcus_smart_game_log_10_2_2022.csv";
 
 import "./index.css";
 import App from "./App";

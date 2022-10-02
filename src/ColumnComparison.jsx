@@ -1,8 +1,17 @@
+import { useState } from "react";
+
 const TRACKED_STATS = {
     points: "PTS",
     assists: "AST",
     rebounds: "REB",
     "three-point-makes": "3PM/A",
+}
+
+const FORMAT_THRESHOLDS = {
+    [TRACKED_STATS.points]: [15],
+    [TRACKED_STATS.assists]: [2],
+    [TRACKED_STATS.rebounds]: [4],
+    [TRACKED_STATS["three-point-makes"]]: [1],
 }
 
 const numTrackedStats = Object.keys(TRACKED_STATS).length;
@@ -12,6 +21,14 @@ let gameParticipation = {};
 
 const getPlayerList = (data) => {
     return Object.keys(data);
+}
+
+const getStatThreshold = (value, stat) => {
+    const colors = ['green', 'yellow', 'orange', 'red']
+    if(value >= FORMAT_THRESHOLDS[stat][0]) {
+        return colors[0];
+    }
+    return colors[colors.length - 1];
 }
 
 const getGameDates = (data) => {
@@ -31,14 +48,15 @@ const getGameDates = (data) => {
 
 const getCellsForPlayer = (data, player, gameId) => {
     const game = data[player].data[gameId];
-    if(game == null || game[TRACKED_STATS.points] == null) {
-        debugger;
-    }
     return <>
-        <td>{game[TRACKED_STATS.points]}</td>
-        <td>{game[TRACKED_STATS.assists]}</td>
-        <td>{game[TRACKED_STATS.rebounds]}</td>
-        <td>{game[TRACKED_STATS["three-point-makes"]].split('/')[0]}</td>
+        {Object.keys(TRACKED_STATS).map(statKey => {
+            const stat = TRACKED_STATS[statKey];
+            let value = game[stat];
+            if(stat === TRACKED_STATS["three-point-makes"]) {
+                value = value.split("/")[0];
+            }
+            return <td style={{backgroundColor: getStatThreshold(value, stat)}}>{value}</td>
+        })}
     </>
 }
 
@@ -48,6 +66,7 @@ const getTableRowFromGame = (data, gameConfigKey) => {
     <td>{gameConfigKey}</td>
     {players.map(player => {
         const didPlay = gameConfig.players.includes(player);
+        console.log(JSON.stringify(gameParticipation))
         if(didPlay) {
             return getCellsForPlayer(data, player, gameConfig.gameIds[player]);
         }
@@ -57,10 +76,13 @@ const getTableRowFromGame = (data, gameConfigKey) => {
 }
 
 const ColumnComparison = ({data}) => {
+    const [numPlayers, setNumPlayers] = useState(0);
     players = getPlayerList(data);
-    if(Object.keys(gameParticipation).length === 0) {
+    if(players.length !== numPlayers) {
         getGameDates(data);
+        setNumPlayers(players.length)
     }
+
     return (
         <>
             <div>Comparison Chart</div>
