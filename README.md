@@ -1,4 +1,4 @@
-# S4 - The Super Simple Static Site
+# BB Stats - The Super Simple Static Site
 
 Fork, enable docs, update deploy script to new repo name, push. Done.
 
