@@ -1,11 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { parse } from "csv-parse";
+import { snakeCase } from "lodash";
 
 import al from "./data/al_horford_game_log_10_2_2022.csv";
 import jaylen from "./data/jaylen_brown_game_log_10_2_2022.csv";
 import jayson from "./data/jayson_tatum_game_log_10_2_2022.csv";
 import marcus from "./data/marcus_smart_game_log_10_2_2022.csv";
+import giannis from "./data/giannis_antetokounmpo_game_log_10_2_2022.csv";
+import jrue from "./data/jrue_holiday_game_log_10_2_2022.csv";
+import khris from "./data/khris_middleton_game_log_10_2_2022.csv";
 
 import "./index.css";
 import App from "./App";
@@ -59,9 +63,10 @@ const fetchAndNormalize = (path) => {
         });
 };
 
+/*
 fetchAndNormalize(`${IS_PRODUCTION ? "playerDataList" : ""}${al}`)
     .then((result) => {
-        data = { ...data, al: result };
+        data = { ...data, "Al Horford": result };
     })
     .catch((err) => {
         applicationError = GENERIC_ERROR;
@@ -72,7 +77,7 @@ fetchAndNormalize(`${IS_PRODUCTION ? "playerDataList" : ""}${al}`)
     });
 fetchAndNormalize(`${IS_PRODUCTION ? "playerDataList" : ""}${jaylen}`)
     .then((result) => {
-        data = { ...data, jaylen: result };
+        data = { ...data, "Jaylen Brown": result };
     })
     .catch((err) => {
         applicationError = GENERIC_ERROR;
@@ -83,7 +88,7 @@ fetchAndNormalize(`${IS_PRODUCTION ? "playerDataList" : ""}${jaylen}`)
     });
 fetchAndNormalize(`${IS_PRODUCTION ? "playerDataList" : ""}${jayson}`)
     .then((result) => {
-        data = { ...data, jayson: result };
+        data = { ...data, "Jayson Tatum": result };
     })
     .catch((err) => {
         applicationError = GENERIC_ERROR;
@@ -94,7 +99,41 @@ fetchAndNormalize(`${IS_PRODUCTION ? "playerDataList" : ""}${jayson}`)
     });
 fetchAndNormalize(`${IS_PRODUCTION ? "playerDataList" : ""}${marcus}`)
     .then((result) => {
-        data = { ...data, marcus: result };
+        data = { ...data, "Marcus Smart": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+    */
+fetchAndNormalize(`${IS_PRODUCTION ? "playerDataList" : ""}${giannis}`)
+    .then((result) => {
+        data = { ...data, "Giannis Antetokuonmpo": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "playerDataList" : ""}${jrue}`)
+    .then((result) => {
+        data = { ...data, "Jrue Holiday": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "playerDataList" : ""}${khris}`)
+    .then((result) => {
+        data = { ...data, "Khris Middleton": result };
     })
     .catch((err) => {
         applicationError = GENERIC_ERROR;

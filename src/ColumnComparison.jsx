@@ -1,18 +1,7 @@
 import { useState } from "react";
+import { TRACKED_STATS, FORMAT_THRESHOLDS } from "./constants";
+import PlayerDataMap from "./playerMap";
 
-const TRACKED_STATS = {
-    points: "PTS",
-    assists: "AST",
-    rebounds: "REB",
-    "three-point-makes": "3PM/A",
-}
-
-const FORMAT_THRESHOLDS = {
-    [TRACKED_STATS.points]: [15],
-    [TRACKED_STATS.assists]: [2],
-    [TRACKED_STATS.rebounds]: [4],
-    [TRACKED_STATS["three-point-makes"]]: [1],
-}
 
 const numTrackedStats = Object.keys(TRACKED_STATS).length;
 
@@ -23,9 +12,18 @@ const getPlayerList = (data) => {
     return Object.keys(data);
 }
 
-const getStatThreshold = (value, stat) => {
+const getStatThreshold = (value, stat, playerConfig) => {
+    let limit = FORMAT_THRESHOLDS[stat][0];
+    if(playerConfig != null && playerConfig.validTrackedStats != null) {
+        if(playerConfig.validTrackedStats[stat] === undefined) {
+            return 'black'
+        }
+        if(playerConfig.validTrackedStats[stat] !== null) {
+            limit = playerConfig.validTrackedStats[stat];
+        }
+    }
     const colors = ['green', 'yellow', 'orange', 'red']
-    if(value >= FORMAT_THRESHOLDS[stat][0]) {
+    if(value >= limit) {
         return colors[0];
     }
     return colors[colors.length - 1];
@@ -48,6 +46,7 @@ const getGameDates = (data) => {
 
 const getCellsForPlayer = (data, player, gameId) => {
     const game = data[player].data[gameId];
+    const playerConfig = PlayerDataMap[player];
     return <>
         {Object.keys(TRACKED_STATS).map(statKey => {
             const stat = TRACKED_STATS[statKey];
@@ -55,7 +54,7 @@ const getCellsForPlayer = (data, player, gameId) => {
             if(stat === TRACKED_STATS["three-point-makes"]) {
                 value = value.split("/")[0];
             }
-            return <td style={{backgroundColor: getStatThreshold(value, stat)}}>{value}</td>
+            return <td style={{backgroundColor: getStatThreshold(value, stat, playerConfig)}}>{value}</td>
         })}
     </>
 }
@@ -66,7 +65,6 @@ const getTableRowFromGame = (data, gameConfigKey) => {
     <td>{gameConfigKey}</td>
     {players.map(player => {
         const didPlay = gameConfig.players.includes(player);
-        console.log(JSON.stringify(gameParticipation))
         if(didPlay) {
             return getCellsForPlayer(data, player, gameConfig.gameIds[player]);
         }
