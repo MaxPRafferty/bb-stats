@@ -1,16 +1,23 @@
 {
   "files": {
     "main.css": "/static/css/main.073c9b0a.css",
-    "main.js": "/static/js/main.435c1399.js",
+    "main.js": "/static/js/main.4f71ed24.js",
     "static/js/787.5d1a9b39.chunk.js": "/static/js/787.5d1a9b39.chunk.js",
+    "static/media/jayson_tatum_game_log_10_2_2022.csv": "/static/media/jayson_tatum_game_log_10_2_2022.459368e4ac780394d812.csv",
+    "static/media/al_horford_game_log_10_2_2022.csv": "/static/media/al_horford_game_log_10_2_2022.bcf30b0f409cb156ba0f.csv",
+    "static/media/marcus_smart_game_log_10_2_2022.csv": "/static/media/marcus_smart_game_log_10_2_2022.e7538fd2b96faa21fe93.csv",
+    "static/media/jaylen_brown_game_log_10_2_2022.csv": "/static/media/jaylen_brown_game_log_10_2_2022.26a8de803c9c5d835633.csv",
+    "static/media/giannis_antetokounmpo_game_log_10_2_2022.csv": "/static/media/giannis_antetokounmpo_game_log_10_2_2022.77aabe4df13d412ec629.csv",
+    "static/media/jrue_holiday_game_log_10_2_2022.csv": "/static/media/jrue_holiday_game_log_10_2_2022.6aa15f74719973ced1db.csv",
+    "static/media/khris_middleton_game_log_10_2_2022.csv": "/static/media/khris_middleton_game_log_10_2_2022.057161a36ef1bbec3cfd.csv",
     "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
     "main.073c9b0a.css.map": "/static/css/main.073c9b0a.css.map",
-    "main.435c1399.js.map": "/static/js/main.435c1399.js.map",
+    "main.4f71ed24.js.map": "/static/js/main.4f71ed24.js.map",
     "787.5d1a9b39.chunk.js.map": "/static/js/787.5d1a9b39.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.435c1399.js"
+    "static/js/main.4f71ed24.js"
   ]
 }
