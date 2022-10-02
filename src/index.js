@@ -36,7 +36,6 @@ const renderApplication = () => {
         <React.StrictMode>
             {applicationError}
             <App data={data} />
-            <div>{JSON.stringify(data)}</div>
         </React.StrictMode>
     );
 };
