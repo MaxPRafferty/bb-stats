@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.073c9b0a.css",
-    "main.js": "/static/js/main.fe850646.js",
+    "main.js": "/static/js/main.e013ab1a.js",
     "static/js/787.5d1a9b39.chunk.js": "/static/js/787.5d1a9b39.chunk.js",
     "static/media/jayson_tatum_game_log_10_2_2022.csv": "/static/media/jayson_tatum_game_log_10_2_2022.459368e4ac780394d812.csv",
     "static/media/al_horford_game_log_10_2_2022.csv": "/static/media/al_horford_game_log_10_2_2022.bcf30b0f409cb156ba0f.csv",
@@ -13,11 +13,11 @@
     "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
     "main.073c9b0a.css.map": "/static/css/main.073c9b0a.css.map",
-    "main.fe850646.js.map": "/static/js/main.fe850646.js.map",
+    "main.e013ab1a.js.map": "/static/js/main.e013ab1a.js.map",
     "787.5d1a9b39.chunk.js.map": "/static/js/787.5d1a9b39.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.fe850646.js"
+    "static/js/main.e013ab1a.js"
   ]
 }

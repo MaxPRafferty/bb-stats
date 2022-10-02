@@ -109,7 +109,7 @@ fetchAndNormalize(`${IS_PRODUCTION ? "playerDataList" : ""}${marcus}`)
         renderApplication();
     });
     */
-fetchAndNormalize(`${IS_PRODUCTION ? "bb-stats" : ""}${giannis}`)
+fetchAndNormalize(`${IS_PRODUCTION ? "" : ""}${giannis}`)
     .then((result) => {
         data = { ...data, "Giannis Antetokuonmpo": result };
     })
@@ -120,7 +120,7 @@ fetchAndNormalize(`${IS_PRODUCTION ? "bb-stats" : ""}${giannis}`)
     .finally(() => {
         renderApplication();
     });
-fetchAndNormalize(`${IS_PRODUCTION ? "bb-stats" : ""}${jrue}`)
+fetchAndNormalize(`${IS_PRODUCTION ? "" : ""}${jrue}`)
     .then((result) => {
         data = { ...data, "Jrue Holiday": result };
     })
@@ -131,7 +131,7 @@ fetchAndNormalize(`${IS_PRODUCTION ? "bb-stats" : ""}${jrue}`)
     .finally(() => {
         renderApplication();
     });
-fetchAndNormalize(`${IS_PRODUCTION ? "bb-stats" : ""}${khris}`)
+fetchAndNormalize(`${IS_PRODUCTION ? "" : ""}${khris}`)
     .then((result) => {
         data = { ...data, "Khris Middleton": result };
     })
