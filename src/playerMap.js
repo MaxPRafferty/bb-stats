@@ -1,15 +1,24 @@
 /*
 Not addressed here:
-1) Player data not automatically pulled
-2) Player team is not known
-3) Opponent data does not exist
-4) Player team changes are untracked
-5) Custom stat thresholds cannot be automatic
+
+FOR SETH:
+- Fill out player map with teams/players and CTG IDs and the players default stats
+
+FOR MAX:
+- Automation of data pull based on CTG IDs (use to build appropriate URL and download the CSV and import)
+- Allow modification of player stat categories and thresholds for those
+
+LATER FOR SOMEONE:
+- Show column for opponent next to game date -- probably do it when we pull the date ID
+- Clean up game date string
+- Player team changes are untracked
+
 */
 
 import { TRACKED_STATS, FORMAT_THRESHOLDS, STAT_THRESHOLDS } from "./constants";
 
 const PlayerDataMap = {
+
     Boston: {
         "Jaylen Brown": {
             ctgid: 454,
@@ -42,6 +51,7 @@ const PlayerDataMap = {
             },
         },
     },
+
     Milwaukee: {
         "Khris Middleton": {
             ctgid: 2495,
