@@ -14,12 +14,12 @@ const getPlayerList = (data) => {
 
 const getStatThreshold = (value, stat, playerConfig) => {
     let limit = FORMAT_THRESHOLDS[stat][0];
-    if (playerConfig != null && playerConfig.validTrackedStats != null) {
-        if (playerConfig.validTrackedStats[stat] === undefined) {
+    if (playerConfig != null && playerConfig.defaultStats != null) {
+        if (playerConfig.defaultStats[stat] === undefined) {
             return 'black'
         }
-        if (playerConfig.validTrackedStats[stat] !== null) {
-            limit = playerConfig.validTrackedStats[stat];
+        if (playerConfig.defaultStats[stat] !== null) {
+            limit = playerConfig.defaultStats[stat];
         }
     }
     const colors = ['green', 'yellow', 'orange', 'red']
