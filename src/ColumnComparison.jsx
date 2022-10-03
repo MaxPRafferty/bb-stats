@@ -138,7 +138,8 @@ const ColumnComparison = ({ data, team }) => {
         return <div>loading...</div>
     }
 
-    if (allPlayers.length !== numPlayers) {
+    if (allPlayers.length !== numPlayers || allPlayers[0] !== Object.keys(PlayerDataMap[team])[0]) {
+        gameParticipation = {};
         getGameDates(data, allPlayers);
         setNumPlayers(allPlayers.length)
     }
