@@ -97,7 +97,7 @@ const ColumnComparison = ({data}) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {Object.keys(gameParticipation).map(gameConfig => <tr>{getTableRowFromGame(data, gameConfig)}</tr>)}
+                        {Object.keys(gameParticipation).sort().reverse().map(gameConfig => <tr>{getTableRowFromGame(data, gameConfig)}</tr>)}
                     </tbody>
                 </table>
             </div>
