@@ -7,49 +7,64 @@ Not addressed here:
 5) Custom stat thresholds cannot be automatic
 */
 
-import { TRACKED_STATS, FORMAT_THRESHOLDS } from "./constants";
+import { TRACKED_STATS, FORMAT_THRESHOLDS, STAT_THRESHOLDS } from "./constants";
 
 const PlayerDataMap = {
     Boston: {
         "Jaylen Brown": {
             ctgid: 454,
-            validTrackedStats: {
-                [TRACKED_STATS.points]: null,
-                [TRACKED_STATS["three-point-makes"]]: null,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
-        "Jayson Tatum": { ctgid: 4268 },
+        "Jayson Tatum": {
+            ctgid: 4268,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+                [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+            },
+        },
         "Al Horford": {
             ctgid: 1675,
-            validTrackedStats: { [TRACKED_STATS.rebounds]: null },
+            defaultStats: {
+                [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
+            },
         },
         "Marcus Smart": {
             ctgid: 3401,
-            validTrackedStats: { [TRACKED_STATS.assists]: null },
+            defaultStats: {
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+            },
         },
     },
-    Milwalkee: {
+    Milwaukee: {
         "Khris Middleton": {
             ctgid: 2495,
-            validTrackedStats: {
-                [TRACKED_STATS.points]: 10,
-                [TRACKED_STATS.assists]: null,
-                [TRACKED_STATS["three-point-makes"]]: null,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Giannis Antetokuonmpo": {
             ctgid: 96,
-            validTrackedStats: {
-                [TRACKED_STATS.points]: 20,
-                [TRACKED_STATS.rebounds]: 6,
-                [TRACKED_STATS.assists]: null,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][20],
+                [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][6],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
             },
         },
         "Jrue Holiday": {
             ctgid: 1647,
-            validTrackedStats: {
-                [TRACKED_STATS.points]: 10,
-                [TRACKED_STATS.assists]: null,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
             },
         },
     },

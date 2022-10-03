@@ -13,12 +13,12 @@ const getPlayerList = (team) => {
 
 const getStatThreshold = (value, stat, playerConfig) => {
     let limit = FORMAT_THRESHOLDS[stat][0];
-    if (playerConfig != null && playerConfig.validTrackedStats != null) {
-        if (playerConfig.validTrackedStats[stat] === undefined) {
+    if (playerConfig != null && playerConfig.defaultStats != null) {
+        if (playerConfig.defaultStats[stat] === undefined) {
             return 'black'
         }
-        if (playerConfig.validTrackedStats[stat] !== null) {
-            limit = playerConfig.validTrackedStats[stat];
+        if (playerConfig.defaultStats[stat] !== null) {
+            limit = playerConfig.defaultStats[stat];
         }
     }
     const colors = ['green', 'yellow', 'orange', 'red']
@@ -68,7 +68,7 @@ const getCellsForPlayer = (data, player, gameId, team) => {
         {Object.keys(TRACKED_STATS).map(statKey => {
             const stat = TRACKED_STATS[statKey];
             let value = game[stat];
-            if (stat === TRACKED_STATS["three-point-makes"]) {
+            if (stat === TRACKED_STATS["3PM"]) {
                 value = value.split("/")[0];
             }
             return <td style={{ backgroundColor: getStatThreshold(value, stat, playerConfig) }}>{value}</td>
@@ -94,7 +94,7 @@ const checkRowSuccess = (data, gameDateID, team, allPlayers) => {
                 debugger;
             }
             let value = game[stat];
-            if (stat === TRACKED_STATS["three-point-makes"]) {
+            if (stat === TRACKED_STATS["3PM"]) {
                 value = value.split("/")[0];
             }
             return getStatThreshold(value, stat, PlayerDataMap[team][player]);
