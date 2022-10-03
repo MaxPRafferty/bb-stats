@@ -62,7 +62,6 @@ const fetchAndNormalize = (path) => {
         });
 };
 
-/*
 fetchAndNormalize(`${IS_PRODUCTION ? "playerDataList" : ""}${al}`)
     .then((result) => {
         data = { ...data, "Al Horford": result };
@@ -107,7 +106,6 @@ fetchAndNormalize(`${IS_PRODUCTION ? "playerDataList" : ""}${marcus}`)
     .finally(() => {
         renderApplication();
     });
-    */
 fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${giannis}`)
     .then((result) => {
         data = { ...data, "Giannis Antetokuonmpo": result };

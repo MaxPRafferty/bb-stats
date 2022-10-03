@@ -5,11 +5,10 @@ import PlayerDataMap from "./playerMap";
 
 const numTrackedStats = Object.keys(TRACKED_STATS).length;
 
-let allPlayers = [];
 let gameParticipation = {};
 
-const getPlayerList = (data) => {
-    return Object.keys(data);
+const getPlayerList = (team) => {
+    return Object.keys(PlayerDataMap[team]);
 }
 
 const getStatThreshold = (value, stat, playerConfig) => {
@@ -39,15 +38,15 @@ const getNumTotalGames = () => {
     return Object.keys(gameParticipation).length;
 }
 
-const getNumSuccessfulGames = (data) => {
+const getNumSuccessfulGames = (data, team, allPlayers) => {
     let numSucc = 0;
     let successes = Object.keys(gameParticipation).map((gameDateID) => {
-       return checkRowSuccess(data, gameDateID);
+       return checkRowSuccess(data, gameDateID, team, allPlayers);
     })
     return successes.filter((didSucceed) => didSucceed).length
 }
 
-const getGameDates = (data) => {
+const getGameDates = (data, allPlayers) => {
     allPlayers.forEach((player => {
         data[player].order.forEach((gameId => {
             const game = data[player].data[gameId];
@@ -62,9 +61,9 @@ const getGameDates = (data) => {
     }))
 }
 
-const getCellsForPlayer = (data, player, gameId) => {
+const getCellsForPlayer = (data, player, gameId, team) => {
     const game = data[player].data[gameId];
-    const playerConfig = PlayerDataMap[player];
+    const playerConfig = PlayerDataMap[team][player];
     return <>
         {Object.keys(TRACKED_STATS).map(statKey => {
             const stat = TRACKED_STATS[statKey];
@@ -77,7 +76,10 @@ const getCellsForPlayer = (data, player, gameId) => {
     </>
 }
 
-const checkRowSuccess = (data, gameDateID) => {
+const checkRowSuccess = (data, gameDateID, team, allPlayers) => {
+    if(allPlayers == null || allPlayers.length === 0) {
+        return false;
+    }
     const gamesPlayed = gameParticipation[gameDateID];
     let playersGameColors = allPlayers.map(player => {
         const game = data[player].data[gamesPlayed.gameIds[player]];
@@ -95,7 +97,7 @@ const checkRowSuccess = (data, gameDateID) => {
             if (stat === TRACKED_STATS["three-point-makes"]) {
                 value = value.split("/")[0];
             }
-            return getStatThreshold(value, stat, PlayerDataMap[player]);
+            return getStatThreshold(value, stat, PlayerDataMap[team][player]);
         })
     })
     let anyFailed = false;
@@ -108,7 +110,7 @@ const checkRowSuccess = (data, gameDateID) => {
     return !anyFailed;
 }
 
-const getTableRowFromGame = (data, gameDateID) => {
+const getTableRowFromGame = (data, gameDateID, team, allPlayers) => {
     const gamesPlayed = gameParticipation[gameDateID];
 
     return <>
@@ -116,22 +118,31 @@ const getTableRowFromGame = (data, gameDateID) => {
         {allPlayers.map(player => {
             const didPlay = gamesPlayed.players.includes(player);
             if (didPlay) {
-                return getCellsForPlayer(data, player, gamesPlayed.gameIds[player]);
+                return getCellsForPlayer(data, player, gamesPlayed.gameIds[player], team);
             }
             return <td colSpan={numTrackedStats}>dnp</td>
         })}
-        <td style={{ backgroundColor: getSummaryColor(checkRowSuccess(data, gameDateID)) }}>Success</td>
+        <td style={{ backgroundColor: getSummaryColor(checkRowSuccess(data, gameDateID, team)) }}>Success</td>
     </>
 }
 
-const ColumnComparison = ({ data }) => {
+const ColumnComparison = ({ data, team }) => {
     const [numPlayers, setNumPlayers] = useState(0);
-    allPlayers = getPlayerList(data);
+    const allPlayers = getPlayerList(team);
+
+    let playersLoaded = allPlayers.reduce((a, v) => {
+        return a && !!data[v];
+    }, true)
+
+    if(!playersLoaded) {
+        return <div>loading...</div>
+    }
+
     if (allPlayers.length !== numPlayers) {
-        getGameDates(data);
+        getGameDates(data, allPlayers);
         setNumPlayers(allPlayers.length)
     }
-    let numSuccess = getNumSuccessfulGames(data);
+    let numSuccess = getNumSuccessfulGames(data, team, allPlayers);
     let numTotal = getNumTotalGames();
 
     return (
@@ -155,7 +166,7 @@ const ColumnComparison = ({ data }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {Object.keys(gameParticipation).sort().reverse().map(gameConfig => <tr>{getTableRowFromGame(data, gameConfig)}</tr>)}
+                        {Object.keys(gameParticipation).sort().reverse().map(gameConfig => <tr>{getTableRowFromGame(data, gameConfig, team, allPlayers)}</tr>)}
                     </tbody>
                 </table>
             </div>
