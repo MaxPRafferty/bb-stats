@@ -69,7 +69,7 @@ const getCellsForPlayer = (data, player, gameId) => {
         {Object.keys(TRACKED_STATS).map(statKey => {
             const stat = TRACKED_STATS[statKey];
             let value = game[stat];
-            if (stat === TRACKED_STATS["three-point-makes"]) {
+            if (stat === TRACKED_STATS["3PM"]) {
                 value = value.split("/")[0];
             }
             return <td style={{ backgroundColor: getStatThreshold(value, stat, playerConfig) }}>{value}</td>
@@ -92,7 +92,7 @@ const checkRowSuccess = (data, gameDateID) => {
                 debugger;
             }
             let value = game[stat];
-            if (stat === TRACKED_STATS["three-point-makes"]) {
+            if (stat === TRACKED_STATS["3PM"]) {
                 value = value.split("/")[0];
             }
             return getStatThreshold(value, stat, PlayerDataMap[player]);
@@ -155,7 +155,7 @@ const ColumnComparison = ({ data }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {Object.keys(gameParticipation).sort().reverse().map(gameConfig => <tr>{getTableRowFromGame(data, gameConfig)}</tr>)}
+                        {Object.keys(gameParticipation).map(gameConfig => <tr>{getTableRowFromGame(data, gameConfig)}</tr>)}
                     </tbody>
                 </table>
             </div>
