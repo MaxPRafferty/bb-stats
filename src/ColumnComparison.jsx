@@ -122,7 +122,7 @@ const getTableRowFromGame = (data, gameDateID, team, allPlayers) => {
             }
             return <td colSpan={numTrackedStats}>dnp</td>
         })}
-        <td style={{ backgroundColor: getSummaryColor(checkRowSuccess(data, gameDateID, team)) }}>Success</td>
+        <td style={{ backgroundColor: getSummaryColor(checkRowSuccess(data, gameDateID, team, allPlayers)) }}>Success</td>
     </>
 }
 
