@@ -2,16 +2,25 @@
 Not addressed here:
 
 FOR SETH:
-- Fill out player map with teams/players and CTG IDs and the players default stats
+- Fill out player map with teams/players and CTG IDs and the players default stats, including -1 for replacing nulls
 
 FOR MAX:
+- Add deploy instructions to the readme
 - Automation of data pull based on CTG IDs (use to build appropriate URL and download the CSV and import)
 - Allow modification of player stat categories and thresholds for those
+    - Add a setting for "ignore this stat" (i.e. if threshold is -1, then color black, rather than if null)
 
 LATER FOR SOMEONE:
+- Per-column summary stats that shows the % and or win/total for that column -- to help identify weak spots in the bet design
+- Add support for multi-year stats 
+    - Add ability to change which years are shown (ideally including support for multi or single year views)
+- Labels on the pulldown entries for changing the threshold of a given player's stat category:
+    - Calculate the success rate at that threshold for that stat and show the % and/or "win/total" next to it -- to help with bet design
+    - Default setting is the default option on the pulldown for that player
 - Show column for opponent next to game date -- probably do it when we pull the date ID
 - Clean up game date string
 - Player team changes are untracked
+- More stats: blocks, steals
 
 */
 
