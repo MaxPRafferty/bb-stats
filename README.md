@@ -1,3 +1,15 @@
+to stage the artifacts for deploy:
+```
+npm run build
+./scripts/deploy.sh
+```
+to push the artifacts (can do this in the GUI as well):
+```
+git add -A
+git commit -m "deploy"
+git push origin main
+```
+
 # BB Stats - The Super Simple Static Site
 
 Fork, enable docs, update deploy script to new repo name, push. Done.
