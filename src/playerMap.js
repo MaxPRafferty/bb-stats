@@ -3,6 +3,7 @@ Not addressed here:
 
 FOR SETH:
 - Fill out player map with teams/players and CTG IDs and the players default stats, including -1 for replacing nulls
+- Download new CSVs for players I wanna check if Max doesn't get to the below
 
 FOR MAX:
 - Add deploy instructions to the readme
@@ -59,6 +60,24 @@ const PlayerDataMap = {
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
             },
         },
+        "Derrick White": {
+            ctgid: 4304,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][2],
+            },
+        },
+        "Grant Williams": {
+            ctgid: 4593,
+            defaultStats: {
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+            },
+        },
+        "Malcolm Brogdon": {
+            ctgid: 429,
+            defaultStats: {
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+            },
+        },
     },
 
     Milwaukee: {
@@ -81,6 +100,54 @@ const PlayerDataMap = {
         },
         "Jrue Holiday": {
             ctgid: 1647,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+            },
+        },
+    },
+
+    Philadelphia: {
+        "Joel Embiid": {
+            ctgid: 1049,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+            },
+        },
+        "James Harden": {
+            ctgid: 1487,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][20],
+                [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][6],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+            },
+        },
+        "Tyrese Maxey": {
+            ctgid: 4765,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+            },
+        },
+        "Tobias Harris": {
+            ctgid: 1521,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+            },
+        },
+        "De'Anthony Melton": {
+            ctgid: 4480,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+            },
+        },
+        "PJ Tucker": {
+            ctgid: 3715,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
