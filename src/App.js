@@ -5,7 +5,7 @@ import ColumnComparison from "./ColumnComparison";
 import PlayerDataMap from "./playerMap";
 
 function App(props) {
-    const [selectedTeam, setSelectedTeam] = useState("Boston");
+    const [selectedTeam, setSelectedTeam] = useState("Celtics");
     const handleTeamChange = (event) => {
         setSelectedTeam(event.target.value);
     };

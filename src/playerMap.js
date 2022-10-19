@@ -29,7 +29,7 @@ import { TRACKED_STATS, FORMAT_THRESHOLDS, STAT_THRESHOLDS } from "./constants";
 
 const PlayerDataMap = {
 
-    Boston: {
+    Celtics: {
         "Jaylen Brown": {
             ctgid: 454,
             defaultStats: {
@@ -61,7 +61,7 @@ const PlayerDataMap = {
                 //[TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][7],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
             },
-        },/*
+        },
         "Grant Williams": {
             ctgid: 4593,
             defaultStats: {
@@ -79,10 +79,10 @@ const PlayerDataMap = {
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][2],
             },
-        },*/
+        },
     },
 
-    Milwaukee: {
+    Bucks: {
         "Khris Middleton": {
             ctgid: 2495,
             defaultStats: {
@@ -108,8 +108,8 @@ const PlayerDataMap = {
             },
         },
     },
-    /*
-    Philadelphia: {
+
+    Sixers: {
         "Joel Embiid": {
             ctgid: 1049,
             defaultStats: {
@@ -155,7 +155,98 @@ const PlayerDataMap = {
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
             },
         },
-    },*/
+    },
+
+    Lakers: {
+        "LeBron James": {
+            ctgid: 1785,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+            },
+        },
+        "Anthony Davis": {
+            ctgid: 816,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][20],
+                [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][6],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+            },
+        },
+    },
+
+    Warriors: {
+        "Stephen Curry": {
+            ctgid: 787,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+            },
+        },
+        "Jordan Poole": {
+            ctgid: 4599,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][20],
+                [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][6],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+            },
+        },
+        "Andrew Wiggins": {
+            ctgid: 3949,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+            },
+        },
+        "Klay Thompson": {
+            ctgid: 3653,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+            },
+        },
+        "Donte DiVincenzo": {
+            ctgid: 4440,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+            },
+        },
+        "Draymond Green": {
+            ctgid: 1373,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+            },
+        },
+        "Kevon Looney": {
+            ctgid: 2221,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+            },
+        },
+        "Jonathan Kuminga": {
+            ctgid: 4870,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+            },
+        },
+        /*
+        "James Wiseman": {
+            ctgid: 4746,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
+                [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
+            },
+        },
+        */
+    },
 };
 
 export default PlayerDataMap;
