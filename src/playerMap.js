@@ -51,21 +51,17 @@ const PlayerDataMap = {
         "Al Horford": {
             ctgid: 1675,
             defaultStats: {
+                //[TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][5],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
             },
         },
         "Marcus Smart": {
             ctgid: 3401,
             defaultStats: {
+                //[TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][7],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
             },
-        },
-        "Derrick White": {
-            ctgid: 4304,
-            defaultStats: {
-                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][2],
-            },
-        },
+        },/*
         "Grant Williams": {
             ctgid: 4593,
             defaultStats: {
@@ -78,6 +74,12 @@ const PlayerDataMap = {
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
             },
         },
+        "Derrick White": {
+            ctgid: 4304,
+            defaultStats: {
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][2],
+            },
+        },*/
     },
 
     Milwaukee: {
@@ -106,7 +108,7 @@ const PlayerDataMap = {
             },
         },
     },
-
+    /*
     Philadelphia: {
         "Joel Embiid": {
             ctgid: 1049,
@@ -153,7 +155,7 @@ const PlayerDataMap = {
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
             },
         },
-    },
+    },*/
 };
 
 export default PlayerDataMap;
