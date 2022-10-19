@@ -14,7 +14,7 @@ const getPlayerList = (team) => {
 const getStatThreshold = (value, stat, playerConfig) => {
     let limit = FORMAT_THRESHOLDS[stat][0];
     if (playerConfig != null && playerConfig.defaultStats != null) {
-        if (playerConfig.defaultStats[stat] === undefined) {
+        if (playerConfig.defaultStats[stat] === undefined || playerConfig.defaultStats[stat] == -1) {
             return 'black'
         }
         if (playerConfig.defaultStats[stat] !== null) {
