@@ -10,6 +10,9 @@ import marcus from "./data/marcus_smart_game_log_10_2_2022.csv";
 import giannis from "./data/giannis_antetokounmpo_game_log_10_2_2022.csv";
 import jrue from "./data/jrue_holiday_game_log_10_2_2022.csv";
 import khris from "./data/khris_middleton_game_log_10_2_2022.csv";
+import blopez from "./data/brook_lopez_game_log_10_22_2022.csv";
+import bportis from "./data/bobby_portis_game_log_10_22_2022.csv";
+import gallen from "./data/grayson_allen_game_log_10_22_2022.csv";
 import awiggins from "./data/andrew_wiggins_game_log_10_18_2022.csv";
 import adavis from "./data/anthony_davis_game_log_10_18_2022.csv";
 import dmelton from "./data/de'anthony_melton_game_log_10_18_2022.csv";
@@ -31,90 +34,126 @@ import stephcurry from "./data/stephen_curry_game_log_10_18_2022.csv";
 import tharris from "./data/tobias_harris_game_log_10_18_2022.csv";
 import tmaxey from "./data/tyrese_maxey_game_log_10_18_2022.csv";
 import rwilliams from "./data/robert_williams_game_log_10_19_2022.csv";
-//import ccunningham from "./data/XXXXXXXXXXXXXX.csv";
-//import sbey from "./data/XXXXXXXXXXXXXX.csv";
+import ccunningham from "./data/cade_cunningham_game_log_10_22_2022.csv";
+import sbey from "./data/saddiq_bey_game_log_10_22_2022.csv";
 //import jivey from "./data/XXXXXXXXXXXXXX.csv";
+import bojanbogdanovic from "./data/bojan_bogdanovic_game_log_10_22_2022.csv";
+import istewart from "./data/isaiah_stewart_game_log_10_22_2022.csv";
 //import pbanchero from "./data/XXXXXXXXXXXXXX.csv";
-//import fwagner from "./data/XXXXXXXXXXXXXX.csv";
-//import canthony from "./data/XXXXXXXXXXXXXX.csv";
-//import wcarter from "./data/XXXXXXXXXXXXXX.csv";
-//import thaliburton from "./data/XXXXXXXXXXXXXX.csv";
+import fwagner from "./data/franz_wagner_game_log_10_22_2022.csv";
+import canthony from "./data/cole_anthony_game_log_10_22_2022.csv";
+import wcarter from "./data/wendell_carter_game_log_10_22_2022.csv";
+import mbamba from "./data/mohamed_bamba_game_log_10_22_2022.csv";
+import thaliburton from "./data/tyrese_haliburton_game_log_10_22_2022.csv";
 //import bmathurin from "./data/XXXXXXXXXXXXXX.csv";
-//import bhield from "./data/XXXXXXXXXXXXXX.csv";
-//import mturner from "./data/XXXXXXXXXXXXXX.csv";
-//import jsmith from "./data/XXXXXXXXXXXXXX.csv";
-//import cduarte from "./data/XXXXXXXXXXXXXX.csv";
-//import bbeal from "./data/XXXXXXXXXXXXXX.csv";
-//import kporzingis from "./data/XXXXXXXXXXXXXX.csv";
-//import kkuzma from "./data/XXXXXXXXXXXXXX.csv";
-//import kdurant from "./data/XXXXXXXXXXXXXX.csv";
-//import kirving from "./data/XXXXXXXXXXXXXX.csv";
-//import bsimmons from "./data/XXXXXXXXXXXXXX.csv";
-//import nclaxton from "./data/XXXXXXXXXXXXXX.csv";
-//import jharris from "./data/XXXXXXXXXXXXXX.csv";
-//import roneale from "./data/XXXXXXXXXXXXXX.csv";
-//import zwilliamson from "./data/XXXXXXXXXXXXXX.csv";
-//import bingram from "./data/XXXXXXXXXXXXXX.csv";
-//import cjmccollum from "./data/XXXXXXXXXXXXXX.csv";
-//import hjones from "./data/XXXXXXXXXXXXXX.csv";
-//import jvalanciunas from "./data/XXXXXXXXXXXXXX.csv";
-//import jmorant from "./data/XXXXXXXXXXXXXX.csv";
-//import dbane from "./data/XXXXXXXXXXXXXX.csv";
-//import sadams from "./data/XXXXXXXXXXXXXX.csv";
-//import dbrooks from "./data/XXXXXXXXXXXXXX.csv";
-//import jjackson from "./data/XXXXXXXXXXXXXX.csv";
-//import tjones from "./data/XXXXXXXXXXXXXX.csv";
-//import jbrunson from "./data/XXXXXXXXXXXXXX.csv";
-//import rjbarrett from "./data/XXXXXXXXXXXXXX.csv";
-//import jrandle from "./data/XXXXXXXXXXXXXX.csv";
-//import efournier from "./data/XXXXXXXXXXXXXX.csv";
-//import mrobinson from "./data/XXXXXXXXXXXXXX.csv";
-//import tyoung from "./data/XXXXXXXXXXXXXX.csv";
-//import dmurray from "./data/XXXXXXXXXXXXXX.csv";
-//import ccapela from "./data/XXXXXXXXXXXXXX.csv";
-//import jcollins from "./data/XXXXXXXXXXXXXX.csv";
-//import dhunter from "./data/XXXXXXXXXXXXXX.csv";
-//import jgreen from "./data/XXXXXXXXXXXXXX.csv";
-//import kporter from "./data/XXXXXXXXXXXXXX.csv";
-//import asengun from "./data/XXXXXXXXXXXXXX.csv";
-//import dgarland from "./data/XXXXXXXXXXXXXX.csv";
-//import dmitchell from "./data/XXXXXXXXXXXXXX.csv";
-//import emobley from "./data/XXXXXXXXXXXXXX.csv";
-//import jallen from "./data/XXXXXXXXXXXXXX.csv";
-//import fvanvleet from "./data/XXXXXXXXXXXXXX.csv";
-//import psiakam from "./data/XXXXXXXXXXXXXX.csv";
-//import sbarnes from "./data/XXXXXXXXXXXXXX.csv";
-//import oganunoby from "./data/XXXXXXXXXXXXXX.csv";
-//import aedwards from "./data/XXXXXXXXXXXXXX.csv";
-//import kat from "./data/XXXXXXXXXXXXXX.csv";
-//import rgobert from "./data/XXXXXXXXXXXXXX.csv";
-//import drussell from "./data/XXXXXXXXXXXXXX.csv";
-//import jgiddey from "./data/XXXXXXXXXXXXXX.csv";
-//import ldort from "./data/XXXXXXXXXXXXXX.csv";
-//import sga from "./data/XXXXXXXXXXXXXX.csv";
-//import njokic from "./data/XXXXXXXXXXXXXX.csv";
-//import jmurray from "./data/XXXXXXXXXXXXXX.csv";
-//import mpj from "./data/XXXXXXXXXXXXXX.csv";
-//import agordon from "./data/XXXXXXXXXXXXXX.csv";
-//import kcp from "./data/XXXXXXXXXXXXXX.csv";
-//import lmarkannen from "./data/XXXXXXXXXXXXXX.csv";
-//import csexton from "./data/XXXXXXXXXXXXXX.csv";
-//import ldoncic from "./data/XXXXXXXXXXXXXX.csv";
-//import dfinneysmith from "./data/XXXXXXXXXXXXXX.csv";
-//import rbullock from "./data/XXXXXXXXXXXXXX.csv";
-//import sdinwiddie from "./data/XXXXXXXXXXXXXX.csv";
-//import thardaway from "./data/XXXXXXXXXXXXXX.csv";
-//import cpaul from "./data/XXXXXXXXXXXXXX.csv";
-//import dbooker from "./data/XXXXXXXXXXXXXX.csv";
-//import dayton from "./data/XXXXXXXXXXXXXX.csv";
-//import mbridges from "./data/XXXXXXXXXXXXXX.csv";
-//import cjohnson from "./data/XXXXXXXXXXXXXX.csv";
+import bhield from "./data/buddy_hield_game_log_10_22_2022.csv";
+import mturner from "./data/myles_turner_game_log_10_22_2022.csv";
+import jsmith from "./data/jalen_smith_game_log_10_22_2022.csv";
+import cduarte from "./data/chris_duarte_game_log_10_22_2022.csv";
+import tjmcconnell from "./data/tj_mcconnell_game_log_10_22_2022.csv";
+import bbeal from "./data/bradley_beal_game_log_10_22_2022.csv";
+import kporzingis from "./data/kristaps_porzingis_game_log_10_22_2022.csv";
+import kkuzma from "./data/kyle_kuzma_game_log_10_22_2022.csv";
+import wbarton from "./data/will_barton_game_log_10_22_2022.csv";
+import mmorris from "./data/monte_morris_game_log_10_22_2022.csv";
+import rhachimura from "./data/rui_hachimura_game_log_10_22_2022.csv";
+import kdurant from "./data/kevin_durant_game_log_10_22_2022.csv";
+import kirving from "./data/kyrie_irving_game_log_10_22_2022.csv";
+import bsimmons from "./data/ben_simmons_game_log_10_22_2022.csv";
+import nclaxton from "./data/nicolas_claxton_game_log_10_22_2022.csv";
+import jharris from "./data/joe_harris_game_log_10_22_2022.csv";
+import roneale from "./data/royce_o'neale_game_log_10_22_2022.csv";
+import zwilliamson from "./data/zion_williamson_game_log_10_22_2022.csv";
+import bingram from "./data/brandon_ingram_game_log_10_22_2022.csv";
+import cjmccollum from "./data/cj_mccollum_game_log_10_22_2022.csv";
+import hjones from "./data/herbert_jones_game_log_10_22_2022.csv";
+import jvalanciunas from "./data/jonas_valanciunas_game_log_10_22_2022.csv";
+import jmorant from "./data/ja_morant_game_log_10_22_2022.csv";
+import dbane from "./data/desmond_bane_game_log_10_22_2022.csv";
+import sadams from "./data/steven_adams_game_log_10_22_2022.csv";
+import dbrooks from "./data/dillon_brooks_game_log_10_22_2022.csv";
+import jjackson from "./data/jaren_jackson_game_log_10_22_2022.csv";
+import tjones from "./data/tyus_jones_game_log_10_22_2022.csv";
+import jbrunson from "./data/jalen_brunson_game_log_10_22_2022.csv";
+import rjbarrett from "./data/rj_barrett_game_log_10_22_2022.csv";
+import jrandle from "./data/julius_randle_game_log_10_22_2022.csv";
+import efournier from "./data/evan_fournier_game_log_10_22_2022.csv";
+import mrobinson from "./data/mitchell_robinson_game_log_10_22_2022.csv";
+import tyoung from "./data/trae_young_game_log_10_22_2022.csv";
+import dmurray from "./data/dejounte_murray_game_log_10_22_2022.csv";
+import ccapela from "./data/clint_capela_game_log_10_22_2022.csv";
+import jcollins from "./data/john_collins_game_log_10_22_2022.csv";
+import dhunter from "./data/deandre_hunter_game_log_10_22_2022.csv";
+import jgreen from "./data/jalen_green_game_log_10_22_2022.csv";
+import kporter from "./data/kevin_porter_game_log_10_22_2022.csv";
+import asengun from "./data/alperen_sengun_game_log_10_25_2022.csv";
+import dgarland from "./data/darius_garland_game_log_10_22_2022.csv";
+import dmitchell from "./data/donovan_mitchell_game_log_10_22_2022.csv";
+import emobley from "./data/evan_mobley_game_log_10_22_2022.csv";
+import jallen from "./data/jarrett_allen_game_log_10_22_2022.csv";
+import fvanvleet from "./data/fred_vanvleet_game_log_10_22_2022.csv";
+import psiakam from "./data/pascal_siakam_game_log_10_22_2022.csv";
+import sbarnes from "./data/scottie_barnes_game_log_10_22_2022.csv";
+import oganunoby from "./data/og_anunoby_game_log_10_22_2022.csv";
+import aedwards from "./data/anthony_edwards_game_log_10_22_2022.csv";
+import kat from "./data/karl_anthony_towns_game_log_10_22_2022.csv";
+import rgobert from "./data/rudy_gobert_game_log_10_22_2022.csv";
+import drussell from "./data/d'angelo_russell_game_log_10_22_2022.csv";
+import jgiddey from "./data/josh_giddey_game_log_10_22_2022.csv";
+import ldort from "./data/luguentz_dort_game_log_10_22_2022.csv";
+import sga from "./data/shai_gilgeous_alexander_game_log_10_22_2022.csv";
+import njokic from "./data/nikola_jokic_game_log_10_22_2022.csv";
+import jmurray from "./data/jamal_murray_game_log_10_22_2022.csv";
+import mpj from "./data/michael_porter_game_log_10_22_2022.csv";
+import agordon from "./data/aaron_gordon_game_log_10_22_2022.csv";
+import kcp from "./data/kentavious_caldwell_pope_game_log_10_22_2022.csv";
+import lmarkannen from "./data/lauri_markkanen_game_log_10_22_2022.csv";
+import csexton from "./data/collin_sexton_game_log_10_22_2022.csv";
+import mconley from "./data/mike_conley_game_log_10_22_2022.csv";
+import jclarkson from "./data/jordan_clarkson_game_log_10_22_2022.csv";
+import kolynyk from "./data/kelly_olynyk_game_log_10_22_2022.csv";
+import jvanderbilt from "./data/jarred_vanderbilt_game_log_10_22_2022.csv";
+import ldoncic from "./data/luka_doncic_game_log_10_22_2022.csv";
+import cwood from "./data/christian_wood_game_log_10_22_2022.csv";
+import dfinneysmith from "./data/dorian_finney_smith_game_log_10_22_2022.csv";
+import rbullock from "./data/reggie_bullock_game_log_10_22_2022.csv";
+import sdinwiddie from "./data/spencer_dinwiddie_game_log_10_22_2022.csv";
+import thardaway from "./data/tim_hardaway_jr_game_log_10_22_2022.csv";
+import cpaul from "./data/chris_paul_game_log_10_22_2022.csv";
+import dbooker from "./data/devin_booker_game_log_10_22_2022.csv";
+import dayton from "./data/deandre_ayton_game_log_10_22_2022.csv";
+import mbridges from "./data/mikal_bridges_game_log_10_22_2022.csv";
+import cjohnson from "./data/cameron_johnson_game_log_10_22_2022.csv";
+import jbutler from "./data/jimmy_butler_game_log_10_22_2022.csv";
+import badebayo from "./data/bam_adebayo_game_log_10_22_2022.csv";
+import klowry from "./data/kyle_lowry_game_log_10_22_2022.csv";
+import therro from "./data/tyler_herro_game_log_10_22_2022.csv";
+import cmartin from "./data/caleb_martin_game_log_10_22_2022.csv";
+import dderozan from "./data/demar_derozan_game_log_10_22_2022.csv";
+import zlavine from "./data/zach_lavine_game_log_10_22_2022.csv";
+import nvucevic from "./data/nikola_vucevic_game_log_10_22_2022.csv";
+import adosunmu from "./data/ayo_dosunmu_game_log_10_22_2022.csv";
+import pwilliams from "./data/patrick_williams_game_log_10_22_2022.csv";
+import ghayward from "./data/gordon_hayward_game_log_10_22_2022.csv";
+import lameloball from "./data/lamelo_ball_game_log_10_22_2022.csv";
+import trozier from "./data/terry_rozier_game_log_10_22_2022.csv";
+import pjwashington from "./data/pj_washington_game_log_10_22_2022.csv";
+import mplumlee from "./data/mason_plumlee_game_log_10_22_2022.csv";
+import kjohnson from "./data/keldon_johnson_game_log_10_22_2022.csv";
+import dvassell from "./data/devin_vassell_game_log_10_22_2022.csv";
+import trejones from "./data/tre_jones_game_log_10_22_2022.csv";
+import jpoeltl from "./data/jakob_poeltl_game_log_10_22_2022.csv";
+import dlillard from "./data/damian_lillard_game_log_10_22_2022.csv";
+import asimons from "./data/anfernee_simons_game_log_10_22_2022.csv";
+import jnurkic from "./data/jusuf_nurkic_game_log_10_22_2022.csv";
+import jgrant from "./data/jerami_grant_game_log_10_22_2022.csv";
+import jhart from "./data/josh_hart_game_log_10_22_2022.csv";
+import dfox from "./data/de'aaron_fox_game_log_10_22_2022.csv";
+import dsabonis from "./data/domantas_sabonis_game_log_10_22_2022.csv";
+import hbarnes from "./data/harrison_barnes_game_log_10_22_2022.csv";
+import kleonard from "./data/kawhi_leonard_game_log_10_25_2022.csv";
+import pgeorge from "./data/paul_george_game_log_10_25_2022.csv";
 
-//import xxxxxxxxx from "./data/XXXXXXXXXXXXXX.csv";
-//import xxxxxxxxx from "./data/XXXXXXXXXXXXXX.csv";
-//import xxxxxxxxx from "./data/XXXXXXXXXXXXXX.csv";
-//import xxxxxxxxx from "./data/XXXXXXXXXXXXXX.csv";
-//import xxxxxxxxx from "./data/XXXXXXXXXXXXXX.csv";
 
 
 import "./index.css";
@@ -245,6 +284,39 @@ fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${khris}`)
     .finally(() => {
         renderApplication();
     });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${blopez}`)
+    .then((result) => {
+        data = { ...data, "Brook Lopez": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${gallen}`)
+    .then((result) => {
+        data = { ...data, "Grayson Allen": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${bportis}`)
+    .then((result) => {
+        data = { ...data, "Bobby Portis": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
 fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${awiggins}`)
     .then((result) => {
         data = { ...data, "Andrew Wiggins": result };
@@ -333,7 +405,6 @@ fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${jharden}`)
     .finally(() => {
         renderApplication();
     });
-/*
 fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${jwiseman}`)
     .then((result) => {
         data = { ...data, "James Wiseman": result };
@@ -345,7 +416,6 @@ fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${jwiseman}`)
     .finally(() => {
         renderApplication();
     });
-    */
 fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${jembiid}`)
     .then((result) => {
         data = { ...data, "Joel Embiid": result };
@@ -478,7 +548,6 @@ fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${rwilliams}`)
     .finally(() => {
         renderApplication();
     });
-/*
 fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${ccunningham}`)
     .then((result) => {
         data = { ...data, "Cade Cunnningham": result };
@@ -492,7 +561,7 @@ fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${ccunningham}`)
     });
 fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${sbey}`)
     .then((result) => {
-        data = { ...data, "Sadiq Bey": result };
+        data = { ...data, "Saddiq Bey": result };
     })
     .catch((err) => {
         applicationError = GENERIC_ERROR;
@@ -501,6 +570,7 @@ fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${sbey}`)
     .finally(() => {
         renderApplication();
     });
+/*
 fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${jivey}`)
     .then((result) => {
         data = { ...data, "Jaden Ivey": result };
@@ -512,6 +582,30 @@ fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${jivey}`)
     .finally(() => {
         renderApplication();
     });
+*/
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${bojanbogdanovic}`)
+    .then((result) => {
+        data = { ...data, "Bojan Bogdanovic": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${istewart}`)
+    .then((result) => {
+        data = { ...data, "Isaiah Stewart": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+/*
 fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${pbanchero}`)
     .then((result) => {
         data = { ...data, "Paolo Banchero": result };
@@ -523,6 +617,7 @@ fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${pbanchero}`)
     .finally(() => {
         renderApplication();
     });
+*/
 fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${fwagner}`)
     .then((result) => {
         data = { ...data, "Franz Wagner": result };
@@ -548,6 +643,17 @@ fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${canthony}`)
 fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${wcarter}`)
     .then((result) => {
         data = { ...data, "Wendell Carter Jr": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${mbamba}`)
+    .then((result) => {
+        data = { ...data, "Mo Bamba": result };
     })
     .catch((err) => {
         applicationError = GENERIC_ERROR;
@@ -591,7 +697,7 @@ fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${dayton}`)
     });
 fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${mbridges}`)
     .then((result) => {
-        data = { ...data, "Miles Bridges": result };
+        data = { ...data, "Mikal Bridges": result };
     })
     .catch((err) => {
         applicationError = GENERIC_ERROR;
@@ -613,7 +719,18 @@ fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${cjohnson}`)
     });
 fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${ldoncic}`)
     .then((result) => {
-        data = { ...data, "Luca Doncic": result };
+        data = { ...data, "Luka Doncic": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${cwood}`)
+    .then((result) => {
+        data = { ...data, "Christian Wood": result };
     })
     .catch((err) => {
         applicationError = GENERIC_ERROR;
@@ -679,7 +796,7 @@ fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${lmarkannen}`)
     });
 fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${csexton}`)
     .then((result) => {
-        data = { ...data, "Lauri Markkanen": result };
+        data = { ...data, "Collin Sexton": result };
     })
     .catch((err) => {
         applicationError = GENERIC_ERROR;
@@ -688,6 +805,50 @@ fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${csexton}`)
     .finally(() => {
         renderApplication();
     });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${mconley}`)
+    .then((result) => {
+        data = { ...data, "Mike Conley": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${jclarkson}`)
+    .then((result) => {
+        data = { ...data, "Jordan Clarkson": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${kolynyk}`)
+    .then((result) => {
+        data = { ...data, "Kelly Olynyk": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${jvanderbilt}`)
+    .then((result) => {
+        data = { ...data, "Jarred Vanderbilt": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    }); 
 fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${njokic}`)
     .then((result) => {
         data = { ...data, "Nikola Jokic": result };
@@ -1271,6 +1432,7 @@ fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${mturner}`)
     .finally(() => {
         renderApplication();
     });
+/*
 fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${bmathurin}`)
     .then((result) => {
         data = { ...data, "Benedict Mathurin": result };
@@ -1282,6 +1444,7 @@ fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${bmathurin}`)
     .finally(() => {
         renderApplication();
     });
+*/
 fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${jsmith}`)
     .then((result) => {
         data = { ...data, "Jalen Smith": result };
@@ -1296,6 +1459,17 @@ fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${jsmith}`)
 fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${cduarte}`)
     .then((result) => {
         data = { ...data, "Chris Duarte": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${tjmcconnell}`)
+    .then((result) => {
+        data = { ...data, "TJ McConnell": result };
     })
     .catch((err) => {
         applicationError = GENERIC_ERROR;
@@ -1337,7 +1511,369 @@ fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${kkuzma}`)
     .finally(() => {
         renderApplication();
     });
-    */
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${wbarton}`)
+    .then((result) => {
+        data = { ...data, "Will Barton": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${mmorris}`)
+    .then((result) => {
+        data = { ...data, "Monte Morris": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${rhachimura}`)
+    .then((result) => {
+        data = { ...data, "Rui Hachimura": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${jbutler}`)
+    .then((result) => {
+        data = { ...data, "Jimmy Butler": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${badebayo}`)
+    .then((result) => {
+        data = { ...data, "Bam Adebayo": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${klowry}`)
+    .then((result) => {
+        data = { ...data, "Kyle Lowry": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${therro}`)
+    .then((result) => {
+        data = { ...data, "Tyler Herro": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${cmartin}`)
+    .then((result) => {
+        data = { ...data, "Caleb Martin": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${dderozan}`)
+    .then((result) => {
+        data = { ...data, "DeMar DeRozan": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${zlavine}`)
+    .then((result) => {
+        data = { ...data, "Zach LaVine": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${nvucevic}`)
+    .then((result) => {
+        data = { ...data, "Nikola Vucevic": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${adosunmu}`)
+    .then((result) => {
+        data = { ...data, "Ayo Dosunmu": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${pwilliams}`)
+    .then((result) => {
+        data = { ...data, "Patrick Williams": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${ghayward}`)
+    .then((result) => {
+        data = { ...data, "Gordon Hayward": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${lameloball}`)
+    .then((result) => {
+        data = { ...data, "LaMelo Ball": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${trozier}`)
+    .then((result) => {
+        data = { ...data, "Terry Rozier": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${pjwashington}`)
+    .then((result) => {
+        data = { ...data, "PJ Washington": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${mplumlee}`)
+    .then((result) => {
+        data = { ...data, "Mason Plumlee": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${mplumlee}`)
+    .then((result) => {
+        data = { ...data, "Mason Plumlee": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${kjohnson}`)
+    .then((result) => {
+        data = { ...data, "Keldon Johnson": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${dvassell}`)
+    .then((result) => {
+        data = { ...data, "Devin Vassell": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${trejones}`)
+    .then((result) => {
+        data = { ...data, "Tre Jones": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${jpoeltl}`)
+    .then((result) => {
+        data = { ...data, "Jakob Poeltl": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${dlillard}`)
+    .then((result) => {
+        data = { ...data, "Damian Lillard": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${asimons}`)
+    .then((result) => {
+        data = { ...data, "Anfernee Simons": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${jnurkic}`)
+    .then((result) => {
+        data = { ...data, "Jusuf Nurkic": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${jgrant}`)
+    .then((result) => {
+        data = { ...data, "Jerami Grant": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${jhart}`)
+    .then((result) => {
+        data = { ...data, "Josh Hart": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${dfox}`)
+    .then((result) => {
+        data = { ...data, "De'Aaron Fox": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${dsabonis}`)
+    .then((result) => {
+        data = { ...data, "Domantas Sabonis": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${hbarnes}`)
+    .then((result) => {
+        data = { ...data, "Harrison Barnes": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${kleonard}`)
+    .then((result) => {
+        data = { ...data, "Kawhi Leonard": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
+fetchAndNormalize(`${IS_PRODUCTION ? "/bb-stats" : ""}${pgeorge}`)
+    .then((result) => {
+        data = { ...data, "Paul George": result };
+    })
+    .catch((err) => {
+        applicationError = GENERIC_ERROR;
+        console.error(err);
+    })
+    .finally(() => {
+        renderApplication();
+    });
     
 renderApplication();
 
