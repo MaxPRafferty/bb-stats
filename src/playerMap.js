@@ -21,19 +21,30 @@ FOR MAX:
 
 LATER FOR SOMEONE (roughly in order of priority):
 - 'Mark Last Used' button to 'record' a bet (i.e. config of the column thresholds for shown players). Different denotation than default in pulldown. Maybe buttons to set all players to default/last?
+    - For 'record bet' button: set pulldown values profile paired with date, and then also have a button to 'load' that profile. show dupe of all the cols with the loaded profile)
+    - Bet recording could also be made external and loaded in if making it write data is a pain, i.e. from notion
+- Automation of data pull based on CTG IDs or other data source (use to build appropriate URL and download the CSV and import)
 - Add support for multi-year stats 
     - Control over years/date range used in calculating percentages and counts
     - Also: 'last X games' (start with 5 or 10, ideally customizable)
     - Ideally show each in section, with bookmark links and summaries at top
     - Need to handle players changing teams better. Maybe some way to limit start date for a player as a hack fix?
+- If player is ignored on all columns (limit 999), don't count in success calcs
 - Make player names be links to their NBA advanced box scores page
 - Show column for opponent next to game date (can probably grab it when we pull the date ID?)
 - Clean up game date string
-- Automation of data pull based on CTG IDs or other data source (use to build appropriate URL and download the CSV and import)
-- More stats: blocks, steals
+- Still show numbers on disabled cols
+- Shades of green for amt above thresh
+- Add area for notes on player. e.g. avoid jaren jackson for anything but rebs because of foul trouble
+- Per player of the same thing, so I can skip a player if they in particular are bad against a team
+- More stats: blocks, steals, 3PA, FGA/FGM, game score, if went to OT, win/lose, minutes played
 - Indicate  home vs away (+ summary stats), playoffs (+ summary stats), back-to-backs, day games,
+- Warning labels for player being injured/returning from injury (Underdog NBA (@Underdog__NBA) / Twitter might be helpful - embedding tweets related to players/team?) 
 - Calculate and show desired odds for +EV based on success rate of current display
+- Success rate for selected player stats vs specific teams in a sidebar: help avoid getting on teams they do poorly against. Also maybe just aggregate how often all players miss against a particular team?
+- https://www.oddsshark.com/nba/ats-standings - definitely another less interesting data-edge to be found with things like this. wonder how early these trends develop and if they hold up historically (within reason)
 
+Kelly criterion, Gamblers podcast, Send Frank the bb stats thing once the live site has been updated 
 */
 
 import { TRACKED_STATS, FORMAT_THRESHOLDS, STAT_THRESHOLDS } from "./constants";
