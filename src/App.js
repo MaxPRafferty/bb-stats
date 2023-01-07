@@ -11,11 +11,6 @@ function App(props) {
     };
     return (
         <div className="App">
-            <header className="App-header">
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-            </header>
             <article>
                 <select value={selectedTeam} onChange={handleTeamChange}>
                     {Object.keys(PlayerDataMap).map((team) => {
