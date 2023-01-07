@@ -20,17 +20,18 @@ FOR MAX:
 
 
 LATER FOR SOMEONE (roughly in order of priority):
-- 'Mark As Last Used' button to 'record' a bet (i.e. config of the column thresholds for shown players). Different denotation than default in pulldown. Maybe buttons to set all players to default/last?
+- 'Mark Last Used' button to 'record' a bet (i.e. config of the column thresholds for shown players). Different denotation than default in pulldown. Maybe buttons to set all players to default/last?
 - Add support for multi-year stats 
     - Control over years/date range used in calculating percentages and counts
     - Also: 'last X games' (start with 5 or 10, ideally customizable)
     - Ideally show each in section, with bookmark links and summaries at top
     - Need to handle players changing teams better. Maybe some way to limit start date for a player as a hack fix?
+- Make player names be links to their NBA advanced box scores page
 - Show column for opponent next to game date (can probably grab it when we pull the date ID?)
 - Clean up game date string
 - Automation of data pull based on CTG IDs or other data source (use to build appropriate URL and download the CSV and import)
 - More stats: blocks, steals
-- Indicate back-to-backs, home vs away (this one might be worth summarizing too), day games
+- Indicate  home vs away (+ summary stats), playoffs (+ summary stats), back-to-backs, day games,
 - Calculate and show desired odds for +EV based on success rate of current display
 
 */
