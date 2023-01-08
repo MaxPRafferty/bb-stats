@@ -168,12 +168,10 @@ const ColumnComparison = ({ data, team }) => {
                         <tr>
                             <td></td>
                             {allPlayersNames.map(player => <td colSpan={numTrackedStats}> 
-                                <a href= 
-                                    { 
-                                        "https://www.nba.com/stats/player/"+allPlayers[player].nbaid+"/boxscores-traditional"
-                                    } >
-                                {player} 
+                                <a href={ "https://www.nba.com/stats/player/"+allPlayers[player].nbaid+"/boxscores-traditional" } >
+                                    { player } 
                                 </a>
+                                <span title={allPlayers[player].notes}>{ allPlayers[player].notes && allPlayers[player].notes.length > 0 ? " 📝" : "" }</span>
                             </td>)}
                             <td></td>
                         </tr>
