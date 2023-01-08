@@ -9,7 +9,6 @@ let gameParticipation = {};
 
 const getPlayerList = (team, teams) => {
     //return Object.keys(PlayerDataMap[team]);
-    debugger;
     if(!team || !teams || teams.length === 0) {
         return [];
     }
@@ -114,7 +113,6 @@ const getCellsForPlayerFromAPI = (playerGames, games, playerId, gameId, team) =>
     const gameInfo = games.find(game => game.id === gameId);
     const gameStatDataForPlayer = playerGames.find(game => game.game.id === gameId);
     let teamName
-            debugger;
     if(team === "1") {
         teamName = 'Hawks'
     }
