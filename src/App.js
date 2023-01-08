@@ -59,8 +59,8 @@ function App(props) {
         <div className="App">
             <article>
                 <select value={selectedTeam} onChange={handleTeamChange}>
-                    {Object.keys(PlayerDataMap).map((team) => {
-                        return <option value={team}>{team}</option>;
+                    {teams.map((team) => {
+                        return <option value={team.id}>{team.nickname}</option>;
                     })}
                 </select>
                 <select value={selectedSeason} onChange={handleSeasonChange}>

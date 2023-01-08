@@ -247,20 +247,19 @@ const ColumnComparison = ({ players, teams, games, loading, team, season }) => {
                 </div>
             <div>
                 <table>
-                    {/*
                     <thead>
                         <tr>
                             <td></td>
                             {players.map(player => <td colSpan={numTrackedStats}>{player}</td>)}
                             <td></td>
                         </tr>
+                        
                         <tr>
                             <td></td>
                             {players.map(() => Object.keys(TRACKED_STATS).map(stat => <td>{stat}</td>))}
                             <td></td>
                         </tr>
                     </thead>
-    */}
                     <tbody>
                         {Object.keys(localGameParticipation).sort().reverse().map(gameConfigKey => <tr>{getTableRowFromAPIGame(localGameParticipation, gameConfigKey, team, season, players, games)}</tr>)}
                     </tbody>

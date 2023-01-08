@@ -236,13 +236,9 @@ const getMappedPlayers = (teamName, players) => {
         }
       }
         *  */
+            const playerId = mappedPlayers[playerName].rapidid;
 
-            /* MPR, 2023/1/7: We should probably replace this with a simple ID check */
-            const statPlayer = players.find(
-                (p) =>
-                    playerName.indexOf(p.firstname) !== -1 &&
-                    playerName.indexOf(p.lastname) !== -1
-            );
+            const statPlayer = players.find((p) => p.id === playerId);
 
             if (statPlayer) {
                 return [...a, statPlayer];
