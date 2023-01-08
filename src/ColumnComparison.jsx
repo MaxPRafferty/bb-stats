@@ -240,7 +240,11 @@ const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, playe
     const home = gamesPlayed.location === 'home'
 
     return <>
-        <td>{gamesPlayed.date}&nbsp;{home ? 'v' : '@'}<img src={gamesPlayed.opponentLogo} height="15" width="15" /></td>
+        <td>
+            <div style={{display:"inline-block", width:135, textAlign:"left"}}>{gamesPlayed.date}</div>
+            <div style={{display:"inline-block", width:25}}>{ home ? 'vs. ' : '@ '}</div>
+            <div style={{display:"inline-block", width:25}}><img src={gamesPlayed.opponentLogo} height="20" width="20" /></div>
+        </td>
         {players.map(playerGames => {
             const playerId = playerGames[0].player.id;
             const didPlay = gamesPlayed.players.includes(playerId);
