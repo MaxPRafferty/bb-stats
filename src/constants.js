@@ -36,12 +36,12 @@ export const TRACKED_STATS = {
     turnovers : 3
     */
 export const TRACKED_STATS = {
-    MIN: "min",
     PTS: "points",
     AST: "assists",
     REB: "totReb",
     "3PM": "tpm",
     "3PA": "tpa",
+    MIN: "min",
     "         ": "         ",
 };
 

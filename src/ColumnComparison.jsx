@@ -268,7 +268,7 @@ const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, playe
 
     return <>
         <td>
-            <div style={{display:"inline-block", width:100, textAlign:"left"}}>{gameData.date}</div>
+            <div style={{display:"inline-block", width:95, textAlign:"left"}}>{gameData.date}</div>
             <div style={{display:"inline-block", width:25}}>{ gameData.tod === "day" ? "☀️" : "🌙" }</div>
             <div style={{display:"inline-block", width:25}}>{ home ? 'vs.' : '@'}</div>
             <div style={{display:"inline-block", width:25}}><img src={gameData.opponentLogo} height="20" width="20" /></div>
