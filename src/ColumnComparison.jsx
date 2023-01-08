@@ -7,9 +7,14 @@ const numTrackedStats = Object.keys(TRACKED_STATS).length;
 
 let gameParticipation = {};
 
-const getPlayerList = (team) => {
+const getPlayerList = (team, teams) => {
     //return Object.keys(PlayerDataMap[team]);
-    return PlayerDataMap[team];
+    debugger;
+    if(!team || !teams || teams.length === 0) {
+        return [];
+    }
+    const teamData = teams.find(t => `${t.id}` === `${team}`);
+    return PlayerDataMap[teamData.nickname];
 }
 
 const getStatThresholdColor = (value, stat, playerConfig) => {
@@ -148,7 +153,7 @@ const getCellsForPlayerFromAPI = (playerGames, games, playerId, gameId, team) =>
         {Object.keys(TRACKED_STATS).map(statKey => {
             const stat = TRACKED_STATS[statKey];
             let value = gameStatDataForPlayer[stat];
-            return <td style={{ backgroundColor: getStatThreshold(value, stat, playerConfig) }}>{value}</td>
+            return <td style={{ backgroundColor: getStatThresholdColor(value, stat, playerConfig) }}>{value}</td>
         })}
     </>
 }
@@ -224,19 +229,17 @@ const getTableRowFromAPIGame = (gameConfigs, gameDateId, team, season, players, 
     </>
 }
 
-const ColumnComparison = ({ data, team }) => {
-    const allPlayers = getPlayerList(team);
+const ColumnComparison = ({ teams, players, games, loading, team, season }) => {
+    const allPlayers = getPlayerList(team, teams);
     const allPlayersNames = Object.keys(allPlayers);
-
-    let playersLoaded = allPlayersNames.reduce((a, v) => {
-        return a && !!data[v];
-    }, true)
+    const [currentSelection, setCurrentSelection] = useState('')
+    const [localGameParticipation, setLocalGameParticipation] = useState('')
 
     useEffect(() => {
         if(`${team}${season}` !== currentSelection && !loading && games.length && players.length) {
             gameParticipation = {};
             getGameDatesFromAPI(players, games);
-            setLocalGameParticipaton(gameParticipation);
+            setLocalGameParticipation(gameParticipation);
             setCurrentSelection(`${team}${season}`);
         }
     });

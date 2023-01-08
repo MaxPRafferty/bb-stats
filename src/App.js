@@ -32,6 +32,7 @@ function App(props) {
                 }
             );
             setPlayersLoading(true);
+
             getPlayerStatsByGamesPerTeamPerSeason(
                 selectedTeam,
                 selectedSeason
@@ -41,6 +42,7 @@ function App(props) {
             });
         }
     }, [selectedSeason, selectedTeam]);
+
     useEffect(() => {
         if (!teamsLoading && teams.length < 1) {
             setTeamsLoading(true);
@@ -49,7 +51,8 @@ function App(props) {
                 setTeamsLoading(false);
             });
         }
-    }, []);
+    }, [teamsLoading]);
+
     console.log(
         `(app) rendering with ${games.length} games and ${players.length} players`
     );
