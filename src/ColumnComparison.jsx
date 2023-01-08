@@ -12,6 +12,9 @@ const getPlayerList = (team) => {
 }
 
 const getStatThresholdColor = (value, stat, playerConfig) => {
+    if (stat == TRACKED_STATS["       "]) {
+        return 'white';
+    }
     let limit = FORMAT_THRESHOLDS[stat][0];
     if (playerConfig != null && playerConfig.defaultStats != null) {
         if (playerConfig.defaultStats[stat] === undefined || playerConfig.defaultStats[stat] == -1) {
@@ -127,7 +130,7 @@ const getTableRowFromGame = (data, gameDateID, team, allPlayers) => {
             }
             return <td colSpan={numTrackedStats}>dnp</td>
         })}
-        <td style={{ backgroundColor: getSummaryColor(checkRowSuccess(data, gameDateID, team, allPlayers)) }}>Success</td>
+        <td style={{ color: 'white', backgroundColor: getSummaryColor(checkRowSuccess(data, gameDateID, team, allPlayers)) }}>Success</td>
     </>
 }
 

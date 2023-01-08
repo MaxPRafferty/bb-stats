@@ -5,7 +5,6 @@ ASAP:
     - playerMap data define their default level: init the pulldown to that value and indicate it with a * or something
     - bonus: in the pulldown list, on each entry show a parenthetical with the count and percent for that player on that 
         stat to make it easier to figure out at what level a player is consistent
-- Add a little space between players
 - Certain teams get stuck on "loading...". Nets, Jazz, Pistons, Timberwolves
 - Sometimes shows teams as all "dnp". Seems to be appear randomly but pretty consistently after switching between a few teams. 
     Once it occurs, if you keep arrowing between the teams (i.e. focus the select pulldown and then nav with arrows to change teams), 
@@ -45,7 +44,7 @@ import { TRACKED_STATS, FORMAT_THRESHOLDS, STAT_THRESHOLDS } from "./constants";
 const PlayerDataMap = {
 
     
-    Bucks: { // missing middleton, connaughton
+    Bucks: { 
         "Khris Middleton": {
             ctgid: 2495,
             nbaid: 1,
