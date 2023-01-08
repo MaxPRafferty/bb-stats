@@ -1,8 +1,44 @@
+/* Old Mapping
 export const TRACKED_STATS = {
     PTS: "PTS",
     AST: "AST",
     REB: "REB",
     "3PM": "3PM/A",
+};
+*/
+
+/* player data shape
+    assists : 13
+    blocks : 1
+    comment : null
+    defReb : 3
+    fga : 22
+    fgm : 7
+    fgp : "31.8"
+    fta : 8
+    ftm : 8
+    ftp : "100.0"
+    game : {id: 11054}
+    min : "38"
+    offReb : 0
+    pFouls : 1
+    player : {id: 1046, firstname: 'Trae', lastname: 'Young'}
+    plusMinus : "+16"
+    points : 23
+    pos : "PG"
+    steals : 1
+    team : {id: 1, name: 'Atlanta Hawks', nickname: 'Hawks', code: 'ATL', logo: 'https://upload.wikimedia.org/wikipedia/fr/e/ee/Hawks_2016.png'}
+    totReb : 3
+    tpa : 9
+    tpm : 1
+    tpp : "11.1"
+    turnovers : 3
+    */
+export const TRACKED_STATS = {
+    PTS: "points",
+    AST: "assists",
+    REB: "totReb",
+    "3PM": "tpm",
 };
 
 export const FORMAT_THRESHOLDS = {

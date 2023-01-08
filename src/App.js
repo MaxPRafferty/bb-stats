@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import ColumnComparison from "./ColumnComparison";
@@ -10,12 +10,14 @@ import {
 } from "./client";
 
 function App(props) {
-    const [selectedTeam, setSelectedTeam] = useState("2");
+    const [selectedTeam, setSelectedTeam] = useState("1");
     const [selectedSeason, setSelectedSeason] = useState("2022");
     const [games, setGames] = useState([]);
     const [players, setPlayers] = useState([]);
     const [teams, setTeams] = useState([]);
     const [teamsLoading, setTeamsLoading] = useState(false);
+    const [gamesLoading, setGamesLoading] = useState(false);
+    const [playersLoading, setPlayersLoading] = useState(false);
     const handleTeamChange = (event) => {
         setSelectedTeam(event.target.value);
     };
@@ -24,14 +26,20 @@ function App(props) {
     };
     useEffect(() => {
         if (selectedSeason && selectedTeam) {
-            getGamesPerTeamPerSeason().then((games) => {
-                setGames(games);
-            });
+            setGamesLoading(true);
+            getGamesPerTeamPerSeason(selectedTeam, selectedSeason).then(
+                (games) => {
+                    setGames(games);
+                    setGamesLoading(false);
+                }
+            );
+            setPlayersLoading(true);
             getPlayerStatsByGamesPerTeamPerSeason(
                 selectedTeam,
                 selectedSeason
             ).then((stats) => {
                 setPlayers(stats);
+                setPlayersLoading(false);
             });
         }
     }, [selectedSeason, selectedTeam]);
@@ -44,6 +52,9 @@ function App(props) {
             });
         }
     }, []);
+    console.log(
+        `(app) rendering with ${games.length} games and ${players.length} players`
+    );
     return (
         <div className="App">
             <article>
@@ -58,7 +69,10 @@ function App(props) {
                     <option value="2020">2020</option>
                 </select>
                 <ColumnComparison
-                    data={props.data}
+                    teams={teams}
+                    players={players}
+                    games={games}
+                    loading={gamesLoading && playersLoading}
                     team={selectedTeam}
                     season={selectedSeason}
                 ></ColumnComparison>

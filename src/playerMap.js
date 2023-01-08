@@ -39,9 +39,8 @@ LATER FOR SOMEONE (roughly in order of priority):
 import { TRACKED_STATS, FORMAT_THRESHOLDS, STAT_THRESHOLDS } from "./constants";
 
 const PlayerDataMap = {
-
-    
-    Bucks: { // missing middleton, connaughton
+    Bucks: {
+        // missing middleton, connaughton
         /* INJURED
         "Khris Middleton": {
             ctgid: 2495,
@@ -59,7 +58,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][20],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][6],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Jrue Holiday": {
@@ -68,7 +68,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Brook Lopez": {
@@ -77,7 +78,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Grayson Allen": {
@@ -86,7 +88,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Bobby Portis": {
@@ -95,19 +98,22 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
     },
 
-    Bulls: { // missing lonzo
+    Bulls: {
+        // missing lonzo
         "DeMar DeRozan": {
             ctgid: 867,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Zach LaVine": {
@@ -116,7 +122,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Nikola Vucevic": {
@@ -125,7 +132,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][6],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Ayo Dosunmu": {
@@ -134,7 +142,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Patrick Williams": {
@@ -143,28 +152,32 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999], // 4?
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
     },
 
-    Cavaliers: { // missing levert, klove
+    Cavaliers: {
+        // missing levert, klove
         "Darius Garland": {
             ctgid: 4576,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][4],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Donovan Mitchell": {
             ctgid: 4362,
             defaultStats: {
-                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15], 
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Evan Mobley": {
@@ -173,7 +186,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Jarrett Allen": {
@@ -182,7 +196,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
 
@@ -192,14 +207,16 @@ const PlayerDataMap = {
         */
     },
 
-    Celtics: { // missing robwill
+    Celtics: {
+        // missing robwill
         "Jaylen Brown": {
             ctgid: 454,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999], // 2
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999], // 4
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Jayson Tatum": {
@@ -208,7 +225,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Al Horford": {
@@ -217,7 +235,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999], // 2
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999], // 1
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999], // 1
                 // maybe blocks?
             },
         },
@@ -227,7 +246,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2], // 4?
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
                 // maybe steals?
             },
         },
@@ -237,7 +257,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Malcolm Brogdon": {
@@ -246,16 +267,18 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
-        }, 
+        },
         "Derrick White": {
             ctgid: 4304,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999], // 1
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999], // 1
             },
         },
         /* INJURED
@@ -272,14 +295,16 @@ const PlayerDataMap = {
         */
     },
 
-    Clippers: { // missing jackson, wall, zubac, morris, coffey, mann
+    Clippers: {
+        // missing jackson, wall, zubac, morris, coffey, mann
         "Kawhi Leonard": {
             ctgid: 2173,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Paul George": {
@@ -288,7 +313,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
 
@@ -302,14 +328,16 @@ const PlayerDataMap = {
         */
     },
 
-    Grizzlies: { // missing brandon clarke, danny green
+    Grizzlies: {
+        // missing brandon clarke, danny green
         "Ja Morant": {
             ctgid: 4573,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1], // 999
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1], // 999
             },
         },
         "Desmond Bane": {
@@ -318,7 +346,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Steven Adams": {
@@ -327,7 +356,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][6],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Dillon Brooks": {
@@ -336,7 +366,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Jaren Jackson Jr": {
@@ -345,7 +376,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
                 // maybe blocks?
             },
         },
@@ -355,7 +387,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
 
@@ -364,24 +397,29 @@ const PlayerDataMap = {
         Danny Green
         */
     },
-    
-    Hawks: { // missing bodganovic, capela hurt
+
+    Hawks: {
+        // missing bodganovic, capela hurt
         "Trae Young": {
             ctgid: 4423,
+            rapidid: 1046,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][4],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Dejounte Murray": {
             ctgid: 2630,
+            rapidid: 382,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10], // 15
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2], // 4
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999], // 4
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         /*
@@ -397,20 +435,24 @@ const PlayerDataMap = {
         */
         "John Collins": {
             ctgid: 4253,
+            rapidid: 761,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999], // 4?
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "DeAndre Hunter": {
             ctgid: 4575,
+            rapidid: 1868,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999], // 4?
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1], // 999 
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1], // 999
             },
         },
 
@@ -419,14 +461,16 @@ const PlayerDataMap = {
         */
     },
 
-    Heat: { // missing strus
+    Heat: {
+        // missing strus
         "Jimmy Butler": {
             ctgid: 526,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999], // 4?
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Bam Adebayo": {
@@ -435,7 +479,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999], // 2?
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][6],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Kyle Lowry": {
@@ -444,7 +489,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10], // 999
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2], // 4?
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Tyler Herro": {
@@ -453,7 +499,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Caleb Martin": {
@@ -462,7 +509,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999], // 4?
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
 
@@ -471,7 +519,8 @@ const PlayerDataMap = {
         */
     },
 
-    Hornets: { // missing kelly oubre jr
+    Hornets: {
+        // missing kelly oubre jr
         /* INJURED
         "Gordon Hayward": {
             ctgid: 1555,
@@ -500,7 +549,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][14], // 10
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][2],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "PJ Washington": {
@@ -509,7 +559,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10], // 999
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][2],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Mason Plumlee": {
@@ -518,7 +569,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4], // 999
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
 
@@ -527,14 +579,16 @@ const PlayerDataMap = {
         */
     },
 
-    Jazz: { // missing malik beasley
+    Jazz: {
+        // missing malik beasley
         "Lauri Markannen": {
             ctgid: 4314,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10], // 15
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Collin Sexton": {
@@ -543,7 +597,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Mike Conley": {
@@ -552,7 +607,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2], // 4
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Jordan Clarkson": {
@@ -561,7 +617,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10], // 15
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Jarred Vanderbilt": {
@@ -570,7 +627,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Kelly Olynyk": {
@@ -579,7 +637,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
 
@@ -588,14 +647,16 @@ const PlayerDataMap = {
         */
     },
 
-    Kings: { // missing huerter, monk, murray
+    Kings: {
+        // missing huerter, monk, murray
         "De'Aaron Fox": {
             ctgid: 4296,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][2],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Domantas Sabonis": {
@@ -604,7 +665,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][3], // 2
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][6],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Harrison Barnes": {
@@ -613,7 +675,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][8],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][2],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
 
@@ -624,14 +687,16 @@ const PlayerDataMap = {
         */
     },
 
-    Knicks: { // none missing
+    Knicks: {
+        // none missing
         "Jalen Brunson": {
             ctgid: 4466,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15], // 10
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][4], // 2
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1], // 999
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1], // 999
             },
         },
         "Julius Randle": {
@@ -640,7 +705,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "RJ Barrett": {
@@ -649,16 +715,18 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
-        "Mitchell Robinson": { 
+        "Mitchell Robinson": {
             ctgid: 4479,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999], // 4
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Evan Fournier": {
@@ -667,19 +735,22 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
     },
-    
-    Lakers: { // missing westbrook, lonnie walker
+
+    Lakers: {
+        // missing westbrook, lonnie walker
         "LeBron James": {
             ctgid: 1785,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][20],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1], // rarely only hits 1 two games in a row: if hit 1 last game, maybe push to 2
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1], // rarely only hits 1 two games in a row: if hit 1 last game, maybe push to 2
             },
         },
         "Anthony Davis": {
@@ -688,7 +759,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2], // major iffy 2
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][6],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
 
@@ -716,7 +788,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Cole Anthony": {
@@ -725,7 +798,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Wendell Carter Jr": {
@@ -734,7 +808,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Mo Bamba": {
@@ -743,19 +818,22 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
     },
 
-    Mavericks: { // none missing
+    Mavericks: {
+        // none missing
         "Luka Doncic": {
             ctgid: 4432,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][24],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][4],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Christian Wood": {
@@ -764,7 +842,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999], // 10
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Dorian Finney-Smith": {
@@ -773,7 +852,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][2],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Reggie Bullock": {
@@ -782,7 +862,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][1],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Spencer Dinwiddie": {
@@ -791,7 +872,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999], // 10
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][1],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Tim Hardaway Jr": {
@@ -800,7 +882,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
     },
@@ -812,7 +895,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Kyrie Irving": {
@@ -821,7 +905,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         /* INJURY RETURN
@@ -841,7 +926,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Nic Claxton": {
@@ -850,7 +936,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Joe Harris": {
@@ -859,7 +946,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
     },
@@ -871,7 +959,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         /* INJURY RETURN
@@ -902,7 +991,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Kentavious Caldwell-Pope": {
@@ -911,7 +1001,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
     },
@@ -923,7 +1014,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         /* ROOKIE
@@ -943,7 +1035,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Myles Turner": {
@@ -952,7 +1045,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Jalen Smith": {
@@ -961,7 +1055,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Chris Duarte": {
@@ -970,7 +1065,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "TJ McConnell": {
@@ -979,7 +1075,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
     },
@@ -1002,7 +1099,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "CJ McCollum": {
@@ -1011,7 +1109,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Herb Jones": {
@@ -1020,7 +1119,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Jonas Valanciunas": {
@@ -1029,7 +1129,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
     },
@@ -1041,7 +1142,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Saddiq Bey": {
@@ -1050,7 +1152,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         /* ROOKIE
@@ -1070,7 +1173,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Isaiah Stewart": {
@@ -1079,7 +1183,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
     },
@@ -1091,7 +1196,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][4],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Pascal Siakam": {
@@ -1100,7 +1206,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Scottie Barnes": {
@@ -1109,7 +1216,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][4],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "OG Anunoby": {
@@ -1118,7 +1226,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999], // 2
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999], // 4
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
     },
@@ -1130,7 +1239,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Kevin Porter Jr": {
@@ -1139,7 +1249,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Alperen Sengun": {
@@ -1148,7 +1259,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
     },
@@ -1160,7 +1272,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][20],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][8],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "James Harden": {
@@ -1169,7 +1282,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][6],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999], // maybe 4 (effort)
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Tyrese Maxey": {
@@ -1178,7 +1292,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999], // maybe 2
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999], // maybe 1
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999], // maybe 1
             },
         },
         "Tobias Harris": {
@@ -1187,7 +1302,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999], // maybe 2
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         /*
@@ -1219,7 +1335,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Devin Vassell": {
@@ -1228,7 +1345,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Tre Jones": {
@@ -1237,7 +1355,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Jakob Poeltl": {
@@ -1246,7 +1365,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
     },
@@ -1258,7 +1378,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Devin Booker": {
@@ -1267,7 +1388,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "DeAndre Ayton": {
@@ -1276,7 +1398,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Mikal Bridges": {
@@ -1285,7 +1408,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Cameron Johnson": {
@@ -1294,7 +1418,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
     },
@@ -1306,7 +1431,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15], // 999
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][1],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][2],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Karl-Anthony Towns": {
@@ -1315,7 +1441,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15], // 10
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Rudy Gobert": {
@@ -1323,8 +1450,9 @@ const PlayerDataMap = {
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][8], // 999
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
-                [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][6], 
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][6],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "D'Angelo Russell": {
@@ -1333,7 +1461,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][4],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][1],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
     },
@@ -1345,7 +1474,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Shai Gilgeous-Alexander": {
@@ -1354,7 +1484,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Lu Dort": {
@@ -1363,19 +1494,22 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
     },
 
-    Trailblazers: { // missing justise winslow
+    Trailblazers: {
+        // missing justise winslow
         "Damian Lillard": {
             ctgid: 2197,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Anfernee Simons": {
@@ -1384,7 +1518,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][1],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][2],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][2],
             },
         },
         "Jusuf Nurkic": {
@@ -1393,7 +1528,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][6],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Jerami Grant": {
@@ -1402,7 +1538,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][14],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][1],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][2],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Josh Hart": {
@@ -1411,7 +1548,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
 
@@ -1420,23 +1558,26 @@ const PlayerDataMap = {
         */
     },
 
-    Warriors: { // none missing
+    Warriors: {
+        // none missing
         "Stephen Curry": {
             ctgid: 787,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][19], // iffy 15 // 19
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][3],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][3],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][2],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][2],
             },
         },
         "Jordan Poole": {
             ctgid: 4599,
             defaultStats: {
-                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],// minor iffy 10
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999], // minor iffy 10
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][1], // iffy 2
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999], // minor iffy 1
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999], // minor iffy 1
             },
         },
         "Andrew Wiggins": {
@@ -1444,8 +1585,9 @@ const PlayerDataMap = {
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
-                [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][2], // iffy 4 
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1], // iffy 1
+                [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][2], // iffy 4
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1], // iffy 1
             },
         },
         "Klay Thompson": {
@@ -1454,7 +1596,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][1],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][2],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][2],
             },
         },
         /* NEW TO TEAM
@@ -1474,7 +1617,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][4],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][4],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][3], // minor iffy 4
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
                 // maybe steals
             },
         },
@@ -1484,7 +1628,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999], // iffy 2
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999], // iffy 4
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Jonathan Kuminga": {
@@ -1493,7 +1638,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         /* DATA FROM DIFFERENT YEAR, WAS INJURED LAST YEAR
@@ -1509,14 +1655,16 @@ const PlayerDataMap = {
         */
     },
 
-    Wizards: { // missing avdija
+    Wizards: {
+        // missing avdija
         "Bradley Beal": {
             ctgid: 231,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][3],
-                [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][2], // 999 
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1], // 999
+                [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][2], // 999
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1], // 999
             },
         },
         "Kristaps Porzingis": {
@@ -1525,7 +1673,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][14],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Kyle Kuzma": {
@@ -1534,7 +1683,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][1],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][4],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
         "Will Barton": {
@@ -1543,7 +1693,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Monte Morris": {
@@ -1552,7 +1703,8 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][2],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Rui Hachimura": {
@@ -1561,11 +1713,11 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999],
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
+                [TRACKED_STATS["3PM"]]:
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
     },
-
 };
 
 export default PlayerDataMap;
