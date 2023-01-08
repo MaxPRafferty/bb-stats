@@ -10,17 +10,17 @@ ASAP:
     Once it occurs, if you keep arrowing between the teams (i.e. focus the select pulldown and then nav with arrows to change teams), 
     it seems to shift the bug to different teams and eventually it makes its way to the Bucks, the first team in the list.
     At that point, the Bucks will all show as all "dnp" until you refresh the page. 
+- Automation of data pull based on CTG IDs or other data source (use to build appropriate URL and download the CSV and import)
 
 
 LATER (roughly in order of priority):
 - 'Mark Last Used' button to 'record' a bet (i.e. config of the column thresholds for shown players). Different denotation than default in pulldown. Maybe buttons to set all players to default/last?
     - For 'record bet' button: set pulldown values profile paired with date, and then also have a button to 'load' that profile. show dupe of all the cols with the loaded profile)
     - Bet recording could also be made external and loaded in if making it write data is a pain, i.e. from notion
-- Automation of data pull based on CTG IDs or other data source (use to build appropriate URL and download the CSV and import)
 - Add support for multi-year stats 
     - Control over years/date range used in calculating percentages and counts
     - Also: 'last X games' (start with 5 or 10, ideally customizable)
-    - Ideally show each in section, with bookmark links and summaries at top
+    - Ideally show each in section, with anchor links and summaries at top
     - Need to handle players changing teams better. Maybe some way to limit start date for a player as a hack fix?
 - Show column for opponent next to game date (can probably grab it when we pull the date ID?)
 - Clean up game date string
@@ -330,7 +330,7 @@ const PlayerDataMap = {
             ctgid: 454,
             nbaid: 1627759,
             rapidid: 75,
-            notes: "TEST NOTE",
+            notes: "",
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999], // 2
@@ -2242,7 +2242,7 @@ const PlayerDataMap = {
         },
     },
 
-    Sixers: {
+    "76ers": {
         "Joel Embiid": {
             ctgid: 1049,
             nbaid: 1,
