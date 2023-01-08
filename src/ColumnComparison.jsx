@@ -193,7 +193,7 @@ const checkRowSuccess = (data, gameDateID, team, allPlayers) => {
 }
 
 const checkRowSuccessFromAPI = (players) => {
-    debugger;
+    //debugger;
 }
 
 const getTableRowFromGame = (data, gameDateID, team, allPlayers) => {
@@ -214,10 +214,14 @@ const getTableRowFromGame = (data, gameDateID, team, allPlayers) => {
 const getTableRowFromAPIGame = (gameConfigs, gameDateId, team, season, players, games) => {
     const gamesPlayed = gameConfigs[gameDateId];
     console.log(gameDateId);
-    const home = gamesPlayed.location === 'home'
+    const home = gamesPlayed.location === "home"
 
     return <>
-        <td>{gamesPlayed.date}&nbsp;{home ? 'v' : '@'}<img src={gamesPlayed.opponentLogo} height="15" width="15" /></td>
+        <td>
+            <div style={{display:"inline-block", width:135, textAlign:"left"}}>{gamesPlayed.date}</div>
+            <div style={{display:"inline-block", width:25}}>{ home ? 'vs. ' : '@ '}</div>
+            <div style={{display:"inline-block", width:25}}><img src={gamesPlayed.opponentLogo} height="20" width="20" /></div>
+        </td>
         {players.map(playerGames => {
             const playerId = playerGames[0].player.id;
             const didPlay = gamesPlayed.players.includes(playerId);

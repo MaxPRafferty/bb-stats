@@ -37,15 +37,9 @@ const transformGamesForDisplay = (team, games) => {
 
         return {
             id: game.id,
-            location: game.teams.home.id === team ? "home" : "away",
-            opponent:
-                game.teams.home.id === team
-                    ? game.teams.visitors.nickname
-                    : game.teams.visitors.nickname,
-            opponentLogo:
-                game.teams.home.id === team
-                    ? game.teams.visitors.logo
-                    : game.teams.visitors.logo,
+            location:       `${game.teams.home.id}` === `${team}` ? "home"                        : "away",
+            opponent:       `${game.teams.home.id}` === `${team}` ? game.teams.visitors.nickname  : game.teams.home.nickname,
+            opponentLogo:   `${game.teams.home.id}` === `${team}` ? game.teams.visitors.logo      : game.teams.home.logo,
             date: new Date(game.date.start).toDateString(),
             dateId: game.date.start,
             rawData: game,
