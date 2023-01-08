@@ -177,7 +177,12 @@ const ColumnComparison = ({ data, team }) => {
                         </tr>
                         <tr>
                             <td></td>
-                            {allPlayersNames.map(() => Object.keys(TRACKED_STATS).map(stat => <td>{stat}</td>))}
+                            {allPlayersNames.map(() => Object.keys(TRACKED_STATS).map(stat => <td>
+                                    
+                                    {stat /* turn this into a pulldown, show % per stat */ }   
+                                
+                                </td>)
+                            )}
                             <td></td>
                         </tr>
                     </thead>
