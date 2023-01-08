@@ -203,6 +203,7 @@ const checkRowSuccess = (data, gameDateID, team, allPlayers) => {
     return !anyFailed;
 }
 
+
 const getIgnoreStat = (stat) => {
     return stat === TRACKED_STATS.MIN || stat === TRACKED_STATS["3PA"];
 }
@@ -267,12 +268,12 @@ const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, playe
 
     return <>
         <td>
-            <div style={{display:"inline-block", width:135, textAlign:"left"}}>{gameData.date}</div>
+            <div style={{display:"inline-block", width:100, textAlign:"left"}}>{gameData.date}</div>
             <div style={{display:"inline-block", width:25}}>{ gameData.tod === "day" ? "☀️" : "🌙" }</div>
             <div style={{display:"inline-block", width:25}}>{ home ? 'vs.' : '@'}</div>
             <div style={{display:"inline-block", width:25}}><img src={gameData.opponentLogo} height="20" width="20" /></div>
             <div style={{display:"inline-block", width:25}}>{ gameData.winLose }</div>
-            <div style={{display:"inline-block", width:75}}>{ gameScore }</div>
+            <div style={{display:"inline-block", width:75, paddingRight: 5}}>{ gameScore }</div>
 
         </td>
         {players.map(playerGames => {
