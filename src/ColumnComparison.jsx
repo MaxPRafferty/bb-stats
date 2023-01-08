@@ -151,7 +151,13 @@ const getCellsForPlayerFromAPI = (playerGames, games, playerId, gameId, team) =>
         {Object.keys(TRACKED_STATS).map(statKey => {
             const stat = TRACKED_STATS[statKey];
             let value = gameStatDataForPlayer[stat];
-            return <td style={{ backgroundColor: getStatThresholdColor(value, stat, playerConfig) }}>{value}</td>
+            let bgColor = getStatThresholdColor(value, stat, playerConfig);
+            if (bgColor == 'black') {
+                return <td style={{ backgroundColor: bgColor, color: 'gray' }}>{value}</td>
+            } else {
+                return <td style={{ backgroundColor: bgColor, color: 'white' }}>{value}</td>
+            }
+
         })}
     </>
 }
