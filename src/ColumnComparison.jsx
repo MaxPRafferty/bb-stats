@@ -54,6 +54,15 @@ const getNumSuccessfulGames = (data, team, allPlayers) => {
     return successes.filter((didSucceed) => didSucceed).length
 }
 
+const getNumSuccessfulGamesFromAPI = (teamName, players, localGameParticipation) => {
+    let successes = Object.keys(localGameParticipation).map((gameDateId) => {
+        const gameData = localGameParticipation[gameDateId]
+        const gameId = gameData.id;
+        return checkRowSuccessFromAPI(gameId, teamName, players, gameData);
+    });
+    return successes.filter((didSucceed) => didSucceed).length
+}
+
 const getGameDates = (data, allPlayers) => {
     allPlayers.forEach((player => {
         data[player].order.forEach((gameId => {
@@ -236,25 +245,25 @@ const getTableRowFromGame = (data, gameDateID, team, allPlayers) => {
     </>
 }
 const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, players, games) => {
-    const gamesPlayed = gameConfigs[gameDateId];
-    const home = gamesPlayed.location === 'home'
+    const gameData = gameConfigs[gameDateId];
+    const home = gameData.location === 'home'
 
     return <>
         <td>
-            <div style={{display:"inline-block", width:135, textAlign:"left"}}>{gamesPlayed.date}</div>
+            <div style={{display:"inline-block", width:135, textAlign:"left"}}>{gameData.date}</div>
             <div style={{display:"inline-block", width:25}}>{ home ? 'vs. ' : '@ '}</div>
-            <div style={{display:"inline-block", width:25}}><img src={gamesPlayed.opponentLogo} height="20" width="20" /></div>
+            <div style={{display:"inline-block", width:25}}><img src={gameData.opponentLogo} height="20" width="20" /></div>
         </td>
         {players.map(playerGames => {
             const playerId = playerGames[0].player.id;
-            const didPlay = gamesPlayed.players.includes(playerId);
+            const didPlay = gameData.players.includes(playerId);
             if (didPlay) {
                 // currentSelectionplayer, games, gameId, team
-                return getCellsForPlayerFromAPI(playerGames, games, playerId, gamesPlayed.gameIds[playerId], teamName);
+                return getCellsForPlayerFromAPI(playerGames, games, playerId, gameData.gameIds[playerId], teamName);
             }
             return <td colSpan={numTrackedStats}>dnp</td>
         })}
-        <td style={{ color: 'white', backgroundColor: getSummaryColor(checkRowSuccessFromAPI(gamesPlayed.id, teamName, players, gamesPlayed)) }}>Success</td>
+        <td style={{ color: 'white', backgroundColor: getSummaryColor(checkRowSuccessFromAPI(gameData.id, teamName, players, gameData)) }}>Success</td>
     </>
 }
 
@@ -288,7 +297,7 @@ const ColumnComparison = ({ teams, players, games, loading, team, season }) => {
     let numSuccess = getNumSuccessfulGames(data, team, allPlayersNames);
     let numTotal = getNumTotalGames();
     */
-   let numSuccess = 1;
+   let numSuccess = getNumSuccessfulGamesFromAPI(teamName, players, localGameParticipation);
    let numTotal = games.length;
 
     return (
