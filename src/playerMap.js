@@ -9,25 +9,20 @@ ASAP:
 - Sometimes shows teams as all "dnp". Seems to be appear randomly but pretty consistently after switching between a few teams. 
     Once it occurs, if you keep arrowing between the teams (i.e. focus the select pulldown and then nav with arrows to change teams), 
     it seems to shift the bug to different teams and eventually it makes its way to the Bucks, the first team in the list.
-    At that point, the Bucks will all show as all "dnp" until you refresh the page. 
-- Automation of data pull based on CTG IDs or other data source (use to build appropriate URL and download the CSV and import)
+    At that point, the Bucks will all show as all "dnp" until you refresh the page.
 
 
 LATER (roughly in order of priority):
 - 'Mark Last Used' button to 'record' a bet (i.e. config of the column thresholds for shown players). Different denotation than default in pulldown. Maybe buttons to set all players to default/last?
     - For 'record bet' button: set pulldown values profile paired with date, and then also have a button to 'load' that profile. show dupe of all the cols with the loaded profile)
     - Bet recording could also be made external and loaded in if making it write data is a pain, i.e. from notion
-- Add support for multi-year stats 
-    - Control over years/date range used in calculating percentages and counts
-    - Also: 'last X games' (start with 5 or 10, ideally customizable)
-    - Ideally show each in section, with anchor links and summaries at top
-    - Need to handle players changing teams better. Maybe some way to limit start date for a player as a hack fix?
-- More stats: blocks, steals, 3PA, FGA/FGM, game score, if went to OT, win/lose, minutes played
-- Playoffs as separate 'mode' (stage == 3 in the API data)
+- Finish time window controls (i.e. in addition to the year pulldown): reg season vs playoffs, text box to limit to last X games
+- More stats: blocks, steals, FGA/FGM
+- Show if went to OT, back to backs
+- Need to handle players changing teams better. Maybe some way to limit start date for a player as a hack fix?
 - Summary stats for home vs away, day vs night, etc
 - Shades of green for amt above thresh
-- Warning labels for player being injured/returning from injury (Underdog NBA (@Underdog__NBA) / Twitter might be helpful - embedding tweets related to players/team?) 
-- Indicate back-to-backs, maybe other factors?
+- Warning labels for player being injured/returning from injury (Underdog NBA (@Underdog__NBA) / Twitter might be helpful - embedding tweets related to players/team?)
 - Calculate and show desired odds for +EV based on success rate of current display
 - Per player summary vs opponents, so I can skip a player if they in particular are bad against a team
 - Success rate for selected player stats vs specific teams in a sidebar: help avoid getting on teams they do poorly against. Also maybe just aggregate how often all players miss against a particular team?

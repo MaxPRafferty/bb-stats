@@ -156,11 +156,17 @@ const getCellsForPlayerFromAPI = (playerGames, games, playerId, gameId, teamName
         {Object.keys(TRACKED_STATS).map(statKey => {
             const stat = TRACKED_STATS[statKey];
             let value = gameStatDataForPlayer[stat];
-            let bgColor = getStatThresholdColor(value, stat, playerConfig);
-            if (bgColor == 'black') {
-                return <td style={{ backgroundColor: bgColor, color: 'gray' }}>{value}</td>
+            if (getIgnoreStat(stat))
+            {
+                return <td style={{ backgroundColor: 'gray', color: 'black' }}>{value}</td>
+ 
             } else {
-                return <td style={{ backgroundColor: bgColor, color: 'white' }}>{value}</td>
+                let bgColor = getStatThresholdColor(value, stat, playerConfig);
+                if (bgColor == 'black') {
+                    return <td style={{ backgroundColor: bgColor, color: 'gray' }}>{value}</td>
+                } else {
+                    return <td style={{ backgroundColor: bgColor, color: 'white' }}>{value}</td>
+                }
             }
 
         })}
@@ -197,6 +203,10 @@ const checkRowSuccess = (data, gameDateID, team, allPlayers) => {
     return !anyFailed;
 }
 
+const getIgnoreStat = (stat) => {
+    return stat === TRACKED_STATS.MIN || stat === TRACKED_STATS["3PA"];
+}
+
 const checkRowSuccessFromAPI = (gameId, teamName, players, gamesPlayed) => {
     if(players == null || players.length === 0) {
         return false;
@@ -213,10 +223,14 @@ const checkRowSuccessFromAPI = (gameId, teamName, players, gamesPlayed) => {
         }
         return Object.keys(TRACKED_STATS).map(statKey => {
             const stat = TRACKED_STATS[statKey];
-            let value = gameStats[stat];
-            const teamPlayers = PlayerDataMap[teamName];
-            let playerName = Object.keys(teamPlayers).find(playerName => teamPlayers[playerName].rapidid === playerId)
-            return getStatThresholdColor(value, stat, teamPlayers[playerName]);
+            if (getIgnoreStat(stat)) {
+                return 'black';
+            } else {
+                let value = gameStats[stat];
+                const teamPlayers = PlayerDataMap[teamName];
+                let playerName = Object.keys(teamPlayers).find(playerName => teamPlayers[playerName].rapidid === playerId)
+                return getStatThresholdColor(value, stat, teamPlayers[playerName]);
+            }
         })
     })
     let anyFailed = false;
@@ -247,6 +261,9 @@ const getTableRowFromGame = (data, gameDateID, team, allPlayers) => {
 const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, players, games) => {
     const gameData = gameConfigs[gameDateId];
     const home = gameData.location === 'home'
+    let gameScore = gameData.score + " - " + gameData.opponentScore; // away
+    if (home)
+        gameScore = gameData.opponentScore + " - " + gameData.score;
 
     return <>
         <td>
@@ -254,6 +271,9 @@ const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, playe
             <div style={{display:"inline-block", width:25}}>{ gameData.tod === "day" ? "☀️" : "🌙" }</div>
             <div style={{display:"inline-block", width:25}}>{ home ? 'vs.' : '@'}</div>
             <div style={{display:"inline-block", width:25}}><img src={gameData.opponentLogo} height="20" width="20" /></div>
+            <div style={{display:"inline-block", width:25}}>{ gameData.winLose }</div>
+            <div style={{display:"inline-block", width:75}}>{ gameScore }</div>
+
         </td>
         {players.map(playerGames => {
             const playerId = playerGames[0].player.id;

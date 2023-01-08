@@ -46,6 +46,9 @@ const transformGamesForDisplay = (team, games) => {
             tod:            startTime < 18 ? "day" : "night", 
             date:           myDate.toDateString(),
             dateId:         game.date.start,
+            winLose:        `${game.teams.home.id}` === `${team}` ? (game.scores.home.points > game.scores.visitors.points ? "W" : "L") : (game.scores.visitors.points > game.scores.home.points ? "W" : "L"), 
+            score:          `${game.teams.home.id}` === `${team}` ? game.scores.home.points : game.scores.visitors.points,         
+            opponentScore:  `${game.teams.home.id}` === `${team}` ? game.scores.visitors.points : game.scores.home.points,
             rawData:        game,
         };
     });
