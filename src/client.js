@@ -93,7 +93,7 @@ const filterNonNBA = (teams) => {
 };
 
 export const getAllNBATeams = async () => {
-    const storageKey = `teamlist_team-${team}_season-${season}`;
+    const storageKey = `all_teams`;
     const storedTeams = window.localStorage.getItem(storageKey);
     let teamsResponse = Promise.resolve(JSON.parse(storedTeams));
 
