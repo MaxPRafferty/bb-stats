@@ -93,17 +93,28 @@ const filterNonNBA = (teams) => {
 };
 
 export const getAllNBATeams = async () => {
-    const options = {
-        method: "GET",
-        headers: {
-            "X-RapidAPI-Key": apiKey,
-            "X-RapidAPI-Host": apiHost,
-        },
-    };
+    const storageKey = `teamlist_team-${team}_season-${season}`;
+    const storedTeams = window.localStorage.getItem(storageKey);
+    let teamsResponse = Promise.resolve(JSON.parse(storedTeams));
 
-    return await fetch(`https://${apiHost}/teams`, options)
-        .then((response) => response.json()) // format to JSON
-        .then((response) => response.response) // strip useless metadata
+    if (!storedTeams) {
+        const options = {
+            method: "GET",
+            headers: {
+                "X-RapidAPI-Key": apiKey,
+                "X-RapidAPI-Host": apiHost,
+            },
+        };
+
+        teamsResponse = fetch(`https://${apiHost}/teams`, options)
+            .then((response) => response.json()) // format to JSON
+            .then((response) => response.response); // strip useless metadata
+    }
+    return await teamsResponse
+        .then((response) => {
+            window.localStorage.setItem(storageKey, JSON.stringify(response));
+            return response;
+        })
         .then((response) => filterNonNBA(response))
         .catch((err) => console.error(err));
 };
@@ -137,14 +148,19 @@ export const getPlayersPerTeamPerSeason = async (team, season) => {
 };
 
 export const getStatsByPlayerPerSeason = async (id, season) => {
-    const options = {
-        method: "GET",
-        headers: {
-            "X-RapidAPI-Key": apiKey,
-            "X-RapidAPI-Host": apiHost,
-        },
-    };
-    /*
+    const storageKey = `stats_player-${id}_season-${season}`;
+    const storedStats = window.localStorage.getItem(storageKey);
+    let statResponse = Promise.resolve(JSON.parse(storedStats));
+
+    if (storedStats) {
+        const options = {
+            method: "GET",
+            headers: {
+                "X-RapidAPI-Key": apiKey,
+                "X-RapidAPI-Host": apiHost,
+            },
+        };
+        /*
 stat data shape
       {
         "player": { "id": 236, "firstname": "Buddy", "lastname": "Hield"
@@ -177,12 +193,19 @@ stat data shape
       },
       */
 
-    return await fetch(
-        `https://${apiHost}/players/statistics?season=${season}&id=${id}`,
-        options
-    )
-        .then((response) => response.json()) // format to JSON
-        .then((response) => response.response) // strip useless metadata
+        statResponse = fetch(
+            `https://${apiHost}/players/statistics?season=${season}&id=${id}`,
+            options
+        )
+            .then((response) => response.json()) // format to JSON
+            .then((response) => response.response); // strip useless metadata
+    }
+
+    return await statResponse
+        .then((response) => {
+            window.localStorage.setItem(storageKey, JSON.stringify(response));
+            return response;
+        })
         .catch((err) => console.error(err));
 };
 
