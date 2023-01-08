@@ -22,16 +22,14 @@ LATER (roughly in order of priority):
     - Also: 'last X games' (start with 5 or 10, ideally customizable)
     - Ideally show each in section, with anchor links and summaries at top
     - Need to handle players changing teams better. Maybe some way to limit start date for a player as a hack fix?
-- Show column for opponent next to game date (can probably grab it when we pull the date ID?)
-- Clean up game date string
-- Per player of the same thing, so I can skip a player if they in particular are bad against a team
 - More stats: blocks, steals, 3PA, FGA/FGM, game score, if went to OT, win/lose, minutes played
-- Summary stats for home vs away
-- Indicate back-to-backs, day games, maybe other factors?
 - Playoffs as separate 'mode' (stage == 3 in the API data)
+- Summary stats for home vs away, day vs night, etc
 - Shades of green for amt above thresh
 - Warning labels for player being injured/returning from injury (Underdog NBA (@Underdog__NBA) / Twitter might be helpful - embedding tweets related to players/team?) 
+- Indicate back-to-backs, maybe other factors?
 - Calculate and show desired odds for +EV based on success rate of current display
+- Per player summary vs opponents, so I can skip a player if they in particular are bad against a team
 - Success rate for selected player stats vs specific teams in a sidebar: help avoid getting on teams they do poorly against. Also maybe just aggregate how often all players miss against a particular team?
 - https://www.oddsshark.com/nba/ats-standings - definitely another less interesting data-edge to be found with things like this. wonder how early these trends develop and if they hold up historically (within reason)
 
