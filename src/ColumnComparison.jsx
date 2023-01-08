@@ -186,7 +186,7 @@ const checkRowSuccess = (data, gameDateID, team, allPlayers) => {
     return !anyFailed;
 }
 
-const checkRowSuccessFromAPI = () => {
+const checkRowSuccessFromAPI = (players) => {
     debugger;
 }
 
@@ -208,9 +208,10 @@ const getTableRowFromGame = (data, gameDateID, team, allPlayers) => {
 const getTableRowFromAPIGame = (gameConfigs, gameDateId, team, season, players, games) => {
     const gamesPlayed = gameConfigs[gameDateId];
     console.log(gameDateId);
+    const home = gamesPlayed.location === 'home'
 
     return <>
-        <td>{gameDateId}</td>
+        <td>{gamesPlayed.date}&nbsp;{home ? 'v' : '@'}<img src={gamesPlayed.opponentLogo} height="15" width="15" /></td>
         {players.map(playerGames => {
             const playerId = playerGames[0].player.id;
             const didPlay = gamesPlayed.players.includes(playerId);
@@ -220,10 +221,7 @@ const getTableRowFromAPIGame = (gameConfigs, gameDateId, team, season, players, 
             }
             return <td colSpan={numTrackedStats}>dnp</td>
         })}
-        {/*
-        <td style={{ color: 'white', backgroundColor: getSummaryColor(checkRowSuccess(data, gameDateID, team, allPlayers)) }}>Success</td>
-    */}
-    <td style={{backgroundColor: "white"}} >Success?</td>
+        <td style={{ color: 'white', backgroundColor: getSummaryColor(checkRowSuccessFromAPI(gameDateId, team, players)) }}>Success</td>
     </>
 }
 
