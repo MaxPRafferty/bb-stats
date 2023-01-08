@@ -175,7 +175,7 @@ const getCellsForPlayerFromAPI = (playerGames, games, playerId, gameId, teamName
         {Object.keys(TRACKED_STATS).map(statKey => {
             const stat = TRACKED_STATS[statKey];
             let value = gameStatDataForPlayer[stat];
-            if (getIgnoreStat(stat))
+            if (shouldIgnoreStat(stat))
             {
                 return <td style={{ backgroundColor: 'gray', color: 'black' }}>{value}</td>
  
@@ -223,8 +223,8 @@ const checkRowSuccess = (data, gameDateID, team, allPlayers) => {
 }
 
 
-const getIgnoreStat = (stat) => {
-    return stat === TRACKED_STATS.MIN || stat === TRACKED_STATS["3PA"];
+const shouldIgnoreStat = (stat) => {
+    return stat === TRACKED_STATS.MIN || stat === TRACKED_STATS["3PA"] || stat === TRACKED_STATS["         "];
 }
 
 const checkRowSuccessFromAPI = (gameId, teamName, players, gamesPlayed) => {
@@ -243,7 +243,7 @@ const checkRowSuccessFromAPI = (gameId, teamName, players, gamesPlayed) => {
         }
         return Object.keys(TRACKED_STATS).map(statKey => {
             const stat = TRACKED_STATS[statKey];
-            if (getIgnoreStat(stat)) {
+            if (shouldIgnoreStat(stat)) {
                 return 'black';
             } else {
                 let value = gameStats[stat];
@@ -386,15 +386,6 @@ const ColumnComparison = ({ teams, players, games, loading, team, season }) => {
         return <div>loading...</div>
     }
 
-    /*
-    if (allPlayersNames.length !== numPlayers || allPlayersNames[0] !== Object.keys(PlayerDataMap[team])[0]) {
-        gameParticipation = {};
-        getGameDates(data, allPlayersNames);
-        setNumPlayers(allPlayersNames.length)
-    }
-    let numSuccess = getNumSuccessfulGames(data, team, allPlayersNames);
-    let numTotal = getNumTotalGames();
-    */
    let numSuccess = getNumSuccessfulGamesFromAPI(teamName, players, localGameParticipation);
    let numTotal = games.length;
 
@@ -428,13 +419,18 @@ const ColumnComparison = ({ teams, players, games, loading, team, season }) => {
                         
                         <tr>
                             <td>Thresholds</td>
-                            {statsByNameByStat.map(name => name.map(statUpdateObj => <td>
+                            {statsByNameByStat.map(name => name.map(statUpdateObj => {
+                                if(shouldIgnoreStat(statUpdateObj.statName)) {
+                                    return <td></td>
+                                }
+                                return (<td>
                                     
                                     <select value={statUpdateObj.value} onChange={getThresholdOnChange(statUpdateObj.season, statUpdateObj.playerId, statUpdateObj.statName)} >
                                         {Object.keys(STAT_THRESHOLDS[statUpdateObj.statName]).map(statKey => <option value={STAT_THRESHOLDS[statUpdateObj.statName][statKey]} >{STAT_THRESHOLDS[statUpdateObj.statName][statKey]}</option>)}
                                     </select>
                                 
                                 </td>)
+                                })
                             )}
                             <td></td>
                         </tr>
