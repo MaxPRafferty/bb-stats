@@ -4,6 +4,7 @@ export const TRACKED_STATS = {
     AST: "AST",
     REB: "REB",
     "3PM": "3PM/A",
+    "         ": "         ",
 };
 */
 
@@ -39,6 +40,7 @@ export const TRACKED_STATS = {
     AST: "assists",
     REB: "totReb",
     "3PM": "tpm",
+    "         ": "         ",
 };
 
 export const FORMAT_THRESHOLDS = {
@@ -46,6 +48,7 @@ export const FORMAT_THRESHOLDS = {
     [TRACKED_STATS.AST]: [2],
     [TRACKED_STATS.REB]: [4],
     [TRACKED_STATS["3PM"]]: [1],
+    [TRACKED_STATS["         "]]: [0],
 };
 
 export const STAT_THRESHOLDS = {
@@ -84,6 +87,7 @@ export const STAT_THRESHOLDS = {
         999: -1,
     },
     [TRACKED_STATS["3PM"]]: { 1: 1, 2: 2, 999: -1 },
+    [TRACKED_STATS["         "]]: { 0: " " },
 };
 
 export const apiKey = "6216562a9cmsh684f21707ccd0ffp1e0106jsnb7430c62ec7e";

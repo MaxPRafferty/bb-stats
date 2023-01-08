@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import ColumnComparison from "./ColumnComparison";
-import PlayerDataMap from "./playerMap";
 import {
     getAllNBATeams,
     getGamesPerTeamPerSeason,
