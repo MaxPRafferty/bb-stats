@@ -60,7 +60,12 @@ const transformGamesForDisplay = (team, games) => {
 export const getGamesPerTeamPerSeason = async (team = "1", season = "2022") => {
     const storageKey = `games_team-${team}_season-${season}`;
     const storedGames = window.localStorage.getItem(storageKey);
-    let gameResponse = Promise.resolve(JSON.parse(storedGames));
+    let gameResponse;
+    try {
+        gameResponse = Promise.resolve(JSON.parse(storedGames));
+    } catch (e) {
+        console.log(e);
+    }
 
     if (!storedGames || storedGames === "undefined" || storedGames === "null") {
         const options = {
@@ -96,7 +101,12 @@ const filterNonNBA = (teams) => {
 export const getAllNBATeams = async () => {
     const storageKey = "all_teams";
     const storedTeams = window.localStorage.getItem(storageKey);
-    let teamsResponse = Promise.resolve(JSON.parse(storedTeams));
+    let teamsResponse;
+    try {
+        teamsResponse = Promise.resolve(JSON.parse(storedTeams));
+    } catch (e) {
+        console.log(e);
+    }
 
     if (!storedTeams || storedTeams === "undefined" || storedTeams === "null") {
         const options = {
@@ -123,7 +133,12 @@ export const getAllNBATeams = async () => {
 export const getPlayersPerTeamPerSeason = async (team, season) => {
     const storageKey = `team_team-${team}_season-${season}`;
     const storedTeam = window.localStorage.getItem(storageKey);
-    let teamResponse = Promise.resolve(JSON.parse(storedTeam));
+    let teamResponse;
+    try {
+        teamResponse = Promise.resolve(JSON.parse(storedTeam));
+    } catch (e) {
+        console.log(e);
+    }
 
     if (!storedTeam || storedTeam === "undefined" || storedTeam === "null") {
         const options = {
