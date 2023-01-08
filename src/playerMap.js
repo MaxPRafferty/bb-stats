@@ -22,10 +22,9 @@ LATER (roughly in order of priority):
     - Also: 'last X games' (start with 5 or 10, ideally customizable)
     - Ideally show each in section, with bookmark links and summaries at top
     - Need to handle players changing teams better. Maybe some way to limit start date for a player as a hack fix?
-- Make player names be links to their NBA advanced box scores page
 - Show column for opponent next to game date (can probably grab it when we pull the date ID?)
 - Clean up game date string
-- Add area for notes on player. e.g. avoid jaren jackson for anything but rebs because of foul trouble
+- Add area for notes on player. e.g. avoid jaren jackson for anything but rebs because of foul trouble. maybe hover text? could add a notepad emoji as the hover target when there's a note
 - Per player of the same thing, so I can skip a player if they in particular are bad against a team
 - More stats: blocks, steals, 3PA, FGA/FGM, game score, if went to OT, win/lose, minutes played
 - Indicate home vs away (+ summary stats), playoffs (+ summary stats), back-to-backs, day games, maybe other factors?
@@ -287,7 +286,7 @@ const PlayerDataMap = {
     Celtics: { // missing robwill
         "Jaylen Brown": {
             ctgid: 454,
-            nbaid: 1,
+            nbaid: 1627759,
             rapidid: 75,
             defaultStats: {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][15],

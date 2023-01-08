@@ -8,11 +8,12 @@ const numTrackedStats = Object.keys(TRACKED_STATS).length;
 let gameParticipation = {};
 
 const getPlayerList = (team) => {
-    return Object.keys(PlayerDataMap[team]);
+    //return Object.keys(PlayerDataMap[team]);
+    return PlayerDataMap[team];
 }
 
 const getStatThresholdColor = (value, stat, playerConfig) => {
-    if (stat == TRACKED_STATS["       "]) {
+    if (stat == TRACKED_STATS["         "]) {
         return 'white';
     }
     let limit = FORMAT_THRESHOLDS[stat][0];
@@ -137,8 +138,9 @@ const getTableRowFromGame = (data, gameDateID, team, allPlayers) => {
 const ColumnComparison = ({ data, team }) => {
     const [numPlayers, setNumPlayers] = useState(0);
     const allPlayers = getPlayerList(team);
+    const allPlayersNames = Object.keys(allPlayers);
 
-    let playersLoaded = allPlayers.reduce((a, v) => {
+    let playersLoaded = allPlayersNames.reduce((a, v) => {
         return a && !!data[v];
     }, true)
 
@@ -146,12 +148,12 @@ const ColumnComparison = ({ data, team }) => {
         return <div>loading...</div>
     }
 
-    if (allPlayers.length !== numPlayers || allPlayers[0] !== Object.keys(PlayerDataMap[team])[0]) {
+    if (allPlayersNames.length !== numPlayers || allPlayersNames[0] !== Object.keys(PlayerDataMap[team])[0]) {
         gameParticipation = {};
-        getGameDates(data, allPlayers);
-        setNumPlayers(allPlayers.length)
+        getGameDates(data, allPlayersNames);
+        setNumPlayers(allPlayersNames.length)
     }
-    let numSuccess = getNumSuccessfulGames(data, team, allPlayers);
+    let numSuccess = getNumSuccessfulGames(data, team, allPlayersNames);
     let numTotal = getNumTotalGames();
 
     return (
@@ -165,17 +167,24 @@ const ColumnComparison = ({ data, team }) => {
                     <thead>
                         <tr>
                             <td></td>
-                            {allPlayers.map(player => <td colSpan={numTrackedStats}>{player}</td>)}
+                            {allPlayersNames.map(player => <td colSpan={numTrackedStats}> 
+                                <a href= 
+                                    { 
+                                        "https://www.nba.com/stats/player/"+allPlayers[player].nbaid+"/boxscores-traditional"
+                                    } >
+                                {player} 
+                                </a>
+                            </td>)}
                             <td></td>
                         </tr>
                         <tr>
                             <td></td>
-                            {allPlayers.map(() => Object.keys(TRACKED_STATS).map(stat => <td>{stat}</td>))}
+                            {allPlayersNames.map(() => Object.keys(TRACKED_STATS).map(stat => <td>{stat}</td>))}
                             <td></td>
                         </tr>
                     </thead>
                     <tbody>
-                        {Object.keys(gameParticipation).sort().reverse().map(gameConfig => <tr>{getTableRowFromGame(data, gameConfig, team, allPlayers)}</tr>)}
+                        {Object.keys(gameParticipation).sort().reverse().map(gameConfig => <tr>{getTableRowFromGame(data, gameConfig, team, allPlayersNames)}</tr>)}
                     </tbody>
                 </table>
             </div>
