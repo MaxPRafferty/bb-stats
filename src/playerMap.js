@@ -26,7 +26,8 @@ LATER (roughly in order of priority):
 - Clean up game date string
 - Per player of the same thing, so I can skip a player if they in particular are bad against a team
 - More stats: blocks, steals, 3PA, FGA/FGM, game score, if went to OT, win/lose, minutes played
-- Indicate home vs away (+ summary stats), playoffs (+ summary stats), back-to-backs, day games, maybe other factors?
+- Summary stats for home vs away
+- Indicate back-to-backs, day games, maybe other factors?
 - Playoffs as separate 'mode' (stage == 3 in the API data)
 - Shades of green for amt above thresh
 - Warning labels for player being injured/returning from injury (Underdog NBA (@Underdog__NBA) / Twitter might be helpful - embedding tweets related to players/team?) 

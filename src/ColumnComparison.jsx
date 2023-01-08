@@ -250,9 +250,10 @@ const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, playe
 
     return <>
         <td>
-            <div style={{display:"inline-block", width:135, textAlign:"left"}}>{gameData.date}</div>
-            <div style={{display:"inline-block", width:25}}>{ home ? 'vs. ' : '@ '}</div>
-            <div style={{display:"inline-block", width:25}}><img src={gameData.opponentLogo} height="20" width="20" /></div>
+            <div style={{display:"inline-block", width:135, textAlign:"left"}}>{gamesPlayed.date}</div>
+            <div style={{display:"inline-block", width:25}}>{ gamesPlayed.tod === "day" ? "☀️" : "🌙" }</div>
+            <div style={{display:"inline-block", width:25}}>{ home ? 'vs.' : '@'}</div>
+            <div style={{display:"inline-block", width:25}}><img src={gamesPlayed.opponentLogo} height="20" width="20" /></div>
         </td>
         {players.map(playerGames => {
             const playerId = playerGames[0].player.id;
