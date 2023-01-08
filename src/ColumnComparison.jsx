@@ -1,5 +1,6 @@
+import { useMemo } from "react";
 import { useState, useEffect } from "react";
-import { TRACKED_STATS, FORMAT_THRESHOLDS } from "./constants";
+import { TRACKED_STATS, FORMAT_THRESHOLDS, STAT_THRESHOLDS } from "./constants";
 import PlayerDataMap from "./playerMap";
 
 
@@ -17,16 +18,34 @@ const getPlayerList = (team, teams) => {
 }
 
 const getStatThresholdColor = (value, stat, playerConfig) => {
+    const thresholds = window.localStorage.getItem('playerThresholdMap')
+    const parsedThresholds = (() => {
+        try {
+            return JSON.parse(thresholds);
+        } catch (e) {
+            console.log(e)
+            return {};
+        }
+    })();
+    const season = '2022';
+    const playerId = playerConfig.rapidid;
+    const customStatLimit = (parsedThresholds && parsedThresholds[season] && parsedThresholds[season][playerId] && parsedThresholds[season][playerId][stat]) ? parsedThresholds[season][playerId][stat] : null;
     if (stat == TRACKED_STATS["         "]) {
         return 'white';
     }
-    let limit = FORMAT_THRESHOLDS[stat][0];
+    let limit = +(customStatLimit || FORMAT_THRESHOLDS[stat][0]);
+    debugger;
     if (playerConfig != null && playerConfig.defaultStats != null) {
+        if(limit === -1) {
+            return 'black';
+        }
+        /*
         if (playerConfig.defaultStats[stat] === undefined || playerConfig.defaultStats[stat] == -1) {
             return 'black'
         }
+        */
         if (playerConfig.defaultStats[stat] !== null) {
-            limit = playerConfig.defaultStats[stat];
+            limit = +customStatLimit || playerConfig.defaultStats[stat];
         }
     }
     const colors = ['green', 'yellow', 'orange', 'red']
@@ -250,10 +269,10 @@ const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, playe
 
     return <>
         <td>
-            <div style={{display:"inline-block", width:135, textAlign:"left"}}>{gamesPlayed.date}</div>
-            <div style={{display:"inline-block", width:25}}>{ gamesPlayed.tod === "day" ? "☀️" : "🌙" }</div>
+            <div style={{display:"inline-block", width:135, textAlign:"left"}}>{gameData.date}</div>
+            <div style={{display:"inline-block", width:25}}>{ gameData.tod === "day" ? "☀️" : "🌙" }</div>
             <div style={{display:"inline-block", width:25}}>{ home ? 'vs.' : '@'}</div>
-            <div style={{display:"inline-block", width:25}}><img src={gamesPlayed.opponentLogo} height="20" width="20" /></div>
+            <div style={{display:"inline-block", width:25}}><img src={gameData.opponentLogo} height="20" width="20" /></div>
         </td>
         {players.map(playerGames => {
             const playerId = playerGames[0].player.id;
@@ -269,12 +288,58 @@ const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, playe
 }
 
 const ColumnComparison = ({ teams, players, games, loading, team, season }) => {
+    const [playerThresholdMap, setPlayerThresholdMap] = useState(window.localStorage.getItem('playerThresholdMap'))
     const allPlayers = getPlayerList(team, teams);
     const allPlayersNames = Object.keys(allPlayers);
     const [currentSelection, setCurrentSelection] = useState('')
     const [localGameParticipation, setLocalGameParticipation] = useState('')
     const selectedTeam = teams.find(teamData => `${teamData.id}` === team)
     const teamName = selectedTeam ? selectedTeam.nickname : "";
+
+    const parsedPlayerThresholdMap = useMemo(() => {
+        try {
+            return JSON.parse(playerThresholdMap)
+        } catch (e) {
+            console.log(e)
+            return {};
+        }
+    }, [playerThresholdMap])
+
+    const playerIdList = useMemo(() => {
+        if(players.length) {
+            return players.map((playerGames) => {
+                return playerGames[0].player.id;
+            })
+        }
+        return [];
+    } , [team, season]) 
+    const statSample = TRACKED_STATS.PTS
+
+    useEffect(() => {
+        if(!parsedPlayerThresholdMap) {
+            // no stat threshold data configured. Start from scratch
+            const newThresholdMap = JSON.stringify({[season]: playerIdList.reduce((a, playerId) => {
+                const playerName = Object.keys(PlayerDataMap[teamName]).find(playerName => PlayerDataMap[teamName][playerName].rapidid === playerId)
+               a[playerId] =  PlayerDataMap[teamName][playerName].defaultStats;
+               return a;
+            }, {})});
+            window.localStorage.setItem('playerThresholdMap', newThresholdMap)
+            setPlayerThresholdMap(newThresholdMap)
+        } 
+        playerIdList.forEach((id) => {
+            if(parsedPlayerThresholdMap[season][id] == null) {
+                const playerName = Object.keys(PlayerDataMap[teamName]).find(playerName => PlayerDataMap[teamName][playerName].rapidid === id)
+                const newThresholdMap = {...parsedPlayerThresholdMap};
+                newThresholdMap[season][id] = PlayerDataMap[teamName][playerName].defaultStats;
+                window.localStorage.setItem('playerThresholdMap', JSON.stringify(newThresholdMap))
+                setPlayerThresholdMap(JSON.stringify(newThresholdMap))
+            }
+        })
+    }, [team, season])
+
+    if(parsedPlayerThresholdMap) {
+        console.log(playerThresholdMap)
+    }
 
     useEffect(() => {
         if(`${team}${season}` !== currentSelection && !loading && games.length && players.length) {
@@ -284,6 +349,17 @@ const ColumnComparison = ({ teams, players, games, loading, team, season }) => {
             setCurrentSelection(`${team}${season}`);
         }
     });
+
+    const statsByNameByStat = useMemo(() => {
+        return allPlayersNames.map(playerName => {
+            return Object.keys(TRACKED_STATS).map(stat =>  {
+                const playerId = PlayerDataMap[teamName][playerName].rapidid
+                const statName = TRACKED_STATS[stat]
+                const value = parsedPlayerThresholdMap[season][playerId][statName]
+                return {value, season, playerId, statName}
+            })
+        });
+    }, [playerThresholdMap, allPlayersNames])
 
     if(loading) {
         return <div>loading...</div>
@@ -300,6 +376,14 @@ const ColumnComparison = ({ teams, players, games, loading, team, season }) => {
     */
    let numSuccess = getNumSuccessfulGamesFromAPI(teamName, players, localGameParticipation);
    let numTotal = games.length;
+
+   const getThresholdOnChange = (season, player, stat) => (event) => {
+    const newThresholdMap = {...parsedPlayerThresholdMap};
+                newThresholdMap[season][player][stat] = event.target.value;
+                window.localStorage.setItem('playerThresholdMap', JSON.stringify(newThresholdMap))
+                setPlayerThresholdMap(JSON.stringify(newThresholdMap))
+
+   }
 
     return (
         <>
@@ -322,14 +406,26 @@ const ColumnComparison = ({ teams, players, games, loading, team, season }) => {
                         </tr>
                         
                         <tr>
+                            <td>Thresholds</td>
+                            {statsByNameByStat.map(name => name.map(statUpdateObj => <td>
+                                    
+                                    <select value={statUpdateObj.value} onChange={getThresholdOnChange(statUpdateObj.season, statUpdateObj.playerId, statUpdateObj.statName)} >
+                                        {Object.keys(STAT_THRESHOLDS[statUpdateObj.statName]).map(statKey => <option value={STAT_THRESHOLDS[statUpdateObj.statName][statKey]} >{STAT_THRESHOLDS[statUpdateObj.statName][statKey]}</option>)}
+                                    </select>
+                                
+                                </td>)
+                            )}
                             <td></td>
+                        </tr>
+                        <tr>
+                            <td> </td>
                             {allPlayersNames.map(() => Object.keys(TRACKED_STATS).map(stat => <td>
                                     
                                     {stat /* turn this into a pulldown, show % per stat */ }   
                                 
                                 </td>)
                             )}
-                            <td></td>
+                            <td> </td>
                         </tr>
                     </thead>
                     <tbody>
