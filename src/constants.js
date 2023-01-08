@@ -90,5 +90,5 @@ export const STAT_THRESHOLDS = {
     [TRACKED_STATS["         "]]: { 0: " " },
 };
 
-export const apiKey = "6216562a9cmsh684f21707ccd0ffp1e0106jsnb7430c62ec7e";
+export const apiKey = "78e5128993msh6a03849b448f145p1b0357jsn714da3c76509";
 export const apiHost = "api-nba-v1.p.rapidapi.com";
