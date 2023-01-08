@@ -3,6 +3,7 @@ export const TRACKED_STATS = {
     AST: "AST",
     REB: "REB",
     "3PM": "3PM/A",
+    "         ": "         ",
 };
 
 export const FORMAT_THRESHOLDS = {
@@ -10,6 +11,7 @@ export const FORMAT_THRESHOLDS = {
     [TRACKED_STATS.AST]: [2],
     [TRACKED_STATS.REB]: [4],
     [TRACKED_STATS["3PM"]]: [1],
+    [TRACKED_STATS["         "]]: [0],
 };
 
 export const STAT_THRESHOLDS = {
