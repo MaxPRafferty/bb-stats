@@ -40,6 +40,8 @@ export const TRACKED_STATS = {
     AST: "assists",
     REB: "totReb",
     "3PM": "tpm",
+    "3PA": "tpa",
+    MIN: "min",
     "         ": "         ",
 };
 
