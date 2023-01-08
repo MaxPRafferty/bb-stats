@@ -47,6 +47,7 @@ const transformGamesForDisplay = (team, games) => {
                     ? game.teams.visitors.logo
                     : game.teams.visitors.logo,
             date: new Date(game.date.start).toDateString(),
+            dateId: game.date.start,
             rawData: game,
         };
     });
@@ -61,7 +62,7 @@ export const getGamesPerTeamPerSeason = async (team = "1", season = "2022") => {
     const storedGames = window.localStorage.getItem(storageKey);
     let gameResponse = Promise.resolve(JSON.parse(storedGames));
 
-    if (!storedGames) {
+    if (!storedGames || storedGames === "undefined" || storedGames === "null") {
         const options = {
             method: "GET",
             headers: {
@@ -93,11 +94,11 @@ const filterNonNBA = (teams) => {
 };
 
 export const getAllNBATeams = async () => {
-    const storageKey = `all_teams`;
+    const storageKey = "all_teams";
     const storedTeams = window.localStorage.getItem(storageKey);
     let teamsResponse = Promise.resolve(JSON.parse(storedTeams));
 
-    if (!storedTeams) {
+    if (!storedTeams || storedTeams === "undefined" || storedTeams === "null") {
         const options = {
             method: "GET",
             headers: {
@@ -124,7 +125,7 @@ export const getPlayersPerTeamPerSeason = async (team, season) => {
     const storedTeam = window.localStorage.getItem(storageKey);
     let teamResponse = Promise.resolve(JSON.parse(storedTeam));
 
-    if (!storedTeam) {
+    if (!storedTeam || storedTeam === "undefined" || storedTeam === "null") {
         const options = {
             method: "GET",
             headers: {
@@ -150,9 +151,14 @@ export const getPlayersPerTeamPerSeason = async (team, season) => {
 export const getStatsByPlayerPerSeason = async (id, season) => {
     const storageKey = `stats_player-${id}_season-${season}`;
     const storedStats = window.localStorage.getItem(storageKey);
-    let statResponse = Promise.resolve(JSON.parse(storedStats));
+    let statResponse;
+    try {
+        statResponse = Promise.resolve(JSON.parse(storedStats));
+    } catch (e) {
+        console.log(e);
+    }
 
-    if (storedStats) {
+    if (!storedStats || storedStats === "undefined" || storedStats === "null") {
         const options = {
             method: "GET",
             headers: {
@@ -230,13 +236,9 @@ const getMappedPlayers = (teamName, players) => {
         }
       }
         *  */
+            const playerId = mappedPlayers[playerName].rapidid;
 
-            /* MPR, 2023/1/7: We should probably replace this with a simple ID check */
-            const statPlayer = players.find(
-                (p) =>
-                    playerName.indexOf(p.firstname) !== -1 &&
-                    playerName.indexOf(p.lastname) !== -1
-            );
+            const statPlayer = players.find((p) => p.id === playerId);
 
             if (statPlayer) {
                 return [...a, statPlayer];
@@ -258,7 +260,6 @@ const getTeamNickFromGameList = (team, games) => {
 
 export const getPlayerStatsByGamesPerTeamPerSeason = async (team, season) => {
     const games = await getGamesPerTeamPerSeason(team, season);
-    debugger;
     const players = await getPlayersPerTeamPerSeason(team, season);
     const teamName = getTeamNickFromGameList(team, games);
     const trackedPlayers = getMappedPlayers(teamName, players);
