@@ -1,0 +1,249 @@
+import { apiHost, apiKey } from "./constants";
+import PlayerDataMap from "./playerMap";
+
+const stripNonRegularSeasonGames = (games) => {
+    return games.filter((game) => game.stage === 2);
+};
+
+const stripFutureGames = (games) => {
+    return games.filter((game) => game.date.start < new Date().toISOString());
+};
+
+const transformGamesForDisplay = (team, games) => {
+    return games.map((game) => {
+        /**
+         Game Object Structure:
+        { "id": 8899,
+        "league": "standard",
+        "season": 2021,
+        "date": { "start": "2021-11-03T23:30:00.000Z", "end": "2021-11-04T01:51:00.000Z", "duration": "2:05" },
+        "stage": 2,
+        "status": { "clock": null, "halftime": false, "short": 3, "long": "Finished" },
+        "periods": { "current": 4, "total": 4, "endOfPeriod": false },
+        "arena": { "name": "Barclays Center", "city": "Brooklyn", "state": "NY", "country": "USA" },
+        "teams": {
+          "visitors": { "id": 1, "name": "Atlanta Hawks", "nickname": "Hawks", "code": "ATL", "logo": "https://upload.wikimedia.org/wikipedia/fr/e/ee/Hawks_2016.png" },
+          "home": { "id": 4, "name": "Brooklyn Nets", "nickname": "Nets", "code": "BKN", "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Brooklyn_Nets_newlogo.svg/130px-Brooklyn_Nets_newlogo.svg.png" }
+        },
+        "scores": {
+          "visitors": { "win": 4, "loss": 4, "series": { "win": 0, "loss": 1 }, "linescore": [ "28", "31", "20", "29" ], "points": 108 },
+          "home": { "win": 5, "loss": 3, "series": { "win": 1, "loss": 0 }, "linescore": [ "35", "26", "34", "22" ], "points": 117 }
+        },
+        "officials": [ "Matt Boland", "Brent Barnaky", "Josh Tiven" ],
+        "timesTied": 8,
+        "leadChanges": 18,
+        "nugget": null },
+         */
+
+        return {
+            id: game.id,
+            location: game.teams.home.id === team ? "home" : "away",
+            opponent:
+                game.teams.home.id === team
+                    ? game.teams.visitors.nickname
+                    : game.teams.visitors.nickname,
+            opponentLogo:
+                game.teams.home.id === team
+                    ? game.teams.visitors.logo
+                    : game.teams.visitors.logo,
+            date: new Date(game.date.start).toDateString(),
+            rawData: game,
+        };
+    });
+};
+
+/***
+ * team: string, valued from "1" to "30", representing all teams in the league alphabetically. Defaults to the hawks
+ * season: string, four digit year value. Defaults to 2022
+ */
+export const getGamesPerTeamPerSeason = async (team = "1", season = "2022") => {
+    const storageKey = `games_team-${team}_season-${season}`;
+    const storedGames = window.localStorage.getItem(storageKey);
+    let gameResponse = Promise.resolve(JSON.parse(storedGames));
+
+    if (!storedGames) {
+        const options = {
+            method: "GET",
+            headers: {
+                "X-RapidAPI-Key": apiKey,
+                "X-RapidAPI-Host": apiHost,
+            },
+        };
+
+        gameResponse = fetch(
+            `https://${apiHost}/games?season=${season}&team=${team}`,
+            options
+        )
+            .then((response) => response.json()) // format to JSON
+            .then((response) => response.response); // strip useless metadata
+    }
+    return await gameResponse
+        .then((response) => {
+            window.localStorage.setItem(storageKey, JSON.stringify(response));
+            return response;
+        })
+        .then((response) => stripNonRegularSeasonGames(response))
+        .then((response) => stripFutureGames(response))
+        .then((response) => transformGamesForDisplay(team, response))
+        .catch((err) => console.error(err));
+};
+
+const filterNonNBA = (teams) => {
+    return teams.filter((team) => team.nbaFranchise && !team.allStar);
+};
+
+export const getAllNBATeams = async () => {
+    const options = {
+        method: "GET",
+        headers: {
+            "X-RapidAPI-Key": apiKey,
+            "X-RapidAPI-Host": apiHost,
+        },
+    };
+
+    return await fetch(`https://${apiHost}/teams`, options)
+        .then((response) => response.json()) // format to JSON
+        .then((response) => response.response) // strip useless metadata
+        .then((response) => filterNonNBA(response))
+        .catch((err) => console.error(err));
+};
+
+export const getPlayersPerTeamPerSeason = async (team, season) => {
+    const storageKey = `team_team-${team}_season-${season}`;
+    const storedTeam = window.localStorage.getItem(storageKey);
+    let teamResponse = Promise.resolve(JSON.parse(storedTeam));
+
+    if (!storedTeam) {
+        const options = {
+            method: "GET",
+            headers: {
+                "X-RapidAPI-Key": apiKey,
+                "X-RapidAPI-Host": apiHost,
+            },
+        };
+
+        teamResponse = fetch(
+            `https://${apiHost}/players?season=${season}&team=${team}`,
+            options
+        )
+            .then((response) => response.json()) // format to JSON
+            .then((response) => response.response) // strip useless metadata
+            .catch((err) => console.error(err));
+    }
+    return await teamResponse.then((response) => {
+        window.localStorage.setItem(storageKey, JSON.stringify(response));
+        return response;
+    });
+};
+
+export const getStatsByPlayerPerSeason = async (id, season) => {
+    const options = {
+        method: "GET",
+        headers: {
+            "X-RapidAPI-Key": apiKey,
+            "X-RapidAPI-Host": apiHost,
+        },
+    };
+    /*
+stat data shape
+      {
+        "player": { "id": 236, "firstname": "Buddy", "lastname": "Hield"
+        },
+        "team": { "id": 30, "name": "Sacramento Kings", "nickname": "Kings", "code": "SAC", "logo": "https://upload.wikimedia.org/wikipedia/fr/thumb/9/95/Kings_de_Sacramento_logo.svg/1200px-Kings_de_Sacramento_logo.svg.png"
+        },
+        "game": { "id": 8137 },
+        "points": 23,
+        "pos": "SG",
+        "min": "23:01",
+        "fgm": 8,
+        "fga": 17,
+        "fgp": "47.1",
+        "ftm": 2,
+        "fta": 2,
+        "ftp": "100",
+        "tpm": 5,
+        "tpa": 11,
+        "tpp": "45.5",
+        "offReb": 0,
+        "defReb": 0,
+        "totReb": 0,
+        "assists": 1,
+        "pFouls": 1,
+        "steals": 1,
+        "turnovers": 0,
+        "blocks": 0,
+        "plusMinus": "-14",
+        "comment": null
+      },
+      */
+
+    return await fetch(
+        `https://${apiHost}/players/statistics?season=${season}&id=${id}`,
+        options
+    )
+        .then((response) => response.json()) // format to JSON
+        .then((response) => response.response) // strip useless metadata
+        .catch((err) => console.error(err));
+};
+
+const getMappedPlayers = (teamName, players) => {
+    const mappedPlayers = PlayerDataMap[teamName];
+
+    const trackedPlayers = Object.keys(mappedPlayers).reduce(
+        (a, playerName) => {
+            /**
+        * Original Team Player Data Shape (per game record)
+        {
+        "id": 3072,
+        "firstname": "Justin",
+        "lastname": "Jaworski",
+        "birth": { "date": "1999-06-21", "country": null },
+        "nba": { "start": 0, "pro": 0 },
+        "height": { "feets": "6", "inches": "3", "meters": "1.9" },
+        "weight": { "pounds": "196", "kilograms": "88.9" },
+        "college": "Lafayette",
+        "affiliation": null,
+        "leagues": { "vegas": { "jersey": 33, "active": true, "pos": "G" }
+        }
+      }
+        *  */
+
+            /* MPR, 2023/1/7: We should probably replace this with a simple ID check */
+            const statPlayer = players.find(
+                (p) =>
+                    playerName.indexOf(p.firstname) !== -1 &&
+                    playerName.indexOf(p.lastname) !== -1
+            );
+
+            if (statPlayer) {
+                return [...a, statPlayer];
+            }
+            return a;
+        },
+        []
+    );
+
+    return trackedPlayers;
+};
+
+const getTeamNickFromGameList = (team, games) => {
+    const firstGame = games[0];
+    return firstGame.rawData.teams.visitors.id === team
+        ? firstGame.rawData.teams.visitors.nickname
+        : firstGame.rawData.teams.home.nickname;
+};
+
+export const getPlayerStatsByGamesPerTeamPerSeason = async (team, season) => {
+    const games = await getGamesPerTeamPerSeason(team, season);
+    debugger;
+    const players = await getPlayersPerTeamPerSeason(team, season);
+    const teamName = getTeamNickFromGameList(team, games);
+    const trackedPlayers = getMappedPlayers(teamName, players);
+    const playerStatsByGame = await Promise.all(
+        trackedPlayers.map((player) => {
+            return getStatsByPlayerPerSeason(player.id, season);
+        })
+    );
+
+    return playerStatsByGame;
+};
