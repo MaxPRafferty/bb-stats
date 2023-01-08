@@ -1,10 +1,5 @@
 /*
-Not addressed here:
-
-FOR SETH:
-- Fill out player map with teams/players and CTG IDs and the players default stats, including -1 for replacing nulls
-
-FOR MAX:
+ASAP:
 - Per-column summary stats that shows the current value, win % and win/total for that column (to identify weak spots in the bet)
 - Add a pulldown for each column that allows you to pick what threshold to set the limit at
     - playerMap data define their default level: init the pulldown to that value and indicate it with a * or something
@@ -18,7 +13,7 @@ FOR MAX:
     At that point, the Bucks will all show as all "dnp" until you refresh the page. 
 
 
-LATER FOR SOMEONE (roughly in order of priority):
+LATER (roughly in order of priority):
 - 'Mark Last Used' button to 'record' a bet (i.e. config of the column thresholds for shown players). Different denotation than default in pulldown. Maybe buttons to set all players to default/last?
     - For 'record bet' button: set pulldown values profile paired with date, and then also have a button to 'load' that profile. show dupe of all the cols with the loaded profile)
     - Bet recording could also be made external and loaded in if making it write data is a pain, i.e. from notion
@@ -31,7 +26,6 @@ LATER FOR SOMEONE (roughly in order of priority):
 - Make player names be links to their NBA advanced box scores page
 - Show column for opponent next to game date (can probably grab it when we pull the date ID?)
 - Clean up game date string
-- Still show numbers on disabled cols
 - Add area for notes on player. e.g. avoid jaren jackson for anything but rebs because of foul trouble
 - Per player of the same thing, so I can skip a player if they in particular are bad against a team
 - More stats: blocks, steals, 3PA, FGA/FGM, game score, if went to OT, win/lose, minutes played
@@ -602,7 +596,6 @@ const PlayerDataMap = {
                 [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1],
             },
         },
-        /*
         "Clint Capela": {
             ctgid: 561,
             nbaid: 1,
@@ -614,7 +607,6 @@ const PlayerDataMap = {
                 [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
-        */
         "John Collins": {
             ctgid: 4253,
             nbaid: 1,
@@ -637,7 +629,7 @@ const PlayerDataMap = {
                 [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1], // 999 
             },
         },
-         "Bogdan Bogdanovic": {
+        "Bogdan Bogdanovic": {
             ctgid: 0,
             nbaid: 0,
             rapidid: 743,
@@ -645,7 +637,7 @@ const PlayerDataMap = {
                 [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999], 
-                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"][999],
+                [TRACKED_STATS["3PM"]]: STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999],
             },
         },
         "Onyeka Okongwu": {
