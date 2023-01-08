@@ -109,13 +109,9 @@ const getCellsForPlayer = (data, player, gameId, team) => {
     </>
 }
 
-const getCellsForPlayerFromAPI = (playerGames, games, playerId, gameId, team) => {
+const getCellsForPlayerFromAPI = (playerGames, games, playerId, gameId, teamName) => {
     const gameInfo = games.find(game => game.id === gameId);
     const gameStatDataForPlayer = playerGames.find(game => game.game.id === gameId);
-    let teamName
-    if(team === "1") {
-        teamName = 'Hawks'
-    }
     const teamData = PlayerDataMap[teamName];
     const playerName = Object.keys(teamData).find(playerName => teamData[playerName].rapidid === playerId);
     const playerConfig = teamData[playerName];
@@ -192,8 +188,36 @@ const checkRowSuccess = (data, gameDateID, team, allPlayers) => {
     return !anyFailed;
 }
 
-const checkRowSuccessFromAPI = (players) => {
-    debugger;
+const checkRowSuccessFromAPI = (gameId, teamName, players, gamesPlayed) => {
+    if(players == null || players.length === 0) {
+        return false;
+    }
+    let playersGameColors = players.map(playerGames => {
+       const gameStats = playerGames.find(game => `${game.game.id}` === `${gameId}`) 
+       if(!gameStats) {
+        return []
+       }
+        const playerId = gameStats.player.id;
+        const didPlay = gamesPlayed.players.includes(playerId);
+        if(!didPlay) {
+            return []
+        }
+        return Object.keys(TRACKED_STATS).map(statKey => {
+            const stat = TRACKED_STATS[statKey];
+            let value = gameStats[stat];
+            const teamPlayers = PlayerDataMap[teamName];
+            let playerName = Object.keys(teamPlayers).find(playerName => teamPlayers[playerName].rapidid === playerId)
+            return getStatThresholdColor(value, stat, teamPlayers[playerName]);
+        })
+    })
+    let anyFailed = false;
+    playersGameColors.forEach((playerArray) => {
+        playerArray.forEach((statColor) => {
+            if (statColor == "red")
+                anyFailed = true;
+        })
+    })
+    return !anyFailed;
 }
 
 const getTableRowFromGame = (data, gameDateID, team, allPlayers) => {
@@ -211,9 +235,8 @@ const getTableRowFromGame = (data, gameDateID, team, allPlayers) => {
         <td style={{ color: 'white', backgroundColor: getSummaryColor(checkRowSuccess(data, gameDateID, team, allPlayers)) }}>Success</td>
     </>
 }
-const getTableRowFromAPIGame = (gameConfigs, gameDateId, team, season, players, games) => {
+const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, players, games) => {
     const gamesPlayed = gameConfigs[gameDateId];
-    console.log(gameDateId);
     const home = gamesPlayed.location === 'home'
 
     return <>
@@ -223,11 +246,11 @@ const getTableRowFromAPIGame = (gameConfigs, gameDateId, team, season, players, 
             const didPlay = gamesPlayed.players.includes(playerId);
             if (didPlay) {
                 // currentSelectionplayer, games, gameId, team
-                return getCellsForPlayerFromAPI(playerGames, games, playerId, gamesPlayed.gameIds[playerId], team);
+                return getCellsForPlayerFromAPI(playerGames, games, playerId, gamesPlayed.gameIds[playerId], teamName);
             }
             return <td colSpan={numTrackedStats}>dnp</td>
         })}
-        <td style={{ color: 'white', backgroundColor: getSummaryColor(checkRowSuccessFromAPI(gameDateId, team, players)) }}>Success</td>
+        <td style={{ color: 'white', backgroundColor: getSummaryColor(checkRowSuccessFromAPI(gamesPlayed.id, teamName, players, gamesPlayed)) }}>Success</td>
     </>
 }
 
@@ -236,6 +259,8 @@ const ColumnComparison = ({ teams, players, games, loading, team, season }) => {
     const allPlayersNames = Object.keys(allPlayers);
     const [currentSelection, setCurrentSelection] = useState('')
     const [localGameParticipation, setLocalGameParticipation] = useState('')
+    const selectedTeam = teams.find(teamData => `${teamData.id}` === team)
+    const teamName = selectedTeam ? selectedTeam.nickname : "";
 
     useEffect(() => {
         if(`${team}${season}` !== currentSelection && !loading && games.length && players.length) {
@@ -294,7 +319,7 @@ const ColumnComparison = ({ teams, players, games, loading, team, season }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {Object.keys(localGameParticipation).sort().reverse().map(gameConfigKey => <tr>{getTableRowFromAPIGame(localGameParticipation, gameConfigKey, team, season, players, games)}</tr>)}
+                        {Object.keys(localGameParticipation).sort().reverse().map(gameConfigKey => <tr>{getTableRowFromAPIGame(localGameParticipation, gameConfigKey, teamName, season, players, games)}</tr>)}
                     </tbody>
                 </table>
             </div>
