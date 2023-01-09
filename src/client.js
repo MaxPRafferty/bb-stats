@@ -36,20 +36,39 @@ const transformGamesForDisplay = (team, games) => {
          */
 
         let myDate = new Date(game.date.start);
-        let startTime = myDate.getHours(); 
+        let startTime = myDate.getHours();
 
         return {
-            id:             game.id,
-            location:       `${game.teams.home.id}` === `${team}` ? "home"                        : "away",
-            opponent:       `${game.teams.home.id}` === `${team}` ? game.teams.visitors.nickname  : game.teams.home.nickname,
-            opponentLogo:   `${game.teams.home.id}` === `${team}` ? game.teams.visitors.logo      : game.teams.home.logo,
-            tod:            startTime < 18 ? "day" : "night", 
-            date:           myDate.toDateString().substring(4),
-            dateId:         game.date.start,
-            winLose:        `${game.teams.home.id}` === `${team}` ? (game.scores.home.points > game.scores.visitors.points ? "W" : "L") : (game.scores.visitors.points > game.scores.home.points ? "W" : "L"), 
-            score:          `${game.teams.home.id}` === `${team}` ? game.scores.home.points : game.scores.visitors.points,         
-            opponentScore:  `${game.teams.home.id}` === `${team}` ? game.scores.visitors.points : game.scores.home.points,
-            rawData:        game,
+            id: game.id,
+            location: `${game.teams.home.id}` === `${team}` ? "home" : "away",
+            opponent:
+                `${game.teams.home.id}` === `${team}`
+                    ? game.teams.visitors.nickname
+                    : game.teams.home.nickname,
+            opponentLogo:
+                `${game.teams.home.id}` === `${team}`
+                    ? game.teams.visitors.logo
+                    : game.teams.home.logo,
+            tod: startTime < 18 ? "day" : "night",
+            date: myDate.toDateString().substring(4),
+            dateId: game.date.start,
+            winLose:
+                `${game.teams.home.id}` === `${team}`
+                    ? game.scores.home.points > game.scores.visitors.points
+                        ? "W"
+                        : "L"
+                    : game.scores.visitors.points > game.scores.home.points
+                    ? "W"
+                    : "L",
+            score:
+                `${game.teams.home.id}` === `${team}`
+                    ? game.scores.home.points
+                    : game.scores.visitors.points,
+            opponentScore:
+                `${game.teams.home.id}` === `${team}`
+                    ? game.scores.visitors.points
+                    : game.scores.home.points,
+            rawData: game,
         };
     });
 };
@@ -165,6 +184,7 @@ export const getPlayersPerTeamPerSeason = async (team, season) => {
 };
 
 export const getStatsByPlayerPerSeason = async (id, season) => {
+    debugger;
     const storageKey = `stats_player-${id}_season-${season}`;
     const storedStats = window.localStorage.getItem(storageKey);
     let statResponse;
@@ -269,7 +289,7 @@ const getMappedPlayers = (teamName, players) => {
 
 const getTeamNickFromGameList = (team, games) => {
     const firstGame = games[0];
-    return firstGame.rawData.teams.visitors.id === team
+    return firstGame.rawData.teams.visitors.id !== team
         ? firstGame.rawData.teams.visitors.nickname
         : firstGame.rawData.teams.home.nickname;
 };
