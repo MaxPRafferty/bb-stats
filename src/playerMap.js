@@ -2585,7 +2585,7 @@ const PlayerDataMap = {
         },
     },
 
-    Trailblazers: {
+    "Trail Blazers": {
         // missing justise winslow
         "Damian Lillard": {
             ctgid: 2197,
