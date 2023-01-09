@@ -9,6 +9,7 @@ import {
 
 function App(props) {
     const [shouldUpdate, setShouldUpdate] = useState(1);
+    const [shouldRefetch, setShouldRefetch] = useState(1);
     const [selectedTeam, setSelectedTeam] = useState("1");
     const [selectedSeason, setSelectedSeason] = useState("2022");
     const [games, setGames] = useState([]);
@@ -20,12 +21,19 @@ function App(props) {
     const handleTeamChange = (event) => {
         setSelectedTeam(event.target.value);
         setShouldUpdate(shouldUpdate + 1);
+        setShouldRefetch(shouldRefetch + 1);
+        setGames([]);
+        setPlayers([]);
     };
     const handleSeasonChange = (event) => {
         setSelectedSeason(event.target.value);
         setShouldUpdate(shouldUpdate + 1);
+        setShouldRefetch(shouldRefetch + 1);
+        setGames([]);
+        setPlayers([]);
     };
     useEffect(() => {
+        debugger;
         if (selectedSeason && selectedTeam) {
             setGamesLoading(true);
             getGamesPerTeamPerSeason(selectedTeam, selectedSeason).then(
@@ -46,7 +54,7 @@ function App(props) {
                 setShouldUpdate(shouldUpdate + 1);
             });
         }
-    }, [selectedSeason, selectedTeam]);
+    }, [selectedSeason, selectedTeam, shouldRefetch]);
 
     useEffect(() => {
         if (!teamsLoading && teams.length < 1) {

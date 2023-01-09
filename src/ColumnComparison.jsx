@@ -34,7 +34,6 @@ const getStatThresholdColor = (value, stat, playerConfig) => {
         return 'white';
     }
     let limit = +(customStatLimit || FORMAT_THRESHOLDS[stat][0]);
-    debugger;
     if (playerConfig != null && playerConfig.defaultStats != null) {
         if(limit === -1) {
             return 'black';
@@ -327,11 +326,14 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
     }, [playerThresholdMap])
 
     const playerIdList = (() => {
-        debugger;
-        if(players.length) {
-            return players.map((playerGames) => {
-                return playerGames[0].player.id;
-            })
+        try {
+            if(players.length) {
+                return players.map((playerGames) => {
+                    return playerGames[0].player.id;
+                })
+            }
+        } catch (e) {
+            console.log(e);
         }
         return [];
     })()
@@ -356,10 +358,6 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
             }
         })
 
-    if(parsedPlayerThresholdMap) {
-        console.log(playerThresholdMap)
-    }
-
     useEffect(() => {
         if(`${team}${season}` !== currentSelection && !loading && games.length && players.length) {
             gameParticipation = {};
@@ -369,16 +367,21 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
         }
     });
 
-    const statsByNameByStat = useMemo(() => {
-        return allPlayersNames.map(playerName => {
-            return Object.keys(TRACKED_STATS).map(stat =>  {
-                const playerId = PlayerDataMap[teamName][playerName].rapidid
-                const statName = TRACKED_STATS[stat]
-                const value = parsedPlayerThresholdMap[season][playerId][statName]
-                return {value, season, playerId, statName}
-            })
-        });
-    }, [playerThresholdMap, allPlayersNames])
+    const statsByNameByStat = (() => {
+        try {
+            return allPlayersNames.map(playerName => {
+                return Object.keys(TRACKED_STATS).map(stat =>  {
+                    const playerId = PlayerDataMap[teamName][playerName].rapidid
+                    const statName = TRACKED_STATS[stat]
+                    const value = parsedPlayerThresholdMap[season][playerId][statName]
+                    return {value, season, playerId, statName}
+                })
+            });
+        } catch (e) {
+            console.log(e)
+        }
+        return []
+    })()
 
     if(loading) {
         return <div>loading...</div>
