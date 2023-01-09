@@ -1,27 +1,17 @@
 /*
-ASAP:
-- Show default value with a special indicator in pulldown
-- Certain teams get stuck on "loading...". Nets, Jazz, Pistons, Timberwolves
-- Sometimes shows teams as all "dnp". Seems to be appear randomly but pretty consistently after switching between a few teams. 
-    Once it occurs, if you keep arrowing between the teams (i.e. focus the select pulldown and then nav with arrows to change teams), 
-    it seems to shift the bug to different teams and eventually it makes its way to the Bucks, the first team in the list.
-    At that point, the Bucks will all show as all "dnp" until you refresh the page.
-
-
-LATER (roughly in order of priority):
+REMAINING WORK/IDEAS:
 - 'Mark Last Used' button to 'record' a bet (i.e. config of the column thresholds for shown players). Different denotation than default in pulldown. Maybe buttons to set all players to default/last?
     - For 'record bet' button: set pulldown values profile paired with date, and then also have a button to 'load' that profile. show dupe of all the cols with the loaded profile)
     - Bet recording could also be made external and loaded in if making it write data is a pain, i.e. from notion
-- Finish time window controls (i.e. in addition to the year pulldown): reg season vs playoffs, text box to limit to last X games (default -1 means 'all')
+- Additional time window controls (i.e. in addition to the year pulldown): reg season vs playoffs, text box to limit to last X games (default -1 means 'all')
+- Handle players changing teams better
+- Warning labels for player being injured/returning from injury (@Underdog__NBA twitter embed matching tweets maybe?)
 - More stats: blocks, steals, FGA/FGM?
 - Show if went to OT, back to backs
-- Need to handle players changing teams better. Maybe some way to limit start date for a player as a hack fix?
 - Summary stats for home vs away, day vs night, etc
 - Shades of green for amt above thresh
-- Warning labels for player being injured/returning from injury (Underdog NBA (@Underdog__NBA) / Twitter might be helpful - embedding tweets related to players/team?)
 - Calculate and show desired odds for +EV based on success rate of current display
-- Per player summary vs opponents, so I can skip a player if they in particular are bad against a team
-- Success rate for selected player stats vs specific teams in a sidebar: help avoid getting on teams they do poorly against. Also maybe just aggregate how often all players miss against a particular team?
+- Per player summary vs opponents, so I can skip a player if they are particularly bad against a team. Maybe aggregate how often all players miss against a particular team (i.e. because they have a killer defense)?
 - https://www.oddsshark.com/nba/ats-standings - definitely another less interesting data-edge to be found with things like this. wonder how early these trends develop and if they hold up historically (within reason)
 
 Kelly criterion, Gamblers podcast, Send Frank the bb stats thing once the live site has been updated 
