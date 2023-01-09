@@ -315,7 +315,7 @@ const getCurrentStatSuccessRate = (players, season, playerId, statName) =>
         const firstGame = player[0];
         return firstGame.player.id === playerId;
     })
-    
+
     if (playerGames == null)
         return 100;
 
@@ -430,10 +430,11 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
         return <div>loading...</div>
     }
 
-   let numSuccess = getNumSuccessfulGamesFromAPI(teamName, players, localGameParticipation);
-   let numTotal = games.length;
+    //debugger;
+    let numSuccess = getNumSuccessfulGamesFromAPI(teamName, players, localGameParticipation);
+    let numTotal = games.length;
 
-   const getThresholdOnChange = (season, player, stat) => (event) => {
+    const getThresholdOnChange = (season, player, stat) => (event) => {
     const newThresholdMap = {...parsedPlayerThresholdMap};
                 newThresholdMap[season][player][stat] = event.target.value;
                 window.localStorage.setItem('playerThresholdMap', JSON.stringify(newThresholdMap))
