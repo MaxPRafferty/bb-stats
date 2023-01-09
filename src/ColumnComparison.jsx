@@ -339,6 +339,9 @@ const getCurrentStatSuccessRate = (players, season, playerId, statName) =>
 const ColumnComparison = ({ teams, players, games, loading, team, season, update }) => {
     const [playerThresholdMap, setPlayerThresholdMap] = useState(window.localStorage.getItem('playerThresholdMap'))
     const allPlayers = getPlayerList(team, teams);
+    if(teams.length){
+        debugger
+    }
     const allPlayersNames = Object.keys(allPlayers);
     const [currentSelection, setCurrentSelection] = useState('')
     const [localGameParticipation, setLocalGameParticipation] = useState('')
