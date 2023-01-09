@@ -88,7 +88,7 @@ function App(props) {
                                 key={team.id + team.nickname}
                                 value={team.id}
                             >
-                                {team.nickname}
+                                {team.city + " " + team.nickname}
                             </option>
                         );
                     })}
