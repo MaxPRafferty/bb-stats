@@ -10,8 +10,20 @@ import {
 function App(props) {
     const [shouldUpdate, setShouldUpdate] = useState(1);
     const [shouldRefetch, setShouldRefetch] = useState(1);
-    const [selectedTeam, setSelectedTeam] = useState("1");
-    const [selectedSeason, setSelectedSeason] = useState("2022");
+    const [selectedTeam, setSelectedTeamState] = useState(
+        window.localStorage.getItem("selectedTeam") || "1"
+    );
+    const setSelectedTeam = (team) => {
+        window.localStorage.setItem("selectedTeam", team);
+        setSelectedTeamState(team);
+    };
+    const [selectedSeason, setSelectedSeasonState] = useState(
+        window.localStorage.getItem("selectedSeason") || "2022"
+    );
+    const setSelectedSeason = (season) => {
+        window.localStorage.setItem("selectedSeason", season);
+        setSelectedSeasonState(season);
+    };
     const [games, setGames] = useState([]);
     const [players, setPlayers] = useState([]);
     const [teams, setTeams] = useState([]);
@@ -33,7 +45,6 @@ function App(props) {
         setPlayers([]);
     };
     useEffect(() => {
-        debugger;
         if (selectedSeason && selectedTeam) {
             setGamesLoading(true);
             getGamesPerTeamPerSeason(selectedTeam, selectedSeason).then(
@@ -67,15 +78,19 @@ function App(props) {
         }
     }, [teamsLoading]);
 
-    console.log(
-        `(app) rendering with ${games.length} games and ${players.length} players`
-    );
     return (
         <div className="App">
             <article>
                 <select value={selectedTeam} onChange={handleTeamChange}>
                     {teams.map((team) => {
-                        return <option value={team.id}>{team.nickname}</option>;
+                        return (
+                            <option
+                                key={team.id + team.nickname}
+                                value={team.id}
+                            >
+                                {team.nickname}
+                            </option>
+                        );
                     })}
                 </select>
                 <select value={selectedSeason} onChange={handleSeasonChange}>
