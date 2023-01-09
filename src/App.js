@@ -108,7 +108,7 @@ function App(props) {
                     <option value="2020">2020</option>
                 </select>
                 <button type="button" onClick={handleForceRefresh}>
-                    get fresh data for team
+                    Refresh Team Data
                 </button>
                 <ColumnComparison
                     teams={teams}
