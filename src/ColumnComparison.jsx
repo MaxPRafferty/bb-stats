@@ -294,8 +294,8 @@ const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, playe
     const summaryColor = getSummaryColor(checkRowSuccessFromAPI(gameData.id, teamName, players, gameData));
     const isSuccess = summaryColor === THEME_COLORS.green;
 
-    return <tr >
-        <td>
+    return <tr style={{boxShadow: '0 4px 0 ' + summaryColor}}>
+        <td style={{minWidth: '280px'}}>
             <div style={{display:"inline-block", width:95, textAlign:"left"}}>{gameData.date}</div>
             <div style={{display:"inline-block", width:25}}>{ gameData.tod === "day" ? "☀️" : "🌙" }</div>
             <div style={{display:"inline-block", width:25}}>{ home ? 'vs.' : '@'}</div>
