@@ -176,6 +176,8 @@ const getCellsForPlayerFromAPI = (playerGames, games, playerId, gameId, teamName
             let value = gameStatDataForPlayer[stat];
             if (shouldIgnoreStat(stat))
             {
+                if (stat == TRACKED_STATS["         "])
+                    return <td style={{ backgroundColor: 'white' }}>{}</td>    
                 return <td style={{ backgroundColor: 'gray', color: 'black' }}>{value}</td>
  
             } else {
