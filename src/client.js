@@ -78,7 +78,11 @@ const transformGamesForDisplay = (team, games) => {
  * team: string, valued from "1" to "30", representing all teams in the league alphabetically. Defaults to the hawks
  * season: string, four digit year value. Defaults to 2022
  */
-export const getGamesPerTeamPerSeason = async (team = "1", season = "2022") => {
+export const getGamesPerTeamPerSeason = async (
+    team = "1",
+    season = "2022",
+    forceRefresh = false
+) => {
     const storageKey = `games_team-${team}_season-${season}`;
     const storedGames = getItem(storageKey);
     let gameResponse;
@@ -88,7 +92,12 @@ export const getGamesPerTeamPerSeason = async (team = "1", season = "2022") => {
         console.log(e);
     }
 
-    if (!storedGames || storedGames === "undefined" || storedGames === "null") {
+    if (
+        forceRefresh ||
+        !storedGames ||
+        storedGames === "undefined" ||
+        storedGames === "null"
+    ) {
         const options = {
             method: "GET",
             headers: {
@@ -151,7 +160,11 @@ export const getAllNBATeams = async () => {
         .catch((err) => console.error(err));
 };
 
-export const getPlayersPerTeamPerSeason = async (team, season) => {
+export const getPlayersPerTeamPerSeason = async (
+    team,
+    season,
+    forceRefresh = false
+) => {
     const storageKey = `team_team-${team}_season-${season}`;
     const storedTeam = getItem(storageKey);
     let teamResponse;
@@ -161,7 +174,12 @@ export const getPlayersPerTeamPerSeason = async (team, season) => {
         console.log(e);
     }
 
-    if (!storedTeam || storedTeam === "undefined" || storedTeam === "null") {
+    if (
+        forceRefresh ||
+        !storedTeam ||
+        storedTeam === "undefined" ||
+        storedTeam === "null"
+    ) {
         const options = {
             method: "GET",
             headers: {
@@ -184,7 +202,11 @@ export const getPlayersPerTeamPerSeason = async (team, season) => {
     });
 };
 
-export const getStatsByPlayerPerSeason = async (id, season) => {
+export const getStatsByPlayerPerSeason = async (
+    id,
+    season,
+    forceRefresh = false
+) => {
     const storageKey = `stats_player-${id}_season-${season}`;
     const storedStats = getItem(storageKey);
     let statResponse;
@@ -194,7 +216,12 @@ export const getStatsByPlayerPerSeason = async (id, season) => {
         console.log(e);
     }
 
-    if (!storedStats || storedStats === "undefined" || storedStats === "null") {
+    if (
+        forceRefresh ||
+        !storedStats ||
+        storedStats === "undefined" ||
+        storedStats === "null"
+    ) {
         const options = {
             method: "GET",
             headers: {
@@ -294,14 +321,22 @@ const getTeamNickFromGameList = (team, games) => {
         : firstGame.rawData.teams.home.nickname;
 };
 
-export const getPlayerStatsByGamesPerTeamPerSeason = async (team, season) => {
-    const games = await getGamesPerTeamPerSeason(team, season);
-    const players = await getPlayersPerTeamPerSeason(team, season);
+export const getPlayerStatsByGamesPerTeamPerSeason = async (
+    team,
+    season,
+    forceRefresh = false
+) => {
+    const games = await getGamesPerTeamPerSeason(team, season, forceRefresh);
+    const players = await getPlayersPerTeamPerSeason(
+        team,
+        season,
+        forceRefresh
+    );
     const teamName = getTeamNickFromGameList(team, games);
     const trackedPlayers = getMappedPlayers(teamName, players);
     const playerStatsByGame = await Promise.all(
         trackedPlayers.map((player) => {
-            return getStatsByPlayerPerSeason(player.id, season);
+            return getStatsByPlayerPerSeason(player.id, season, forceRefresh);
         })
     );
 

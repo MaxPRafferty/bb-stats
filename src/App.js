@@ -10,6 +10,7 @@ import {
 function App(props) {
     const [shouldUpdate, setShouldUpdate] = useState(1);
     const [shouldRefetch, setShouldRefetch] = useState(1);
+    const [forceRefresh, setForceRefresh] = useState(false);
     const [selectedTeam, setSelectedTeamState] = useState(
         window.localStorage.getItem("selectedTeam") || "1"
     );
@@ -30,6 +31,9 @@ function App(props) {
     const [teamsLoading, setTeamsLoading] = useState(false);
     const [gamesLoading, setGamesLoading] = useState(false);
     const [playersLoading, setPlayersLoading] = useState(false);
+    const handleForceRefresh = () => {
+        setForceRefresh(true);
+    };
     const handleTeamChange = (event) => {
         setSelectedTeam(event.target.value);
         setShouldUpdate(shouldUpdate + 1);
@@ -47,25 +51,30 @@ function App(props) {
     useEffect(() => {
         if (selectedSeason && selectedTeam) {
             setGamesLoading(true);
-            getGamesPerTeamPerSeason(selectedTeam, selectedSeason).then(
-                (games) => {
-                    setGames(games);
-                    setGamesLoading(false);
-                    setShouldUpdate(shouldUpdate + 1);
-                }
-            );
+            getGamesPerTeamPerSeason(
+                selectedTeam,
+                selectedSeason,
+                forceRefresh
+            ).then((games) => {
+                setGames(games);
+                setGamesLoading(false);
+                setShouldUpdate(shouldUpdate + 1);
+                setForceRefresh(false);
+            });
             setPlayersLoading(true);
 
             getPlayerStatsByGamesPerTeamPerSeason(
                 selectedTeam,
-                selectedSeason
+                selectedSeason,
+                forceRefresh
             ).then((stats) => {
                 setPlayers(stats);
                 setPlayersLoading(false);
                 setShouldUpdate(shouldUpdate + 1);
+                setForceRefresh(false);
             });
         }
-    }, [selectedSeason, selectedTeam, shouldRefetch]);
+    }, [selectedSeason, selectedTeam, shouldRefetch, forceRefresh]);
 
     useEffect(() => {
         if (!teamsLoading && teams.length < 1) {
@@ -98,6 +107,9 @@ function App(props) {
                     <option value="2021">2021</option>
                     <option value="2020">2020</option>
                 </select>
+                <button type="button" onClick={handleForceRefresh}>
+                    get fresh data for team
+                </button>
                 <ColumnComparison
                     teams={teams}
                     players={players}
