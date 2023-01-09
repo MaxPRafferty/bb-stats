@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useState, useEffect } from "react";
-import { TRACKED_STATS, FORMAT_THRESHOLDS, STAT_THRESHOLDS } from "./constants";
+import { TRACKED_STATS, FORMAT_THRESHOLDS, STAT_THRESHOLDS, THEME_COLORS } from "./constants";
 import PlayerDataMap from "./playerMap";
 import { getItem, setItem } from "./util.lzStore";
 
@@ -38,28 +38,28 @@ const getStatThresholdColor = (value, stat, playerConfig) => {
     let limit = +(customStatLimit || FORMAT_THRESHOLDS[stat][0]);
     if (playerConfig != null && playerConfig.defaultStats != null) {
         if(limit === -1) {
-            return 'black';
+            return THEME_COLORS.black;
         }
         /*
         if (playerConfig.defaultStats[stat] === undefined || playerConfig.defaultStats[stat] == -1) {
-            return 'black'
+            return THEME_COLORS.black;
         }
         */
         if (playerConfig.defaultStats[stat] !== null) {
             limit = +customStatLimit || playerConfig.defaultStats[stat];
         }
     }
-    const colors = ['green', 'yellow', 'orange', 'red']
+    
     if (value >= limit) {
-        return colors[0];
+        return THEME_COLORS.green;
     }
-    return colors[colors.length - 1];
+    return THEME_COLORS.red;
 }
 
 const getSummaryColor = (success) => {
     if (success)
-        return 'green';
-    return 'red';
+        return THEME_COLORS.green;
+    return THEME_COLORS.red;
 }
 
 const getNumTotalGames = () => {
@@ -129,7 +129,7 @@ const getCellsForPlayer = (data, player, gameId, team) => {
                 value = value.split("/")[0];
             }
             let bgColor = getStatThresholdColor(value, stat, playerConfig);
-            if (bgColor == 'black') {
+            if (bgColor == THEME_COLORS.black) {
                 return <td style={{ backgroundColor: bgColor, color: 'gray' }}>{value}</td>
             } else {
                 return <td style={{ backgroundColor: bgColor, color: 'white' }}>{value}</td>
@@ -180,11 +180,11 @@ const getCellsForPlayerFromAPI = (playerGames, games, playerId, gameId, teamName
             {
                 if (stat == TRACKED_STATS["         "])
                     return <td style={{ backgroundColor: 'white' }}>{}</td>    
-                return <td style={{ backgroundColor: 'gray', color: 'black' }}>{value}</td>
+                return <td style={{ backgroundColor: 'gray', color: THEME_COLORS.black }}>{value}</td>
  
             } else {
                 let bgColor = getStatThresholdColor(value, stat, playerConfig);
-                if (bgColor == 'black') {
+                if (bgColor == THEME_COLORS.black) {
                     return <td style={{ backgroundColor: bgColor, color: 'gray' }}>{value}</td>
                 } else {
                     return <td style={{ backgroundColor: bgColor, color: 'white' }}>{value}</td>
@@ -218,7 +218,7 @@ const checkRowSuccess = (data, gameDateID, team, allPlayers) => {
     let anyFailed = false;
     playersGameColors.forEach((playerArray) => {
         playerArray.forEach((statColor) => {
-            if (statColor == "red")
+            if (statColor == THEME_COLORS.red)
                 anyFailed = true;
         })
     })
@@ -247,7 +247,7 @@ const checkRowSuccessFromAPI = (gameId, teamName, players, gamesPlayed) => {
         return Object.keys(TRACKED_STATS).map(statKey => {
             const stat = TRACKED_STATS[statKey];
             if (shouldIgnoreStat(stat)) {
-                return 'black';
+                return THEME_COLORS.black;
             } else {
                 let value = gameStats[stat];
                 const teamPlayers = PlayerDataMap[teamName];
@@ -259,7 +259,7 @@ const checkRowSuccessFromAPI = (gameId, teamName, players, gamesPlayed) => {
     let anyFailed = false;
     playersGameColors.forEach((playerArray) => {
         playerArray.forEach((statColor) => {
-            if (statColor == "red")
+            if (statColor == THEME_COLORS.red)
                 anyFailed = true;
         })
     })
@@ -269,7 +269,10 @@ const checkRowSuccessFromAPI = (gameId, teamName, players, gamesPlayed) => {
 const getTableRowFromGame = (data, gameDateID, team, allPlayers) => {
     const gamesPlayed = gameParticipation[gameDateID];
 
-    return <>
+    const summaryColor = getSummaryColor(checkRowSuccess(data, gameDateID, team, allPlayers));
+    const isSuccess = summaryColor === THEME_COLORS.green;
+
+    return <tr>
         <td>{gameDateID}</td>
         {allPlayers.map(player => {
             const didPlay = gamesPlayed.players.includes(player);
@@ -278,8 +281,8 @@ const getTableRowFromGame = (data, gameDateID, team, allPlayers) => {
             }
             return <td colSpan={numTrackedStats}>DNP</td>
         })}
-        <td style={{ color: 'white', backgroundColor: getSummaryColor(checkRowSuccess(data, gameDateID, team, allPlayers)) }}>Success</td>
-    </>
+        <td style={{ color: 'white', backgroundColor: summaryColor }}>{isSuccess ? 'Win' : 'Lose'}</td>
+    </tr>
 }
 const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, players, games) => {
     const gameData = gameConfigs[gameDateId];
@@ -288,7 +291,10 @@ const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, playe
     if (home)
         gameScore = gameData.opponentScore + " - " + gameData.score;
 
-    return <>
+    const summaryColor = getSummaryColor(checkRowSuccessFromAPI(gameData.id, teamName, players, gameData));
+    const isSuccess = summaryColor === THEME_COLORS.green;
+
+    return <tr >
         <td>
             <div style={{display:"inline-block", width:95, textAlign:"left"}}>{gameData.date}</div>
             <div style={{display:"inline-block", width:25}}>{ gameData.tod === "day" ? "☀️" : "🌙" }</div>
@@ -307,8 +313,8 @@ const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, playe
             }
             return <td colSpan={numTrackedStats}>DNP</td>
         })}
-        <td style={{ color: 'white', backgroundColor: getSummaryColor(checkRowSuccessFromAPI(gameData.id, teamName, players, gameData)) }}>Success</td>
-    </>
+        <td style={{ color: 'white', backgroundColor: summaryColor }}>{isSuccess ? 'Win' : 'Lose'}</td>
+    </tr>
 }
 
 const getCurrentStatSuccessRate = (players, season, playerId, statName) => 
@@ -509,7 +515,7 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
                         </tr>
                     </thead>
                     <tbody>
-                        {Object.keys(localGameParticipation).sort().reverse().map(gameConfigKey => <tr>{getTableRowFromAPIGame(localGameParticipation, gameConfigKey, teamName, season, players, games)}</tr>)}
+                        {Object.keys(localGameParticipation).sort().reverse().map(gameConfigKey => getTableRowFromAPIGame(localGameParticipation, gameConfigKey, teamName, season, players, games))}
                     </tbody>
                 </table>
             </div>

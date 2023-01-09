@@ -86,18 +86,19 @@ export const STAT_THRESHOLDS = {
         30: 30,
         999: -1,
     },
-    [TRACKED_STATS.AST]: { 
+    [TRACKED_STATS.AST]: {
         1: 1,
-        2: 2, 
-        3: 3, 
-        4: 4, 
-        5: 5, 
-        6: 6, 
-        7: 7, 
+        2: 2,
+        3: 3,
+        4: 4,
+        5: 5,
+        6: 6,
+        7: 7,
         8: 8,
-        9: 9, 
-        10: 10,  
-        999: -1 },
+        9: 9,
+        10: 10,
+        999: -1,
+    },
     [TRACKED_STATS.REB]: {
         1: 1,
         2: 2,
@@ -111,14 +112,24 @@ export const STAT_THRESHOLDS = {
         10: 10,
         999: -1,
     },
-    [TRACKED_STATS["3PM"]]: { 
-        1: 1, 
-        2: 2, 
-        3: 3, 
-        999: -1 
+    [TRACKED_STATS["3PM"]]: {
+        1: 1,
+        2: 2,
+        3: 3,
+        999: -1,
     },
     [TRACKED_STATS["         "]]: { 0: " " },
 };
 
 export const apiKey = "78e5128993msh6a03849b448f145p1b0357jsn714da3c76509";
 export const apiHost = "api-nba-v1.p.rapidapi.com";
+
+export const THEME_COLORS = {
+    green: "#1f5f1f",
+    red: "#A33B20",
+    yellow: "yellow",
+    orange: "#F18F01",
+    black: "#16161d",
+    blue: "#2E86AB",
+    purple: "#4A2545",
+};
