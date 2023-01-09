@@ -309,6 +309,31 @@ const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, playe
     </>
 }
 
+const getCurrentStatSuccessRate = (players, season, playerId, statName) => 
+{
+    const playerGames = players.find(player => {
+        const firstGame = player[0];
+        return firstGame.player.id === playerId;
+    })
+
+    const thresholds = window.localStorage.getItem('playerThresholdMap')
+    const parsedThresholds = (() => {
+        try {
+            return JSON.parse(thresholds);
+        } catch (e) {
+            console.log(e)
+            return {};
+        }
+    })();
+    const statLimit = parsedThresholds[season][playerId][statName];
+
+    const statTotals = playerGames.reduce((a, game ) => 
+        a + (game[statName] >= statLimit ? 1 : 0), 0 
+    );
+
+    return Math.floor(100*(statTotals / playerGames.length));
+}
+
 const ColumnComparison = ({ teams, players, games, loading, team, season, update }) => {
     const [playerThresholdMap, setPlayerThresholdMap] = useState(window.localStorage.getItem('playerThresholdMap'))
     const allPlayers = getPlayerList(team, teams);
@@ -421,9 +446,21 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
                             </td>)}
                             <td></td>
                         </tr>
-                        
+                       <tr>
+                            <td></td>
+                            {statsByNameByStat.map(name => name.map(statUpdateObj => {
+                                if(shouldIgnoreStat(statUpdateObj.statName)) {
+                                    return <td></td>
+                                }
+                                return (<td>
+                                    {getCurrentStatSuccessRate(players, statUpdateObj.season, statUpdateObj.playerId, statUpdateObj.statName) + "%"}
+                                </td>)
+                                })
+                            )}
+                            <td></td>
+                        </tr>
                         <tr>
-                            <td>Thresholds</td>
+                            <td></td>
                             {statsByNameByStat.map(name => name.map(statUpdateObj => {
                                 const stat = statUpdateObj.statName
                                 if(shouldIgnoreStat(statUpdateObj.statName)) {
