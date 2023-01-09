@@ -1,10 +1,8 @@
 /*
 ASAP:
-- Per-column summary stats that shows the current value, win % and win/total for that column (to identify weak spots in the bet)
-- Add a pulldown for each column that allows you to pick what threshold to set the limit at
-    - playerMap data define their default level: init the pulldown to that value and indicate it with a * or something
-    - bonus: in the pulldown list, on each entry show a parenthetical with the count and percent for that player on that 
-        stat to make it easier to figure out at what level a player is consistent
+- Per-column summary stats that shows the win % and win/total for that column (to identify weak spots in the bet)
+- In the pulldown list, on each entry show a parenthetical with the count and percent for that player on that stat to make it easier to figure out at what level a player is consistent
+- Show default value with a special indicator in pulldown
 - Certain teams get stuck on "loading...". Nets, Jazz, Pistons, Timberwolves
 - Sometimes shows teams as all "dnp". Seems to be appear randomly but pretty consistently after switching between a few teams. 
     Once it occurs, if you keep arrowing between the teams (i.e. focus the select pulldown and then nav with arrows to change teams), 
@@ -16,8 +14,8 @@ LATER (roughly in order of priority):
 - 'Mark Last Used' button to 'record' a bet (i.e. config of the column thresholds for shown players). Different denotation than default in pulldown. Maybe buttons to set all players to default/last?
     - For 'record bet' button: set pulldown values profile paired with date, and then also have a button to 'load' that profile. show dupe of all the cols with the loaded profile)
     - Bet recording could also be made external and loaded in if making it write data is a pain, i.e. from notion
-- Finish time window controls (i.e. in addition to the year pulldown): reg season vs playoffs, text box to limit to last X games
-- More stats: blocks, steals, FGA/FGM
+- Finish time window controls (i.e. in addition to the year pulldown): reg season vs playoffs, text box to limit to last X games (default -1 means 'all')
+- More stats: blocks, steals, FGA/FGM?
 - Show if went to OT, back to backs
 - Need to handle players changing teams better. Maybe some way to limit start date for a player as a hack fix?
 - Summary stats for home vs away, day vs night, etc
@@ -719,11 +717,11 @@ const PlayerDataMap = {
             rapidid: 1868,
             notes: "",
             defaultStats: {
-                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][10],
+                [TRACKED_STATS.PTS]: STAT_THRESHOLDS[TRACKED_STATS.PTS][999],
                 [TRACKED_STATS.AST]: STAT_THRESHOLDS[TRACKED_STATS.AST][999],
                 [TRACKED_STATS.REB]: STAT_THRESHOLDS[TRACKED_STATS.REB][999], // 4?
                 [TRACKED_STATS["3PM"]]:
-                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][1], // 999
+                    STAT_THRESHOLDS[TRACKED_STATS["3PM"]][999], // 999
             },
         },
         "Bogdan Bogdanovic": {
