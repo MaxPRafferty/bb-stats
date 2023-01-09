@@ -288,7 +288,7 @@ const getMappedPlayers = (teamName, players) => {
 
 const getTeamNickFromGameList = (team, games) => {
     const firstGame = games[0];
-    return firstGame.rawData.teams.visitors.id !== team
+    return "" + firstGame.rawData.teams.visitors.id === "" + team
         ? firstGame.rawData.teams.visitors.nickname
         : firstGame.rawData.teams.home.nickname;
 };
