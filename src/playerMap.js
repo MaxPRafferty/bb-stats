@@ -1,6 +1,5 @@
 /*
 ASAP:
-- Per-column summary stats that shows the win % and win/total for that column (to identify weak spots in the bet)
 - Show default value with a special indicator in pulldown
 - Certain teams get stuck on "loading...". Nets, Jazz, Pistons, Timberwolves
 - Sometimes shows teams as all "dnp". Seems to be appear randomly but pretty consistently after switching between a few teams. 

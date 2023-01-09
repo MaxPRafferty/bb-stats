@@ -315,8 +315,9 @@ const getCurrentStatSuccessRate = (players, season, playerId, statName) =>
         const firstGame = player[0];
         return firstGame.player.id === playerId;
     })
-
-    if(playerGames == null) return 0
+    
+    if (playerGames == null)
+        return 100;
 
     const thresholds = window.localStorage.getItem('playerThresholdMap')
     const parsedThresholds = (() => {
