@@ -413,10 +413,12 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
         try {
             return allPlayersNames.map(playerName => {
                 return Object.keys(TRACKED_STATS).map(stat =>  {
-                    const playerId = PlayerDataMap[teamName][playerName].rapidid
+                    const manualPlayerData = PlayerDataMap[teamName][playerName];
+                    const playerId = manualPlayerData.rapidid
                     const statName = TRACKED_STATS[stat]
+                    const statDefault = manualPlayerData.defaultStats[stat];
                     const value = parsedPlayerThresholdMap[season][playerId][statName]
-                    return {value, season, playerId, statName}
+                    return {value, season, playerId, statName, statDefault}
                 })
             });
         } catch (e) {
@@ -486,7 +488,7 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
                                 return (<td>
                                     
                                     <select key={"statchooser"+name+stat} value={statUpdateObj.value} onChange={getThresholdOnChange(statUpdateObj.season, statUpdateObj.playerId, statUpdateObj.statName)} >
-                                        {Object.keys(STAT_THRESHOLDS[statUpdateObj.statName]).map(statKey => <option value={STAT_THRESHOLDS[statUpdateObj.statName][statKey]} >{STAT_THRESHOLDS[statUpdateObj.statName][statKey]}</option>)}
+                                        {Object.keys(STAT_THRESHOLDS[statUpdateObj.statName]).map(statKey => <option value={STAT_THRESHOLDS[statUpdateObj.statName][statKey]} >{STAT_THRESHOLDS[statUpdateObj.statName][statKey]}{STAT_THRESHOLDS[statUpdateObj.statName][statKey] === statUpdateObj.value ? '*' : ''}</option>)}
                                     </select>
                                 
                                 </td>)
