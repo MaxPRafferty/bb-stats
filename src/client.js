@@ -184,7 +184,6 @@ export const getPlayersPerTeamPerSeason = async (team, season) => {
 };
 
 export const getStatsByPlayerPerSeason = async (id, season) => {
-    debugger;
     const storageKey = `stats_player-${id}_season-${season}`;
     const storedStats = window.localStorage.getItem(storageKey);
     let statResponse;
