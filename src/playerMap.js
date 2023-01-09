@@ -1,11 +1,11 @@
 /*
-LATER (roughly in order of priority):
+REMAINING WORK/IDEAS:
 - 'Mark Last Used' button to 'record' a bet (i.e. config of the column thresholds for shown players). Different denotation than default in pulldown. Maybe buttons to set all players to default/last?
     - For 'record bet' button: set pulldown values profile paired with date, and then also have a button to 'load' that profile. show dupe of all the cols with the loaded profile)
     - Bet recording could also be made external and loaded in if making it write data is a pain, i.e. from notion
 - Additional time window controls (i.e. in addition to the year pulldown): reg season vs playoffs, text box to limit to last X games (default -1 means 'all')
 - Handle players changing teams better
-- Warning labels for player being injured/returning from injury (@Underdog__NBA twitter acct maybe?)
+- Warning labels for player being injured/returning from injury (@Underdog__NBA twitter embed matching tweets maybe?)
 - More stats: blocks, steals, FGA/FGM?
 - Show if went to OT, back to backs
 - Summary stats for home vs away, day vs night, etc
