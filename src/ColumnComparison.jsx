@@ -416,8 +416,9 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
                     const manualPlayerData = PlayerDataMap[teamName][playerName];
                     const playerId = manualPlayerData.rapidid
                     const statName = TRACKED_STATS[stat]
-                    const statDefault = manualPlayerData.defaultStats[stat];
+                    const statDefault = manualPlayerData.defaultStats[statName];
                     const value = parsedPlayerThresholdMap[season][playerId][statName]
+                    debugger;
                     return {value, season, playerId, statName, statDefault}
                 })
             });
@@ -488,7 +489,7 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
                                 return (<td>
                                     
                                     <select key={"statchooser"+name+stat} value={statUpdateObj.value} onChange={getThresholdOnChange(statUpdateObj.season, statUpdateObj.playerId, statUpdateObj.statName)} >
-                                        {Object.keys(STAT_THRESHOLDS[statUpdateObj.statName]).map(statKey => <option value={STAT_THRESHOLDS[statUpdateObj.statName][statKey]} >{STAT_THRESHOLDS[statUpdateObj.statName][statKey]}{STAT_THRESHOLDS[statUpdateObj.statName][statKey] === statUpdateObj.value ? '*' : ''}</option>)}
+                                        {Object.keys(STAT_THRESHOLDS[statUpdateObj.statName]).map(statKey => <option value={STAT_THRESHOLDS[statUpdateObj.statName][statKey]} >{STAT_THRESHOLDS[statUpdateObj.statName][statKey]}{STAT_THRESHOLDS[statUpdateObj.statName][statKey] === statUpdateObj.statDefault ? '*' : ''}</option>)}
                                     </select>
                                 
                                 </td>)
