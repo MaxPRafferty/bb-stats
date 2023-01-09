@@ -274,7 +274,7 @@ const getTableRowFromGame = (data, gameDateID, team, allPlayers) => {
             if (didPlay) {
                 return getCellsForPlayer(data, player, gamesPlayed.gameIds[player], team);
             }
-            return <td colSpan={numTrackedStats}>dnp</td>
+            return <td colSpan={numTrackedStats}>DNP</td>
         })}
         <td style={{ color: 'white', backgroundColor: getSummaryColor(checkRowSuccess(data, gameDateID, team, allPlayers)) }}>Success</td>
     </>
@@ -303,7 +303,7 @@ const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, playe
                 // currentSelectionplayer, games, gameId, team
                 return getCellsForPlayerFromAPI(playerGames, games, playerId, gameData.gameIds[playerId], teamName);
             }
-            return <td colSpan={numTrackedStats}>dnp</td>
+            return <td colSpan={numTrackedStats}>DNP</td>
         })}
         <td style={{ color: 'white', backgroundColor: getSummaryColor(checkRowSuccessFromAPI(gameData.id, teamName, players, gameData)) }}>Success</td>
     </>
