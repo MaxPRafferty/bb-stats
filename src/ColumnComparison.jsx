@@ -308,7 +308,7 @@ const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, playe
     </>
 }
 
-const ColumnComparison = ({ teams, players, games, loading, team, season }) => {
+const ColumnComparison = ({ teams, players, games, loading, team, season, update }) => {
     const [playerThresholdMap, setPlayerThresholdMap] = useState(window.localStorage.getItem('playerThresholdMap'))
     const allPlayers = getPlayerList(team, teams);
     const allPlayersNames = Object.keys(allPlayers);
@@ -326,17 +326,16 @@ const ColumnComparison = ({ teams, players, games, loading, team, season }) => {
         }
     }, [playerThresholdMap])
 
-    const playerIdList = useMemo(() => {
+    const playerIdList = (() => {
+        debugger;
         if(players.length) {
             return players.map((playerGames) => {
                 return playerGames[0].player.id;
             })
         }
         return [];
-    } , [team, season]) 
-    const statSample = TRACKED_STATS.PTS
+    })()
 
-    useEffect(() => {
         if(!parsedPlayerThresholdMap) {
             // no stat threshold data configured. Start from scratch
             const newThresholdMap = JSON.stringify({[season]: playerIdList.reduce((a, playerId) => {
@@ -356,7 +355,6 @@ const ColumnComparison = ({ teams, players, games, loading, team, season }) => {
                 setPlayerThresholdMap(JSON.stringify(newThresholdMap))
             }
         })
-    }, [team, season])
 
     if(parsedPlayerThresholdMap) {
         console.log(playerThresholdMap)

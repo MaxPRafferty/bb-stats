@@ -8,6 +8,7 @@ import {
 } from "./client";
 
 function App(props) {
+    const [shouldUpdate, setShouldUpdate] = useState(1);
     const [selectedTeam, setSelectedTeam] = useState("1");
     const [selectedSeason, setSelectedSeason] = useState("2022");
     const [games, setGames] = useState([]);
@@ -18,9 +19,11 @@ function App(props) {
     const [playersLoading, setPlayersLoading] = useState(false);
     const handleTeamChange = (event) => {
         setSelectedTeam(event.target.value);
+        setShouldUpdate(shouldUpdate + 1);
     };
     const handleSeasonChange = (event) => {
         setSelectedSeason(event.target.value);
+        setShouldUpdate(shouldUpdate + 1);
     };
     useEffect(() => {
         if (selectedSeason && selectedTeam) {
@@ -29,6 +32,7 @@ function App(props) {
                 (games) => {
                     setGames(games);
                     setGamesLoading(false);
+                    setShouldUpdate(shouldUpdate + 1);
                 }
             );
             setPlayersLoading(true);
@@ -39,6 +43,7 @@ function App(props) {
             ).then((stats) => {
                 setPlayers(stats);
                 setPlayersLoading(false);
+                setShouldUpdate(shouldUpdate + 1);
             });
         }
     }, [selectedSeason, selectedTeam]);
@@ -49,6 +54,7 @@ function App(props) {
             getAllNBATeams().then((teams) => {
                 setTeams(teams);
                 setTeamsLoading(false);
+                setShouldUpdate(shouldUpdate + 1);
             });
         }
     }, [teamsLoading]);
@@ -76,6 +82,7 @@ function App(props) {
                     loading={gamesLoading && playersLoading}
                     team={selectedTeam}
                     season={selectedSeason}
+                    update={shouldUpdate}
                 ></ColumnComparison>
             </article>
         </div>
