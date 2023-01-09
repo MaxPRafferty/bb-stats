@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useState, useEffect } from "react";
 import { TRACKED_STATS, FORMAT_THRESHOLDS, STAT_THRESHOLDS } from "./constants";
 import PlayerDataMap from "./playerMap";
+import { getItem, setItem } from "./util.lzStore";
 
 
 const numTrackedStats = Object.keys(TRACKED_STATS).length;
@@ -14,11 +15,12 @@ const getPlayerList = (team, teams) => {
         return [];
     }
     const teamData = teams.find(t => `${t.id}` === `${team}`);
+    const data = PlayerDataMap
     return PlayerDataMap[teamData.nickname];
 }
 
 const getStatThresholdColor = (value, stat, playerConfig) => {
-    const thresholds = window.localStorage.getItem('playerThresholdMap')
+    const thresholds = getItem('playerThresholdMap')
     const parsedThresholds = (() => {
         try {
             return JSON.parse(thresholds);
@@ -319,7 +321,7 @@ const getCurrentStatSuccessRate = (players, season, playerId, statName) =>
     if (playerGames == null)
         return 100;
 
-    const thresholds = window.localStorage.getItem('playerThresholdMap')
+    const thresholds = getItem('playerThresholdMap')
     const parsedThresholds = (() => {
         try {
             return JSON.parse(thresholds);
@@ -338,11 +340,8 @@ const getCurrentStatSuccessRate = (players, season, playerId, statName) =>
 }
 
 const ColumnComparison = ({ teams, players, games, loading, team, season, update }) => {
-    const [playerThresholdMap, setPlayerThresholdMap] = useState(window.localStorage.getItem('playerThresholdMap'))
+    const [playerThresholdMap, setPlayerThresholdMap] = useState(getItem('playerThresholdMap'))
     const allPlayers = getPlayerList(team, teams);
-    if(teams.length){
-        debugger
-    }
     const allPlayersNames = Object.keys(allPlayers);
     const [currentSelection, setCurrentSelection] = useState('')
     const [localGameParticipation, setLocalGameParticipation] = useState('')
@@ -378,7 +377,7 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
                a[playerId] =  PlayerDataMap[teamName][playerName].defaultStats;
                return a;
             }, {})});
-            window.localStorage.setItem('playerThresholdMap', newThresholdMap)
+            setItem('playerThresholdMap', newThresholdMap)
             setPlayerThresholdMap(newThresholdMap)
         } 
         if(parsedPlayerThresholdMap && !parsedPlayerThresholdMap[season]) {
@@ -388,7 +387,7 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
                a[playerId] =  PlayerDataMap[teamName][playerName].defaultStats;
                return a;
             }, {})});
-            window.localStorage.setItem('playerThresholdMap', newThresholdMap)
+            setItem('playerThresholdMap', newThresholdMap)
             setPlayerThresholdMap(newThresholdMap)
         }
         playerIdList.forEach((id) => {
@@ -396,7 +395,7 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
                 const playerName = Object.keys(PlayerDataMap[teamName]).find(playerName => PlayerDataMap[teamName][playerName].rapidid === id)
                 const newThresholdMap = {...parsedPlayerThresholdMap};
                 newThresholdMap[season][id] = PlayerDataMap[teamName][playerName].defaultStats;
-                window.localStorage.setItem('playerThresholdMap', JSON.stringify(newThresholdMap))
+                setItem('playerThresholdMap', JSON.stringify(newThresholdMap))
                 setPlayerThresholdMap(JSON.stringify(newThresholdMap))
             }
         })
@@ -439,7 +438,7 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
    const getThresholdOnChange = (season, player, stat) => (event) => {
     const newThresholdMap = {...parsedPlayerThresholdMap};
                 newThresholdMap[season][player][stat] = event.target.value;
-                window.localStorage.setItem('playerThresholdMap', JSON.stringify(newThresholdMap))
+                setItem('playerThresholdMap', JSON.stringify(newThresholdMap))
                 setPlayerThresholdMap(JSON.stringify(newThresholdMap))
 
    }
