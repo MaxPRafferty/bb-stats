@@ -375,6 +375,16 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
             window.localStorage.setItem('playerThresholdMap', newThresholdMap)
             setPlayerThresholdMap(newThresholdMap)
         } 
+        if(parsedPlayerThresholdMap && !parsedPlayerThresholdMap[season]) {
+            // no stat threshold data configured. Start from scratch
+            const newThresholdMap = JSON.stringify({...parsedPlayerThresholdMap, [season]: playerIdList.reduce((a, playerId) => {
+                const playerName = Object.keys(PlayerDataMap[teamName]).find(playerName => PlayerDataMap[teamName][playerName].rapidid === playerId)
+               a[playerId] =  PlayerDataMap[teamName][playerName].defaultStats;
+               return a;
+            }, {})});
+            window.localStorage.setItem('playerThresholdMap', newThresholdMap)
+            setPlayerThresholdMap(newThresholdMap)
+        }
         playerIdList.forEach((id) => {
             if(parsedPlayerThresholdMap[season][id] == null) {
                 const playerName = Object.keys(PlayerDataMap[teamName]).find(playerName => PlayerDataMap[teamName][playerName].rapidid === id)
@@ -408,6 +418,7 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
             if(Object.keys(parsedPlayerThresholdMap[season]) > 0) {
                 console.log(e)
             }
+            
         }
         return []
     })()
