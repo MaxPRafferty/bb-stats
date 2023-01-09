@@ -1,5 +1,6 @@
 import { apiHost, apiKey } from "./constants";
 import PlayerDataMap from "./playerMap";
+import { getItem, setItem } from "./util.lzStore";
 
 const stripNonRegularSeasonGames = (games) => {
     return games.filter((game) => game.stage === 2);
@@ -79,7 +80,7 @@ const transformGamesForDisplay = (team, games) => {
  */
 export const getGamesPerTeamPerSeason = async (team = "1", season = "2022") => {
     const storageKey = `games_team-${team}_season-${season}`;
-    const storedGames = window.localStorage.getItem(storageKey);
+    const storedGames = getItem(storageKey);
     let gameResponse;
     try {
         gameResponse = Promise.resolve(JSON.parse(storedGames));
@@ -105,7 +106,7 @@ export const getGamesPerTeamPerSeason = async (team = "1", season = "2022") => {
     }
     return await gameResponse
         .then((response) => {
-            window.localStorage.setItem(storageKey, JSON.stringify(response));
+            setItem(storageKey, JSON.stringify(response));
             return response;
         })
         .then((response) => stripNonRegularSeasonGames(response))
@@ -120,7 +121,7 @@ const filterNonNBA = (teams) => {
 
 export const getAllNBATeams = async () => {
     const storageKey = "all_teams";
-    const storedTeams = window.localStorage.getItem(storageKey);
+    const storedTeams = getItem(storageKey);
     let teamsResponse;
     try {
         teamsResponse = Promise.resolve(JSON.parse(storedTeams));
@@ -143,7 +144,7 @@ export const getAllNBATeams = async () => {
     }
     return await teamsResponse
         .then((response) => {
-            window.localStorage.setItem(storageKey, JSON.stringify(response));
+            setItem(storageKey, JSON.stringify(response));
             return response;
         })
         .then((response) => filterNonNBA(response))
@@ -152,7 +153,7 @@ export const getAllNBATeams = async () => {
 
 export const getPlayersPerTeamPerSeason = async (team, season) => {
     const storageKey = `team_team-${team}_season-${season}`;
-    const storedTeam = window.localStorage.getItem(storageKey);
+    const storedTeam = getItem(storageKey);
     let teamResponse;
     try {
         teamResponse = Promise.resolve(JSON.parse(storedTeam));
@@ -178,14 +179,14 @@ export const getPlayersPerTeamPerSeason = async (team, season) => {
             .catch((err) => console.error(err));
     }
     return await teamResponse.then((response) => {
-        window.localStorage.setItem(storageKey, JSON.stringify(response));
+        setItem(storageKey, JSON.stringify(response));
         return response;
     });
 };
 
 export const getStatsByPlayerPerSeason = async (id, season) => {
     const storageKey = `stats_player-${id}_season-${season}`;
-    const storedStats = window.localStorage.getItem(storageKey);
+    const storedStats = getItem(storageKey);
     let statResponse;
     try {
         statResponse = Promise.resolve(JSON.parse(storedStats));
@@ -244,7 +245,7 @@ stat data shape
 
     return await statResponse
         .then((response) => {
-            window.localStorage.setItem(storageKey, JSON.stringify(response));
+            setItem(storageKey, JSON.stringify(response));
             return response;
         })
         .catch((err) => console.error(err));
