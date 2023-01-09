@@ -6,6 +6,7 @@ import {
     getGamesPerTeamPerSeason,
     getPlayerStatsByGamesPerTeamPerSeason,
 } from "./client";
+import { THEME_COLORS } from "./constants";
 
 function App(props) {
     const [shouldUpdate, setShouldUpdate] = useState(1);
@@ -89,6 +90,23 @@ function App(props) {
 
     return (
         <div className="App">
+            <div
+                title="BASKETBALL BET SQUID"
+                style={{
+                    display: "inline-block",
+                    float: "left",
+                    color: "white",
+                    backgroundColor: THEME_COLORS.orange,
+                    padding: "15px",
+                    borderRadius: "15px",
+                    margin: "4px",
+                    fontSize: "24px",
+                    textShadow: `white 1px 1px 0px, white -1px 1px 0px, white 1px -1px 0px, white -1px -1px 0px, ${THEME_COLORS.blue} 3px 3px 10px, ${THEME_COLORS.blue} -3px 3px 10px, ${THEME_COLORS.blue} 3px -3px 10px, ${THEME_COLORS.blue} -3px -3px 10px`,
+                    border: `2px solid ${THEME_COLORS.blue}`,
+                }}
+            >
+                🏀🦑
+            </div>
             <article>
                 <select value={selectedTeam} onChange={handleTeamChange}>
                     {teams.map((team) => {

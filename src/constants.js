@@ -130,6 +130,6 @@ export const THEME_COLORS = {
     yellow: "yellow",
     orange: "#F18F01",
     black: "#16161d",
-    blue: "#2E86AB",
+    blue: "#003F91",
     purple: "#4A2545",
 };
