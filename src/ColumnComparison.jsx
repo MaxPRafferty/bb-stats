@@ -380,7 +380,9 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
                 })
             });
         } catch (e) {
-            console.log(e)
+            if(Object.keys(parsedPlayerThresholdMap[season]) > 0) {
+                console.log(e)
+            }
         }
         return []
     })()
@@ -411,7 +413,7 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
                     <thead>
                         <tr>
                             <td></td>
-                            {allPlayersNames.map(player => <td colSpan={numTrackedStats}> 
+                            {allPlayersNames.map(player => <td key={"player-heading-"+player} colSpan={numTrackedStats}> 
                                 <a href={ "https://www.nba.com/stats/player/"+allPlayers[player].nbaid+"/boxscores-traditional" } >
                                     { player } 
                                 </a>
@@ -423,12 +425,13 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
                         <tr>
                             <td>Thresholds</td>
                             {statsByNameByStat.map(name => name.map(statUpdateObj => {
+                                const stat = statUpdateObj.statName
                                 if(shouldIgnoreStat(statUpdateObj.statName)) {
-                                    return <td></td>
+                                    return <td key={"statchooser"+name+stat}></td>
                                 }
                                 return (<td>
                                     
-                                    <select value={statUpdateObj.value} onChange={getThresholdOnChange(statUpdateObj.season, statUpdateObj.playerId, statUpdateObj.statName)} >
+                                    <select key={"statchooser"+name+stat} value={statUpdateObj.value} onChange={getThresholdOnChange(statUpdateObj.season, statUpdateObj.playerId, statUpdateObj.statName)} >
                                         {Object.keys(STAT_THRESHOLDS[statUpdateObj.statName]).map(statKey => <option value={STAT_THRESHOLDS[statUpdateObj.statName][statKey]} >{STAT_THRESHOLDS[statUpdateObj.statName][statKey]}</option>)}
                                     </select>
                                 
@@ -439,7 +442,7 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
                         </tr>
                         <tr>
                             <td> </td>
-                            {allPlayersNames.map(() => Object.keys(TRACKED_STATS).map(stat => <td>
+                            {allPlayersNames.map(() => Object.keys(TRACKED_STATS).map(stat => <td key={"names"+stat}>
                                     
                                     {stat /* turn this into a pulldown, show % per stat */ }   
                                 
