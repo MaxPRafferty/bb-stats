@@ -1,7 +1,6 @@
 /*
 ASAP:
 - Per-column summary stats that shows the win % and win/total for that column (to identify weak spots in the bet)
-- In the pulldown list, on each entry show a parenthetical with the count and percent for that player on that stat to make it easier to figure out at what level a player is consistent
 - Show default value with a special indicator in pulldown
 - Certain teams get stuck on "loading...". Nets, Jazz, Pistons, Timberwolves
 - Sometimes shows teams as all "dnp". Seems to be appear randomly but pretty consistently after switching between a few teams. 

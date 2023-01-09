@@ -309,6 +309,11 @@ const getTableRowFromAPIGame = (gameConfigs, gameDateId, teamName, season, playe
     </>
 }
 
+const getCurrentStatSuccessRate = (season, playerId, statName) => 
+{
+    return 75;
+}
+
 const ColumnComparison = ({ teams, players, games, loading, team, season, update }) => {
     const [playerThresholdMap, setPlayerThresholdMap] = useState(window.localStorage.getItem('playerThresholdMap'))
     const allPlayers = getPlayerList(team, teams);
@@ -419,9 +424,21 @@ const ColumnComparison = ({ teams, players, games, loading, team, season, update
                             </td>)}
                             <td></td>
                         </tr>
-                        
+                       <tr>
+                            <td></td>
+                            {statsByNameByStat.map(name => name.map(statUpdateObj => {
+                                if(shouldIgnoreStat(statUpdateObj.statName)) {
+                                    return <td></td>
+                                }
+                                return (<td>
+                                    {getCurrentStatSuccessRate(statUpdateObj.season, statUpdateObj.playerId, statUpdateObj.statName) + "%"}
+                                </td>)
+                                })
+                            )}
+                            <td></td>
+                        </tr>
                         <tr>
-                            <td>Thresholds</td>
+                            <td></td>
                             {statsByNameByStat.map(name => name.map(statUpdateObj => {
                                 if(shouldIgnoreStat(statUpdateObj.statName)) {
                                     return <td></td>
